@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/hai5nguy/prism/issues"
   },
-  "homepage": "https://github.com/hai5nguy/prism#readme"
+  "homepage": "https://github.com/hai5nguy/prism#readme",
+  "devDependencies": {
+    "css-loader": "^0.21.0",
+    "style-loader": "^0.13.0"
+  }
 }
