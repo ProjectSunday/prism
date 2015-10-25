@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/hai5nguy/prism#readme",
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1"
   }
 }
