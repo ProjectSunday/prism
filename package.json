@@ -1,0 +1,19 @@
+{
+  "name": "prism",
+  "version": "1.0.0",
+  "description": "description",
+  "main": "src/backend/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hai5nguy/prism.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hai5nguy/prism/issues"
+  },
+  "homepage": "https://github.com/hai5nguy/prism#readme"
+}
