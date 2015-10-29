@@ -6,8 +6,10 @@ var RouteHandler = require('react-router').RouteHandler;
 module.exports = React.createClass({
 	render: function () {
 		return (
-			<div>header</div>
-			<RouteHandler />
+			<div>
+				<div>header</div>
+				<RouteHandler />
+			</div>
 		)
 	}
 });
