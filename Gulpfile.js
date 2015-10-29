@@ -11,7 +11,7 @@ var tasks;
 
 if (!environment) {
 	// tasks = [ 'html', 'js', 'connect', 'watch' ];
-	tasks = [ 'server', 'js' ];
+	tasks = [ 'server', 'html', 'js' ];
 // else 
 //     require('./gulp/local.js');
 //     gulp.task('default', ['start-local-environment']);
@@ -56,26 +56,28 @@ gulp.task('js', function () {
 		.pipe(gulp.dest('./dist'));
 });
 
+gulp.task('html', function () {
+ gulp.src('./src/front/index.html')
+     .pipe(gulp.dest('./dist'));
+     // .pipe(connect.reload());
+});
 
+// gulp.task('connect', function () {
+//  connect.server({
+//      root: ['dist'],
+//      port: 3000,
+//      base: 'http://localhost',
+//      livereload: true
+//  });
+// });
 
 // var gulp 		= require('gulp');
 
 // gulp.task('default', ['html', 'js', 'connect', 'watch']);
 
-// gulp.task('connect', function () {
-// 	connect.server({
-// 		root: ['dist'],
-// 		port: 3000,
-// 		base: 'http://localhost',
-// 		livereload: true
-// 	});
-// });
 
-// gulp.task('html', function () {
-// 	gulp.src('./src/front/index.html')
-// 		.pipe(gulp.dest('./dist'))
-// 		.pipe(connect.reload());
-// });
+
+
 
 
 

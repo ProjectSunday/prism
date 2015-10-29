@@ -36,15 +36,14 @@ global.trace = function(message) {
     console.log(__fileName + ':' + __lineNumber + ' ' + ( __functionName ? __functionName + ' ' : '' ) + '--------------------------------');
     for (var i in arguments) {
         console.log(i + ':');
-        console.log(arguments[i]);
+        console.log('    ', arguments[i]);
     }
 }
 
 global.red = function () {
     console.log('\033[31m' + __fileName + ':' + __lineNumber + ' ' + ( __functionName ? __functionName + ' ' : '' ) + '--------------------------------\033[0m');
     for (var i in arguments) {
-        console.log(i + ':');
-        console.log(arguments[i]);
+        console.log('    ', arguments[i]);
     }
 }
 

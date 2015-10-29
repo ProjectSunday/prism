@@ -53,8 +53,9 @@ require('./debug.js');
 // })
 
 // app.get('/', config.route.index);
-red(__dirname + '/dist');
-app.use('*', express.static(__dirname + '/dist'));
+app.use('/', express.static(__dirname + '/../../dist'));
+app.use('*', express.static(__dirname + '/../../dist/index.html'));
+// app.use('*', express.static(__dirname + '/../../dist/index.html'));
 
 console.log('')
 
