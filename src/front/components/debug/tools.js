@@ -1,4 +1,10 @@
-module.exports = function (doc) {
+//livereload
+window.LiveReloadOptions = { host: 'localhost', mindelay: 1000, maxdelay: 2000 };
+require('livereload-js');
+
+
+//reload timer
+$(function () {
 
     var start = new Date();
 
@@ -16,7 +22,7 @@ module.exports = function (doc) {
     }, 600);
 
 
-    $(doc).on('LiveReloadDisconnect', function () {
+    $(document).on('LiveReloadDisconnect', function () {
         timerDiv.text('Disonnected from server.')
             .css({
                 'color':'red',
@@ -25,5 +31,4 @@ module.exports = function (doc) {
         clearInterval(timerId);
     });
 
-
-};
+});
