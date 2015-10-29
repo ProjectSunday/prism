@@ -9,8 +9,8 @@ var http            = require('http');
 var app = express();
 var server = http.createServer(app);
 
-// require('./globals.js');  //must be first
-// require('./debug.js');
+require('./globals.js');  //must be first
+require('./debug.js');
 // require('./core.js');
 // require('./mongo.js');
 // require('./passport.js')(passport);
@@ -53,13 +53,13 @@ var server = http.createServer(app);
 // })
 
 // app.get('/', config.route.index);
+red(__dirname + '/dist');
 app.use('*', express.static(__dirname + '/dist'));
+
+console.log('')
 
 // require('./modules/socket.module.js')(server);
 
-var SP_PORT = 3000;
-var SP_ENVIRONMENT = 'local';
-
-server.listen(SP_PORT, function () {
-    console.log('Server online. Port:', SP_PORT, ' Environment:', SP_ENVIRONMENT);
+server.listen(PRISM_PORT, function () {
+    console.log('Server online. Port:', PRISM_PORT, ' Environment:', PRISM_ENVIRONMENT);
 });
