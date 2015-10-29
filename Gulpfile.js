@@ -9,9 +9,11 @@ var environment = process.env.environment;
 
 var tasks;
 
+
+
 if (!environment) {
 	// tasks = [ 'html', 'js', 'connect', 'watch' ];
-	tasks = [ 'server', 'html', 'js' ];
+	tasks = [ 'server', 'html', 'js', 'watch' ];
 // else 
 //     require('./gulp/local.js');
 //     gulp.task('default', ['start-local-environment']);
@@ -33,6 +35,9 @@ gulp.task('default', tasks);
 /*************************************************************************************/
 
 // function startServer(cb) {
+
+var server;
+
 gulp.task('server', function () {
     server = gls.new('src/back/server.js');
     server.start().then(function (result) {
@@ -54,12 +59,20 @@ gulp.task('js', function () {
 		.on('error', console.error.bind(console))
 		.pipe(source('bundle.js'))
 		.pipe(gulp.dest('./dist'));
+        // .pipe(server.notify());
 });
 
 gulp.task('html', function () {
- gulp.src('./src/front/index.html')
-     .pipe(gulp.dest('./dist'));
-     // .pipe(connect.reload());
+    gulp.src('./src/front/index.html')
+        .pipe(gulp.dest('./dist'))
+        .pipe(server.notify());
+
+    server.notify();
+});
+
+gulp.task('watch', function () {
+    gulp.watch('./src/front/index.html', [ 'html' ]);
+    gulp.watch('./src/front/**/*.js', [ 'js' ]);
 });
 
 // gulp.task('connect', function () {
