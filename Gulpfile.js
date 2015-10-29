@@ -3,20 +3,16 @@ var reactify	= require('reactify');
 var browserify 	= require('browserify');
 var source		= require('vinyl-source-stream');
 var gls         = require('gulp-live-server');
+var sass        = require('gulp-sass');
 
 
 var environment = process.env.environment;
 
 var tasks;
 
-
-
 if (!environment) {
 	// tasks = [ 'html', 'js', 'connect', 'watch' ];
-	tasks = [ 'server', 'html', 'js:local', 'watch' ];
-// else 
-//     require('./gulp/local.js');
-//     gulp.task('default', ['start-local-environment']);
+	tasks = [ 'server', 'html', 'sass', 'js:local', 'watch' ];
 } else if (environment === 'dev') {
 	//todo
     // require('./gulp/dev.js');
@@ -31,10 +27,7 @@ if (!environment) {
 
 gulp.task('default', tasks);
 
-
 /*************************************************************************************/
-
-// function startServer(cb) {
 
 var server;
 
@@ -69,6 +62,13 @@ gulp.task('html', function () {
         .pipe(server.notify());
 });
 
+gulp.task('sass', function () {
+    gulp.src('./src/front/sass/style.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./dist'));
+});
+
+
 gulp.task('watch', function () {
     gulp.watch('./src/front/index.html', [ 'html' ]);
     gulp.watch('./src/front/**/*.js', [ 'js:local' ]);
@@ -86,7 +86,6 @@ gulp.task('watch', function () {
 // var gulp            = require('gulp');
 // var del             = require('del');
 // var watch           = require('gulp-watch');
-// var sass            = require('gulp-sass');
 // var concat          = require('gulp-concat');
 // var inject          = require('gulp-inject');
 // var replace         = require('gulp-replace');
@@ -176,11 +175,7 @@ gulp.task('watch', function () {
 
 // /* sass *****************************************************************/
 
-// function processSassFiles() {
-//     return gulp.src(FRONTEND + 'sass/style.scss')
-//         .pipe(sass().on('error', sass.logError))
-//         .pipe(gulp.dest(DIST));
-// }
+
 
 // /* inject ***************************************************************/
 

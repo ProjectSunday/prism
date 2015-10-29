@@ -7,6 +7,8 @@ module.exports = React.createClass({
 		return (
 			<div>
 				<div>header</div>
+				<Link to="app">Home</Link>
+				<br />
 				<Link to="about">About</Link>
 			</div>
 		)
