@@ -1,7 +1,12 @@
 //livereload
 window.LiveReloadOptions = { host: 'localhost', mindelay: 1000, maxdelay: 2000 };
 require('livereload-js');
+// require('./restartflag');
 
+// if (window.ReloadTimer)
+//laksjdf
+
+//aslkdfjsdfasdfsdf
 
 //reload timer
 $(function () {
@@ -22,6 +27,16 @@ $(function () {
     }, 600);
 
 
+    // if (window.restartReloadTimer) {
+    //     start = new Date();
+    //     window.restartReloadTimer = false;
+    // }
+
+    // function restart() {
+    //     start = new Date();
+    // };
+
+
     $(document).on('LiveReloadDisconnect', function () {
         timerDiv.text('Disonnected from server.')
             .css({
@@ -29,6 +44,8 @@ $(function () {
                 'font-size': '14px'
             });
         clearInterval(timerId);
+    }).on('LiveReloadConnect', function () {
+        console.log('livereloadconnect');
     });
 
 });

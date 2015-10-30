@@ -6,18 +6,15 @@ var gls         = require('gulp-live-server');
 var sass        = require('gulp-sass');
 var concat      = require('gulp-concat');
 
-
 var environment = process.env.environment;
 
 var tasks;
 
 if (!environment) {
 	// tasks = [ 'html', 'js', 'connect', 'watch' ];
-	tasks = [ 'server', 'html', 'sass', 'js:local', 'watch' ];
+	tasks = [ 'server', 'html', 'sass', 'js:local', 'images', 'watch' ];
 } else if (environment === 'dev') {
-	//todo
-    // require('./gulp/dev.js');
-    // gulp.task('default', ['build-for-sanspantalonesdev']);
+	//build for prism-dev.herokuapp.com
 } else if (environment === 'qa') {
     //build for qa, final prod code, needs to match production or staging.  data is the same as dev data
 } else if (environment === 'staging') {
@@ -76,11 +73,17 @@ gulp.task('sass', function () {
         .pipe(server.notify());
 });
 
+gulp.task('images', function () {
+    gulp.src('./src/front/images/**/*.*')
+        .pipe(gulp.dest('./dist/images'))
+        .pipe(server.notify());
+});
 
 gulp.task('watch', function () {
     gulp.watch('./src/front/index.html', [ 'html' ]);
     gulp.watch('./src/front/**/*.js', [ 'js:local' ]);
     gulp.watch('./src/front/**/*.{sass,scss}', [ 'sass' ]);
+    gulp.watch('./src/front/images/**/*.*', [ 'images' ]);
 });
 
 
