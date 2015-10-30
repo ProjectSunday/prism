@@ -4,6 +4,7 @@ var browserify 	= require('browserify');
 var source		= require('vinyl-source-stream');
 var gls         = require('gulp-live-server');
 var sass        = require('gulp-sass');
+var concat      = require('gulp-concat');
 
 
 var environment = process.env.environment;
@@ -63,19 +64,25 @@ gulp.task('html', function () {
 });
 
 gulp.task('sass', function () {
-    gulp.src('./src/front/sass/style.scss')
+    var files = [
+        './node_modules/bootstrap/dist/css/bootstrap.min.css',
+        './node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
+        './src/front/sass/style.scss'
+    ];
+    gulp.src(files)
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./dist'));
+        .pipe(concat('style.css'))
+        .pipe(gulp.dest('./dist'))
+        .pipe(server.notify());
 });
 
 
 gulp.task('watch', function () {
     gulp.watch('./src/front/index.html', [ 'html' ]);
     gulp.watch('./src/front/**/*.js', [ 'js:local' ]);
+    gulp.watch('./src/front/**/*.{sass,scss}', [ 'sass' ]);
 });
 
-
-// gulp.task('default', ['html', 'js', 'connect', 'watch']);
 
 
 // /*************************************************************************************/
