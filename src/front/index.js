@@ -1,13 +1,10 @@
 $ = jQuery = require('jquery');
 
-var React 		= require('react');
-var Router = require('react-router');
-var routes = require('./routes');
+require('bootstrap');
 
-
-
-// var ReactDOM 	= require('react-dom');
-
+var React 	= require('react');
+var Router 	= require('react-router');
+var routes 	= require('./routes');
 
 (function () {
 	'use strict';
@@ -17,8 +14,4 @@ var routes = require('./routes');
 	});
 	
 })();
-
-// var HomePage = require('./components/homepage');
-
-
 

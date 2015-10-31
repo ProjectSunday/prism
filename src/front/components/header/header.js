@@ -8,12 +8,19 @@ module.exports = React.createClass({
 			<nav id="header" className="navbar navbar-default" role="navigation">
 			  	<div className="container-fluid">
 			    	<div className="navbar-header">
-			      		<Link to="app" className="navbar-brand"><img src="images/logo.png" alt="Local Learners Logo" title="" className="logo" /></Link>
+			      		<Link to="/" className="navbar-brand"><img src="images/logo.png" alt="Local Learners Logo" title="" className="logo" /></Link>
 		      		</div>
 				    <div className="collapse navbar-collapse">
 				      	<ul className="nav navbar-nav">
-				        	<li><Link to="about">Learn</Link></li>
-				        	<li><Link to="about">Teach</Link></li>
+							<li className="dropdown">
+								<a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Classes <span className="caret"></span></a>
+								<ul className="dropdown-menu" role="menu">
+									<li><Link to="/about">Upcoming Classes</Link></li>
+									<li><Link to="/requested">Requested Classes</Link></li>
+								</ul>
+							</li>
+				        	<li><Link to="/about">Learn</Link></li>
+				        	<li><Link to="/about">Teach</Link></li>
 				      	</ul>
 				      	<ul className="nav navbar-nav navbar-right">
 				        	<form className="navbar-form navbar-left" role="search" action="http://www.google.com/search" method="get">

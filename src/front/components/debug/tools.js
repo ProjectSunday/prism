@@ -1,12 +1,6 @@
 //livereload
 window.LiveReloadOptions = { host: 'localhost', mindelay: 1000, maxdelay: 2000 };
 require('livereload-js');
-// require('./restartflag');
-
-// if (window.ReloadTimer)
-//laksjdf
-
-//aslkdfjsdfasdfsdf
 
 //reload timer
 $(function () {
@@ -14,7 +8,7 @@ $(function () {
     var start = new Date();
 
     var timerDiv = $('<div>Page reloaded: <span style="font-size: 14px;"></span> seconds ago.</div>').css({
-                            'position': 'absolute',
+                            'position': 'fixed',
                             'bottom': '0px',
                             'right': '0px',
                             'font-size': '10px'
@@ -26,17 +20,6 @@ $(function () {
         timerDiv.find('span').text(seconds);
     }, 600);
 
-
-    // if (window.restartReloadTimer) {
-    //     start = new Date();
-    //     window.restartReloadTimer = false;
-    // }
-
-    // function restart() {
-    //     start = new Date();
-    // };
-
-
     $(document).on('LiveReloadDisconnect', function () {
         timerDiv.text('Disonnected from server.')
             .css({
@@ -44,8 +27,6 @@ $(function () {
                 'font-size': '14px'
             });
         clearInterval(timerId);
-    }).on('LiveReloadConnect', function () {
-        console.log('livereloadconnect');
     });
 
 });

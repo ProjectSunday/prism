@@ -5,9 +5,11 @@ var DefaultRoute 	= Router.DefaultRoute;
 var Route 			= Router.Route;
 
 module.exports = (
-	<Route name='app' path='/' handler={require('./components/app')}>
-		<DefaultRoute handler={require('./components/homepage')} />
-		<Route name='about' path='about' handler={require('./components/about/aboutpage')} />
+	<Route path="/" handler={require('./components/app')}>
+		<DefaultRoute handler={require('./components/home/homepage')} />
+		<Route path="requested" handler={require('./components/requested/requestedpage')} />
+		<Route path="requested/create" handler={require('./components/requested/createpage')} />
+		<Route path="about" handler={require('./components/about/aboutpage')} />
 	</Route>
 )
 

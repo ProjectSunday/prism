@@ -15,7 +15,7 @@ module.exports = React.createClass({
 			<div id="upcoming-classes-list" className="container">
 				<div className="row">
 					<div className="col-md-6 col-sm-6 col-xs-6">
-	            		<h4><Link to="about">Upcoming Classes</Link></h4>
+	            		<h4><Link to="/about">Upcoming Classes</Link></h4>
 					</div>
 				</div>
 				<div className="row">

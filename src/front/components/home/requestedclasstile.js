@@ -7,7 +7,7 @@ module.exports = React.createClass({
 		return (
         	<div className="col-md-4 col-sm-6 col-xs-6">
         		<div className="panel">
-	                <span class="requestedCategory"><Link to="about">{details.name}</Link></span>
+	                <span class="requestedCategory"><Link to="/about">{details.name}</Link></span>
 	                <img src={details.imageUrl} className="img-responsive upcomingImage" alt="Class Title - Category" />
 	                <span className="upcomingTitle truncate col-md-12 col-sm-12 col-xs-12">{details.name}</span>
 	                <div className="panel-body text-right">

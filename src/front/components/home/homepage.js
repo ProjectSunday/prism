@@ -1,7 +1,7 @@
 var React = require('react');
 
-var UpcomingClassesList = require('./home/upcomingclasseslist');
-var RequestedClassesList = require('./home/requestedclasseslist');
+var UpcomingClassesList = require('./upcomingclasseslist');
+var RequestedClassesList = require('./requestedclasseslist');
 
 module.exports = React.createClass({
 	render: function () {
