@@ -34,26 +34,3 @@ module.exports = React.createClass({
 	}
 });
 
-
-			// <div>
-			// 	<nav className="navbar navbar-default navbar-static-top">
-			// 		<div className="container">
-			// 			<div className="navbar-header">
-			// 				<Link to="app" className="navbar-brand">Prism</Link>
-			// 			</div>
-
-			// 			<div className="navbar-collapse collapse">
-			// 				<ul className="nav navbar-nav"
-			// 			</div>
-
-			// 			<ul className="nav navbar-bar">
-			// 				<li><Link to="app">Home</Link></li>		
-			// 				<li><Link to="about">About</Link></li>
-			// 			</ul>
-			// 		</div>
-			// 	</nav>
-			// 	<div>header</div>
-			// 	<Link to="app">Home</Link>
-			// 	<br />
-			// 	<Link to="about">About</Link>
-			// </div>
