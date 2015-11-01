@@ -8,7 +8,7 @@ module.exports = (
 	<Route path="/" handler={require('./components/app')}>
 		<DefaultRoute handler={require('./components/home/homepage')} />
 		<Route path="requested" handler={require('./components/requested/requestedpage')} />
-		<Route path="requested/create" handler={require('./components/requested/createpage')} />
+		<Route path="requested-create" handler={require('./components/requested/createpage')} />
 		<Route path="about" handler={require('./components/about/aboutpage')} />
 	</Route>
 )
