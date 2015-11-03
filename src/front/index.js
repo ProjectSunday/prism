@@ -1,6 +1,5 @@
+//globals
 $ = jQuery = require('jquery');
-
-
 
 (function () {
 	'use strict';

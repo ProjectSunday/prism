@@ -9,6 +9,10 @@ module.exports = React.createClass({
 			<div>
 				<label htmlFor="name">Name</label>
 				<input type="text" name="name" value={request.name} onChange={this.props.onChange}/>
+
+				<br />
+				<input type="submit" value="Submit" className="btn btn-default" />
+
 			</div>
 		)
 	}

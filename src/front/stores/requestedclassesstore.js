@@ -23,7 +23,7 @@ var RequestedClassStore = assign({}, EventEmitter.prototype, {
 	},
 	getAll: function () {
 		return _requested;
-	}
+	},
 	getRequestedById: function (id) {
 		return _.find(_requested, { id: id });
 	}

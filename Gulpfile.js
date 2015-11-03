@@ -8,6 +8,8 @@ var concat      = require('gulp-concat');
 
 var environment = process.env.environment;
 
+global.COMPONENTS = __dirname + '/src/front/';
+
 var tasks;
 
 if (!environment) {
