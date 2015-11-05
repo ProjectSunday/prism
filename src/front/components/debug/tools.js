@@ -30,3 +30,15 @@ $(function () {
     });
 
 });
+
+//tracing
+
+window.trace = function (obj) {
+    var caller = (new Error).stack.split('\n')[2];
+    console.info('=>', caller, '|', obj);
+}
+
+window.red = function (obj) {
+    var caller = (new Error).stack.split('\n')[2];
+    console.info('%c=> ' + caller, 'background: red; color: white;', '|', obj);
+}

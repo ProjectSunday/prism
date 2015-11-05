@@ -21,7 +21,7 @@ module.exports = React.createClass({
 	saveRequest: function (event) {
 		event.preventDefault();
 
-		// RequestedActions.createRequest({this.state.request});
+		RequestedActions.createRequest(this.state.request);
 
 	},
 	render: function () {
@@ -30,7 +30,7 @@ module.exports = React.createClass({
 				<RequestedForm
 					request={this.state.request}
 					onChange={this.updateRequest}
-					onSave={this.saveRequest} />
+					onSubmit={this.saveRequest} />
 			</div>
 		)
 	}

@@ -47,6 +47,7 @@ gulp.task('js:local', function () {
         './src/front/components/debug/tools.js'
     ];
 
+    // browserify(files, { debug: true })
 	browserify(files)
 		.transform(reactify)
 		.bundle()
