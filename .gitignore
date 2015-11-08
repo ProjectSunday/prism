@@ -27,5 +27,5 @@ build/Release
 node_modules
 .idea
 dist
-db/local/
-!db/local/placeholder.txt
+db/local/*
+!db/local/placeholder
