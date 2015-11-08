@@ -33,6 +33,8 @@ Dispather.register(function (action) {
 	switch (action.actionType) {
 		case ActionTypes.CREATE_REQUEST:
 			_requested.push(action.request);
+
+			trace([ _requested, 'blah' ]);
 			RequestedClassStore.emitChange();
 			break;
 		default:

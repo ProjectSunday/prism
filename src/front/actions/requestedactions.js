@@ -9,21 +9,11 @@ module.exports = {
 		var newRequest = PrismApi.saveRequest(request);
 
 		trace(newRequest);
-		trace(newRequest);
-		trace(newRequest);
-		trace(newRequest);
-		red(newRequest);
-		trace(newRequest);
-		trace(newRequest);
-		trace(newRequest);
 
-
-
-
-		// Dispatcher.dispath({
-		// 	actionType: ActionTypes.CREATE_REQUEST,
-		// 	request: newRequest
-		// });
+		Dispatcher.dispatch({
+			actionType: ActionTypes.CREATE_REQUEST,
+			request: newRequest
+		});
 
 	}
 };

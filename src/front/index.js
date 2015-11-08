@@ -6,8 +6,9 @@ $ = jQuery = require('jquery');
 
 	require('bootstrap');
 
-	var React 	= require('react');
-	var Router 	= require('react-router');
+	var React 		= require('react');
+	var Router 		= require('react-router');
+	var ReactDOM 	= require('react-dom');
 
 	var Route 			= Router.Route;
 	var DefaultRoute 	= Router.DefaultRoute;
@@ -22,7 +23,7 @@ $ = jQuery = require('jquery');
 	);
 
 	Router.run(routes, Router.HistoryLocation, function (Handler) {
-		React.render(<Handler />, document.getElementById('app'));
+		ReactDOM.render(<Handler />, document.getElementById('app'));
 	});
 	
 })();

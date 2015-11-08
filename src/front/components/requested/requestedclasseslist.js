@@ -8,8 +8,12 @@ module.exports = React.createClass({
 	render: function () {
 		var classes = this.props.requestedClasses;
 		var tiles = [];
-		for (var i in classes) {
-			tiles.push(<RequestedClassTile key={classes[i].id} details={classes[i]} />);
+		if (classes.length) {
+			for (var i in classes) {
+				tiles.push(<RequestedClassTile key={classes[i].id} details={classes[i]} />);
+			}
+		} else {
+			tiles.push(<div key="na" className="col-md-4 col-sm-6 col-xs-6"><em>There are no requested classes.</em></div>);
 		}
 		return (
 			<div id="requested-classes-list" className="container">
