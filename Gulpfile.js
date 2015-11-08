@@ -5,6 +5,8 @@ var source		= require('vinyl-source-stream');
 var gls         = require('gulp-live-server');
 var sass        = require('gulp-sass');
 var concat      = require('gulp-concat');
+var exec        = require('child_process').exec;
+
 
 var environment = process.env.environment;
 
@@ -14,7 +16,7 @@ var tasks;
 
 if (!environment) {
 	// tasks = [ 'html', 'js', 'connect', 'watch' ];
-	tasks = [ 'server', 'html', 'sass', 'js:local', 'images', 'watch' ];
+	tasks = ['mongo', 'server', 'html', 'sass', 'js:local', 'images', 'watch' ];
 } else if (environment === 'dev') {
 	//build for prism-dev.herokuapp.com
 } else if (environment === 'qa') {
@@ -28,6 +30,19 @@ if (!environment) {
 gulp.task('default', tasks);
 
 /*************************************************************************************/
+
+gulp.task('mongo', function () {
+    exec('mongo admin --eval "db.shutdownServer()"', function () {
+        var mongo = exec('mongod --dbpath ./db/local/');
+        mongo.stdout.on('data', function (data) {
+            if (data.indexOf('waiting for connections on port') !== -1) {
+            }
+            if (data.indexOf('dbexit') !== -1) {
+                console.error('Unable to start mongo!');
+            }
+        });
+    });
+});
 
 var server;
 
@@ -88,6 +103,10 @@ gulp.task('watch', function () {
     gulp.watch('./src/front/**/*.{sass,scss}', [ 'sass' ]);
     gulp.watch('./src/front/images/**/*.*', [ 'images' ]);
 });
+
+
+
+
 
 
 
