@@ -28,4 +28,4 @@ node_modules
 .idea
 dist
 db/local/
-!db/local/placeholder
+!db/local/placeholder.txt
