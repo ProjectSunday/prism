@@ -34,6 +34,7 @@ require('./mongo.js');
 // app.use(passport.initialize());
 // app.use(passport.session());
 
+require('./routes/routes.js')(app);
 // require('./routes/routes.js')(app, passport);
 
 

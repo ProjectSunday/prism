@@ -26,6 +26,7 @@
     "lodash": "^3.10.1",
     "mongodb": "^2.0.48",
     "object-assign": "^4.0.1",
+    "q": "^1.4.1",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
     "react-router": "^0.13.4",
