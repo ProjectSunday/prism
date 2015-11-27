@@ -28,7 +28,7 @@ module.exports = React.createClass({
 				
 				<CategoryDropdown
 					categories={this.props.categories}
-					onChange={this.props.onCategoryChange}
+					onChange={this.props.onChange}
 					/>
 				<input type="submit" value="Submit" className="btn btn-default" onClick={this.props.onSubmit} />
 

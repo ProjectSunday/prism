@@ -5,7 +5,7 @@ var Router 	= require('react-router');
 
 var RequestedForm 		= require('./requestedform');
 
-var RequestedActions 	= require('../../actions/requestedactions');
+var RequestedAction 	= require('../../actions/requested.action');
 var CategoryAction 		= require('../../actions/category.action');
 
 var RequestedStore		= require('../../stores/requestedclassesstore');
@@ -17,13 +17,11 @@ module.exports = React.createClass({
 	],
 	getInitialState: function () {
 		return { 
+			categories: [],
 			request: { 
-				name: '', 
-				imageUrl: 'images/class/music.png', 
-				category: null
-			},
-			categories: []
-			// selectedCategory: null
+				name: '',
+				categoryId: null
+			}
 		}
 	},
 	componentWillMount: function () {
@@ -38,25 +36,19 @@ module.exports = React.createClass({
 	updateRequest: function (event) {
 		var name = event.target.name;
 		var value = event.target.value;
-		this.state.request[name] = value;
+
+		var request = this.state.request;
+
+		request[name] = value;
 
 		red(this.state.request);
-		return this.setState({ request: this.state.request });
+		return this.setState({ request: request });
 	},
 	saveRequest: function (event) {
 		event.preventDefault();
 
-		RequestedActions.createRequest(this.state.request);
+		RequestedAction.createRequest(this.state.request);
 		this.transitionTo('/requested');
-	},
-	onCategoryChange: function (e) {
-		// trace(e.target.value);
-		var request = this.state.request;
-
-		request.category = e.target.value;
-
-		this.setState({ request: request });
-		trace('request', request);
 	},
 	render: function () {
 		return (
@@ -66,7 +58,6 @@ module.exports = React.createClass({
 					categories={this.state.categories}
 					onChange={this.updateRequest}
 					onSubmit={this.saveRequest}
-					onCategoryChange={this.onCategoryChange} 
 					/>
 			</div>
 		)

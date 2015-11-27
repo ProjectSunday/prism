@@ -37,7 +37,7 @@ module.exports = function (app) {
 
 
     app.get('/seedcategories', function (req, res) {
-        var imgUrlRoot = 'img/class/';
+        var imgUrlRoot = 'images/class/';
         var defaultCategories = [
             { name: 'Technology', imageUrl: imgUrlRoot + 'technology.png' },
             { name: 'Automotive', imageUrl: imgUrlRoot + 'automotive.png' },

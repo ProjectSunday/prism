@@ -32,7 +32,7 @@ module.exports = React.createClass({
 		return (
 	        <div className="form-group">
 	            <label htmlFor="requestCategory">Category:</label>
-	            <select className="form-control" name="requestCategory" onChange={this.props.onChange}>
+	            <select className="form-control" name="requestCategory" name="categoryId" onChange={this.props.onChange}>
 	            	{options}
 	            </select>
 	        </div>
