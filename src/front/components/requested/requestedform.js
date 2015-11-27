@@ -3,11 +3,20 @@
 var React = require('react');
 
 var CategoryDropdown = require('../category/categorydropdown');
-var CategoryAction 		= require('../../actions/category.action');
 
-var CategoryStore 		= require('../../stores/category.store');
+// var CategoryAction 		= require('../../actions/category.action');
+// var CategoryStore 		= require('../../stores/category.store');
 
 module.exports = React.createClass({
+	// getInitialState: function () {
+	// 	return {
+	// 		categories: [],
+	// 	}
+	// },
+
+	// onChange: function (e) {
+	// },
+
 	render: function () {
 		var request = this.props.request;
 		return (
@@ -17,7 +26,10 @@ module.exports = React.createClass({
 
 				<br />
 				
-				<CategoryDropdown categories={this.props.categories} />
+				<CategoryDropdown
+					categories={this.props.categories}
+					onChange={this.props.onCategoryChange}
+					/>
 				<input type="submit" value="Submit" className="btn btn-default" onClick={this.props.onSubmit} />
 
 			</form>

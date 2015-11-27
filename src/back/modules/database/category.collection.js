@@ -22,7 +22,9 @@ module.exports = function () {
 
         var read = function (insertResult) {
             var id = insertResult.insertedId;
-            return DB.collection(CATEGORY_COLLECTION_NAME).find({ _id: id }).toArray();
+            return DB.collection(CATEGORY_COLLECTION_NAME)
+                    .find({ _id: id })
+                    .toArray();
         }
 
         insert()
@@ -41,6 +43,7 @@ module.exports = function () {
 
         DB.collection(CATEGORY_COLLECTION_NAME)
             .find(query)
+            .sort({name: 1})
             .toArray()
             .then(resolve, reject);
     }

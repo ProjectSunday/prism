@@ -32,11 +32,8 @@ var CategoryStore = assign({}, EventEmitter.prototype, {
 Dispather.register(function (action) {
 	switch (action.actionType) {
 		case ActionTypes.GET_ALL_CATEGORIES:
-			trace('store action', action);
+			trace('store', action.categories);
 			_categories = action.categories
-
-			trace('_categories', _categories);
-
 			CategoryStore.emitChange();
 			break;
 		default:
