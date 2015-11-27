@@ -9,5 +9,11 @@ module.exports = {
 		request.saved = new Date();
 
 		return request;
+	},
+
+	Category: {
+		getAll: function () {
+			return $.get('/api/v1/category/all');
+		}
 	}
 }

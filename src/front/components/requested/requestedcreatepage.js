@@ -1,11 +1,12 @@
 'use strict';
 
-var React = require('react');
+var React 	= require('react');
+var Router 	= require('react-router');
 
 var RequestedForm 		= require('./requestedform');
 var RequestedActions 	= require('../../actions/requestedactions');
 var RequestedStore		= require('../../stores/requestedclassesstore');
-var Router = require('react-router');
+var CategoryStore 		= require('../../stores/category.store');
 
 module.exports = React.createClass({
 	mixins: [
@@ -13,9 +14,14 @@ module.exports = React.createClass({
 	],
 	getInitialState: function () {
 		return { 
-			request: { name: '', imageUrl: 'images/class/music.png' }
+			request: { name: '', imageUrl: 'images/class/music.png' },
+			categories: []
 		}
 	},
+	componentWillMount: function () {
+		this.setState({ categories: CategoryStore.getAll() })
+	},
+
 	updateRequest: function (event) {
 		var name = event.target.name;
 		var value = event.target.value;
@@ -35,6 +41,7 @@ module.exports = React.createClass({
 			<div>
 				<RequestedForm
 					request={this.state.request}
+					categories={this.state.categories}
 					onChange={this.updateRequest}
 					onSubmit={this.saveRequest} />
 			</div>

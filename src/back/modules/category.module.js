@@ -1,30 +1,29 @@
 var Q               = require(NODE_MODULES + 'q');
 
-var Database        = require( + 'database.module');
+var Database        = require('./database/database.module');
+
 
 module.exports = {
-    Collection: Collection
-};
 
-function Collection (options) {
+}
 
-    var collectionSelf = new BASECOLLECTION();
+module.exports.Collection = function (args) {
+    var args = args || {};
+    var collection = new BASECOLLECTION(args.initialItems);
+    collection.req = args.req;
 
-    collectionSelf.error = null;
-    collectionSelf.req = options.req;
+    collection.load = PROMISIFY(function (loadArgs, resolve, reject) {
+        Database.Category.read().then(function (categories) {
+            collection.items = categories;
+            resolve();
+        }, function (error) {
+            collection.error = error;
+            reject();
+        });
 
-    collectionSelf.load = PROMISIFY(function (params, resolve, reject) {
-            
-            Database.read({ collectionName: 'Categories' }).then(function (categories) {
-                collectionSelf.add(categories);
-                resolve();
-            }, function (error) {
-                collectionSelf.error = error;
-                reject();
-            });
     });
-        
-    return collectionSelf;
+
+    return collection;
 }
 
 

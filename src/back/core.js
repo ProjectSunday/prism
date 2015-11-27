@@ -1,5 +1,5 @@
-var Q = require('../../node_modules/q');
-var _ = require('../../node_modules/underscore');
+var Q = require(NODE_MODULES + 'q');
+var _ = require(NODE_MODULES + 'underscore');
 
 global.PROMISIFY = function(workFunction) {
     return function (args) {
@@ -12,33 +12,34 @@ global.PROMISIFY = function(workFunction) {
 global.BASEITEM = function (initialAttributes) {
     var self = this;
     self.error = null;
+    self.attributes = initialAttributes || {};
 
-    self._attributes = initialAttributes || {};
-    self.get = function (name) {
-        return  name ? self._attributes[name] : self._attributes
-    }
-    self.set = function (nameOrObject, value) {
-        (arguments.length === 1) ? self._attributes = nameOrObject : self._attributes[nameOrObject] = value;
-    }
+    // self.get = function (name) {
+    //     return  name ? self.attributes[name] : self.attributes
+    // }
+    // self.set = function (nameOrObject, value) {
+    //     (arguments.length === 1) ? self.attributes = nameOrObject : self.attributes[nameOrObject] = value;
+    // }
     return self
 }
 
 global.BASECOLLECTION = function (initialItems) {
     var collection = this;
     collection.error = null;
+    collection.items = initialItems || [];
 
-    collection._items = initialItems || [];
-    collection.get = function (id) {
-        return (id === undefined) ? collection._items : _.findWhere(collection._items, { _id: id });
-    }
-    collection.set = function (items) {
-        collection._items = items;
-    }
+    // collection.get = function (id) {
+    //     return (id === undefined) ? collection.items : _.findWhere(collection.items, { _id: id });
+    // }
+    // collection.set = function (items) {
+    //     collection.items = items;
+    // }
+    
     collection.add = function (items) {
-        collection._items = collection._items.concat(items);
+        collection.items = collection.items.concat(items);
     }
     collection.remove = function (id) {  //needs to be rewritten to be more flexible
-        collection._items = _.without(collection._items, _.findWhere(collection._items, { _id: id }));
+        collection.items = _.without(collection.items, _.findWhere(collection.items, { _id: id }));
     }
     return collection
 }

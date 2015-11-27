@@ -16,7 +16,7 @@ var tasks;
 
 if (!environment) {
 	// tasks = [ 'html', 'js', 'connect', 'watch' ];
-	tasks = ['mongo', 'server', 'html', 'sass', 'js:local', 'images', 'watch' ];
+	tasks = ['mongo', 'server', 'html', 'sass', 'js:local', 'assets', 'watch' ];
 } else if (environment === 'dev') {
 	//build for prism-dev.herokuapp.com
 } else if (environment === 'qa') {
@@ -57,9 +57,9 @@ gulp.task('server', function () {
 });
 
 gulp.task('js:local', function () {
+        // './src/front/components/debug/tools.js',
     var files = [
-        './src/front/index.js',
-        './src/front/components/debug/tools.js'
+        './src/front/index.js'
     ];
 
     // browserify(files, { debug: true })
@@ -91,9 +91,13 @@ gulp.task('sass', function () {
         .pipe(server.notify());
 });
 
-gulp.task('images', function () {
+gulp.task('assets', function () {
     gulp.src('./src/front/images/**/*.*')
         .pipe(gulp.dest('./dist/images'))
+        .pipe(server.notify());
+
+    gulp.src('./src/front/fonts/**/*.*')
+        .pipe(gulp.dest('./dist/fonts'))
         .pipe(server.notify());
 });
 
@@ -101,7 +105,10 @@ gulp.task('watch', function () {
     gulp.watch('./src/front/index.html', [ 'html' ]);
     gulp.watch('./src/front/**/*.js', [ 'js:local' ]);
     gulp.watch('./src/front/**/*.{sass,scss}', [ 'sass' ]);
-    gulp.watch('./src/front/images/**/*.*', [ 'images' ]);
+    gulp.watch([
+        './src/front/images/**/*.*',
+        './src/front/fonts/**/*.*'
+    ], [ 'assets' ]);
 });
 
 

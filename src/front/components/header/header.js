@@ -27,7 +27,7 @@ module.exports = React.createClass({
 					          	<div className="form-group">
 					            	<input  type="hidden" name="output" value="googleabout" />
 					            	<input  type="hidden" name="sitesearch" value="locallearners.net" />
-					            	<input  type="text"   name="q" className="headerSearchBox form-control" placeholder="Click or type / to Search" ng-model="searchText" id="headerSearchBox" autocomplete="off" ng-focus="searchBoxOnFocus()" />
+					            	<input  type="text"   name="q" className="headerSearchBox form-control" placeholder="Click or type / to Search" ng-model="searchText" id="headerSearchBox" autoComplete="off" ng-focus="searchBoxOnFocus()" />
 					            	<button type="submit" className="btn btn-info">
 					            		<span className="glyphicon glyphicon-search" title="Submit"></span>
 				            		</button>

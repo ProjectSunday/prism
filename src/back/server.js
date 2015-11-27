@@ -11,7 +11,7 @@ var server = http.createServer(app);
 
 require('./globals.js');  //must be first
 require('./debug.js');
-// require('./core.js');
+require('./core.js');
 require('./mongo.js');
 // require('./passport.js')(passport);
 // var config = require('./server-config.js');
@@ -34,7 +34,7 @@ require('./mongo.js');
 // app.use(passport.initialize());
 // app.use(passport.session());
 
-require('./routes/routes.js')(app);
+require('./routes/main.route')(app);
 // require('./routes/routes.js')(app, passport);
 
 
