@@ -1,8 +1,6 @@
 //globals
 $ = jQuery = require('jquery');
 
-require('./components/debug/tools')(window);  //remove this;
-
 (function () {
 	'use strict';
 

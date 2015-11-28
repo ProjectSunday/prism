@@ -1,3 +1,5 @@
+var $ = require('jquery');
+
 module.exports = function (win) {
     //livereload
     win.LiveReloadOptions = { host: 'localhost', mindelay: 1000, maxdelay: 2000 };

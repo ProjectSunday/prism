@@ -32,7 +32,6 @@ var RequestedClassStore = assign({}, EventEmitter.prototype, {
 			r.category = _.find(categories, { _id: r.categoryId });
 		});
 
-		trace(requested);
 		return requested;
 	},
 	getRequestedById: function (id) {
