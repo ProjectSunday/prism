@@ -9,6 +9,8 @@ module.exports = function (app) {
         var categories = new Category.Collection({
             req: req
         });
+
+
         
         categories.load().then(function () {
             res.json(categories.items);

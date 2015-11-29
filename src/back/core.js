@@ -9,10 +9,11 @@ global.PROMISIFY = function(workFunction) {
     }
 }
 
-global.BASEITEM = function (initialAttributes) {
+global.BASEITEM = function (args) {
     var self = this;
+    var args = args || {};
     self.error = null;
-    self.attributes = initialAttributes || {};
+    self.attributes = args.attributes || {};
 
     // self.get = function (name) {
     //     return  name ? self.attributes[name] : self.attributes
@@ -23,10 +24,11 @@ global.BASEITEM = function (initialAttributes) {
     return self
 }
 
-global.BASECOLLECTION = function (initialItems) {
+global.BASECOLLECTION = function (args) {
     var collection = this;
+    var args = args || {};
     collection.error = null;
-    collection.items = initialItems || [];
+    collection.items = args.items || [];
 
     // collection.get = function (id) {
     //     return (id === undefined) ? collection.items : _.findWhere(collection.items, { _id: id });
