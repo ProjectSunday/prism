@@ -9,11 +9,10 @@ global.PROMISIFY = function(workFunction) {
     }
 }
 
-global.BASEITEM = function (args) {
+global.BASEITEM = function (initialAttributes) {
     var self = this;
-    var args = args || {};
     self.error = null;
-    self.attributes = args.attributes || {};
+    self.attributes = initialAttributes || {};
 
     // self.get = function (name) {
     //     return  name ? self.attributes[name] : self.attributes
@@ -21,7 +20,7 @@ global.BASEITEM = function (args) {
     // self.set = function (nameOrObject, value) {
     //     (arguments.length === 1) ? self.attributes = nameOrObject : self.attributes[nameOrObject] = value;
     // }
-    return self
+    return self;
 }
 
 global.BASECOLLECTION = function (args) {

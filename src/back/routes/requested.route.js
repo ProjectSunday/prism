@@ -20,16 +20,26 @@ module.exports = function (app) {
 
     app.post('/api/v1/requested', function (req, res) {
 
+        // var newRequest = new Requested({
+        //     req: req,
+        //     attributes: {
+        //         name: 'requestname',
+        //         test:'3333'
+        //     }
+        // });
+
+
         var newRequest = new Requested({
             req: req,
-            attributes: {
-                name: 'requestname',
-                test:'3333'
-            }
-        });
+            name: req.body.name,
+            categoryId: req.body.categoryId
+            // requester: req.user._id,
+            // interestedUsers: [ req.user._id ]
+        };
         
         newRequest.save().then(function () {
-            res.json(newRequest.attributes);
+            
+            // res.json(newRequest.attributes);
         }, function () {
             res.status(500).send(newRequest.error);
         });

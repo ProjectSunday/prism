@@ -1,5 +1,5 @@
 var express         = require('express');
-// // var bodyParser      = require('body-parser');
+var bodyParser      = require('body-parser');
 var http            = require('http');
 // var cookieParser    = require('cookie-parser');
 // var session         = require('express-session');
@@ -16,8 +16,8 @@ require('./mongo.js');
 // require('./passport.js')(passport);
 // var config = require('./server-config.js');
 
-// app.use(bodyParser.json());                                          // to support JSON-encoded bodies
-// app.use(bodyParser.urlencoded({ extended: true }));                  // to support URL-encoded bodies
+app.use(bodyParser.json());                                          // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({ extended: true }));                  // to support URL-encoded bodies
 
 // var MongoStore = require('connect-mongo')(session);
 // app.use(cookieParser('nopants'));

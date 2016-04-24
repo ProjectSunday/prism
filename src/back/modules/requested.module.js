@@ -6,31 +6,62 @@ var REQUESTED_COLLECTION_NAME = 'requestedclasses';
 
 module.exports = function (args) {
     var args = args || {};
-    var self = new BASEITEM(args);
 
+    var self = new BASEITEM({
+        name: args.name,
+        categoryId: args.categoryId
+    });
+
+    /******/
+    self.req = args.req;
+
+    /******/
     self.save = PROMISIFY(function (saveArgs, resolve, reject) {
 
-        var query = self.attributes._id ? { _id: self.attributes._id } : { _id: null };
+        // var query = self.attributes._id ? { _id: self.attributes._id } : { _id: null };
 
         trace(self.attributes);
 
         var collection = DB.collection(REQUESTED_COLLECTION_NAME);
 
-        var updateOrInsert = function () {
 
-            if (self.attributes._id) {
-                return collection.updateOne(
-                    { _id: self.attributes._id }, 
-                    { $set: self.attributes }, 
-                    { upsert: true }
-                );
-            } else {
-                return collection.insert(self.attributes).then(function (r) {
+        if (self.attributes._id) {
+
+            var storeOperation = collection.create({
+                data: {
+                    
+                }
+            })
+            var savingOperation = collection.updateOne(
+                { _id: self.attributes._id },
+                { $set: self.attributes },
+                { upsert: true });
+        } else {
+
+
+            
+            var savingOperation = collection.insert(self.attributes).then(function (r) {
                     trace('111', r);
                     self.attributes._id = r.ops[0]._id;
                     trace(self.attributes._id);
                     // self.attributes
                 });
+
+        }
+
+        updateOrInsert()
+            .then(read)
+            .then(setAttributes)
+            .catch(setError)
+
+        function updateOrInsert() {
+
+            if (self.attributes._id) {
+                return collection.updateOne(
+
+                );
+            } else {
+                return 
             }
         }
 
@@ -43,10 +74,7 @@ module.exports = function (args) {
             return collection.find({ _id: self.attributes._id }).toArray();
         }
 
-        updateOrInsert()
-            .then(read)
-            .then(setAttributes)
-            .catch(setError)
+
 
         function setAttributes(data) {
             red(data[0]);
