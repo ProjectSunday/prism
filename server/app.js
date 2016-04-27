@@ -16,8 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));                  // to suppo
 
 require('./routes/main.route')(app);
 
-app.use('/', express.static(__dirname + '/../../dist'));
-app.use('*', express.static(__dirname + '/../../dist/index.html'));
+app.use('/', express.static(__dirname + '/../dist'));
+app.use('*', express.static(__dirname + '/../dist/index.html'));
 
 
 server.listen(PRISM_PORT, function () {

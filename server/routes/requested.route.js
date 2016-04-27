@@ -29,20 +29,20 @@ module.exports = function (app) {
         // });
 
 
-        var newRequest = new Requested({
-            req: req,
-            name: req.body.name,
-            categoryId: req.body.categoryId
-            // requester: req.user._id,
-            // interestedUsers: [ req.user._id ]
-        };
+        // var newRequest = new Requested({
+        //     req: req,
+        //     name: req.body.name,
+        //     categoryId: req.body.categoryId
+        //     // requester: req.user._id,
+        //     // interestedUsers: [ req.user._id ]
+        // })
         
-        newRequest.save().then(function () {
+        // newRequest.save().then(function () {
             
-            // res.json(newRequest.attributes);
-        }, function () {
-            res.status(500).send(newRequest.error);
-        });
+        //     // res.json(newRequest.attributes);
+        // }, function () {
+        //     res.status(500).send(newRequest.error);
+        // });
         
     });
 

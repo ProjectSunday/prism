@@ -8,13 +8,13 @@ if (PRISM_ENVIRONMENT === 'local') {
 	global.PRISM_DEBUGGING			= process.env.debugging 				|| false;
 }
 
-global.NODE_MODULES      		= __dirname + '/../../node_modules/';
+global.NODE_MODULES      		= __dirname + '/../node_modules/';
 
-global.PRISM_ROOT    			= __dirname + '/../../';
-global.PRISM_MODULES   			= __dirname + '/../back/modules/';
-global.PRISM_FRONTEND   		= __dirname + '/../front/';
+global.PRISM_ROOT    			= __dirname + '/../';
+global.PRISM_MODULES   			= __dirname + '/modules/';
+global.PRISM_FRONTEND   		= __dirname + '/../';
 
-global.PRISM_DIST       		= __dirname + '/../../dist/';
+global.PRISM_DIST       		= __dirname + '/../dist/';
 
 
 

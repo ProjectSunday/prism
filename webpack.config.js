@@ -1,5 +1,6 @@
-var webpack             = require('webpack')
 var HtmlWebpackPlugin   = require('html-webpack-plugin')
+var path                = require('path')
+var webpack             = require('webpack')
 
 var env = process.env.NODE_ENV
 
@@ -16,9 +17,42 @@ var config = {
     },
 
     module: {
+        // loaders: [
+        //     { test: /\.js$/, loaders: ['babel-loader'], exclude: node_modules }
+        // ]
+
         loaders: [
-            { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ }
+            { 
+                test: /\.js$/, 
+                loader: "babel-loader",
+                exclude: node_modules,
+                include: src,
+                query: {
+                    plugins: [ 'transform-runtime', 'transform-decorators-legacy' ],
+                    presets: [ 'es2015', 'stage-0', 'react' ]
+                }
+            },
+            {
+                test: /\.less$/,
+                loader: "style!css!less"
+            },
+            { 
+                test: /\.css$/, 
+                loaders: [ 'style', 'css' ] },
+            { 
+                test: /\.(png|ico|svg)$/, 
+                loader: 'file?name=[name].[ext]',
+                exclude: node_modules,
+                include: src
+            },
+            { 
+                test: /\.(woff|woff2|eot|ttf|svg)$/, 
+                loader: 'url-loader?limit=100000',
+                exclude: src
+            }
         ]
+
+        
     },
 
     output: {
