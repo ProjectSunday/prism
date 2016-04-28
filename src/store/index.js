@@ -1,4 +1,5 @@
-import { createStore, compose } from 'redux'
+import { createStore, combineReducers, compose } from 'redux'
+import { routerReducer } from 'react-router-redux'
 
 import rootReducer from './rootReducer'
 
@@ -6,8 +7,15 @@ var initialState = {
 
 }
 
-export default createStore(
-	rootReducer, 
-	initialState, 
-	window.devToolsExtension ? window.devToolsExtension() : undefined
-)
+var reducers = combineReducers({
+	rootReducer,
+	routing: routerReducer
+})
+
+export default function configureStore() {
+	return createStore(
+		reducers,
+		initialState, 
+		window.devToolsExtension ? window.devToolsExtension() : undefined
+	)
+}

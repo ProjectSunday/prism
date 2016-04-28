@@ -1,15 +1,19 @@
 import React from 'react'
-
-import { Route } from 'react-router'
 import { render } from 'react-dom'
 
+import { Router, browserHistory } from 'react-router'
+import routes from './routes'
+
+import { syncHistoryWithStore } from 'react-router-redux'
+
 import { Provider } from 'react-redux'
+import { configureStore } from './store'
 
 import 'react-bootstrap'
 
 import './assets'
 
-import store from './store'
+// import store from './store'
 
 // var Router 		= require('react-router');
 // var ReactDOM 	= require('react-dom');
@@ -30,10 +34,13 @@ import store from './store'
 // 	render(<Handler />, document.getElementById('app'));
 // });
 
+const store = configureStore()
+const history = syncHistoryWithStore(browserHistory, store)
 
 render(
 	<Provider store={store}>
-		<div>44444</div>
+		<div>7777</div>
+		<Router history={history} routes={routes} />
 	</Provider>,
 	document.getElementById('main')
 )

@@ -50,8 +50,6 @@ var config = {
                 exclude: src
             }
         ]
-
-        
     },
 
     output: {
@@ -80,7 +78,7 @@ if (env === undefined || env === 'development') {
     config.devServer = {
         historyApiFallback: { index: publicPath },      //must match publicPath for HTML5 history to work 
                                                         //https://webpack.github.io/docs/webpack-dev-server.html#the-historyapifallback-option
-        noInfo: true,
+        // noInfo: true,
         port: port || 7000,
         progress: true,
         stats: { colors: true },
