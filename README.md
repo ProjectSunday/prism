@@ -4,6 +4,7 @@
 
 - ~~Chew Bubblegum~~
 - Code
+- Separate frontend app to backend api app.  Backend mostly in /server
 
 ### Installation
 
