@@ -1,11 +1,11 @@
 import React from 'react'
-import { Route } from 'react-router'
+import { Route, IndexRoute } from 'react-router'
 
-import Root from './components/root'
-import Requested from './components/requested'
+import { Root, Home, Requested } from './components'
 
 export default (
 	<Route path="/" component={Root}>
+		<IndexRoute component={Home} />
 		<Route path="/requested" component={Requested} />
 	</Route>
 )
