@@ -1,5 +1,6 @@
 # prism
 
-### To Dos
+### To Do's
 
-- code
+- ~~Chew Bubblegun~~
+- Code
