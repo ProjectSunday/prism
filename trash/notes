@@ -1,0 +1,10 @@
+notes
+
+working on putting routing into redux
+
+
+https://github.com/reactjs/react-router-redux
+
+
+netstat -atp tcp | grep -i "listen"
+

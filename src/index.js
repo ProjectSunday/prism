@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 
 import 'react-bootstrap'
 
+import './assets'
 
 import store from './store'
 
@@ -32,7 +33,7 @@ import store from './store'
 
 render(
 	<Provider store={store}>
-		<div>blah11222233331</div>
+		<div>44444</div>
 	</Provider>,
 	document.getElementById('main')
 )
