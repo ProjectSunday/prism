@@ -1,4 +1,4 @@
-# prism
+# prism (Local Learners)
 
 ### To Do's
 
