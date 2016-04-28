@@ -1,23 +1,22 @@
 {
   "name": "prism",
-  "version": "1.0.0",
-  "description": "description",
-  "main": "src/backend/server.js",
+  "version": "0.0.1",
+  "description": "Local Learners",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "local": "NODE_ENV=local node server/app.js & webpack --watch",
     "start": "webpack-dev-server --progress"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hai5nguy/prism.git"
+    "url": "git+https://github.com/ProjectSunday/prism.git"
   },
-  "author": "",
+  "author": "Hai Nguyen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hai5nguy/prism/issues"
+    "url": "https://github.com/ProjectSunday/prism/issues"
   },
-  "homepage": "https://github.com/hai5nguy/prism#readme",
+  "homepage": "https://github.com/ProjectSunday/prism#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
     "bootstrap": "^3.3.5",
