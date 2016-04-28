@@ -1,5 +1,5 @@
 
-const Root = ( state = {}, action) => {
+const Main = (state = {}, action) => {
 	switch (action.type) {
 
 		default:
@@ -7,4 +7,4 @@ const Root = ( state = {}, action) => {
 	}
 }
 
-export default Root
+export default Main

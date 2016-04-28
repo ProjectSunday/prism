@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --progress --inline"
+    "start": "webpack-dev-server --progress --inline --hot"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.16.0",
+    "react-hot-loader": "^1.3.0",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1"
   }

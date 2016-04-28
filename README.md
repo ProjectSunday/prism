@@ -5,6 +5,7 @@
 - ~~Chew Bubblegum~~
 - Code
 - Separate frontend app to backend api app.  Backend mostly in /server
+- Make webpack.config.prod.js and app.js to server frontend
 - ~~Put in react-router-redux~~
 - ~~Put in hot loading~~
 - Experiment with redux devtools
@@ -12,6 +13,7 @@
 - Mock categories
 - Build requested
 - Build upcoming
+- Complete putting in react-bootstrap and css
 
 
 

@@ -1,40 +1,24 @@
 import React from 'react'
 
-// var UpcomingClassesList = require('../upcoming/upcomingclasseslist');
-// var RequestedClassesList = require('../requested/requestedclasseslist');;
-// var RequestedClassesStore = require('../../stores/requestedclassesstore');
-
+import { Testing } from '../components'
 
 class Root extends React.Component {
-	
 	constructor(props) {
 		super(props)
 	}
-
-	// componentWillMount: function () {
-	// 	this.setState({ 
-	// 		upcomingClasses: [], 
-	// 		requestedClasses: RequestedClassesStore.getAll() 
-	// 	});
-	// },
 	render() {
 		return (
 			<div>
-				<div>banner needs to go here 111112222</div>
+
+				<div>banner needs to go here 8888</div>
 				{this.props.children}
+
+				<Testing />
 			</div>
 		)
 	}
 
 }
-// module.exports = React.createClass({
-// 	getInitialState: function () {
-// 		return {
-// 			upcomingClasses: [],
-// 			requestedClasses: []	
-// 		}
-// 	},
-// });
 
 
 /*
@@ -45,4 +29,25 @@ class Root extends React.Component {
 */
 
 export default Root
+
+
+
+//trash
+
+
+// componentWillMount: function () {
+// 	this.setState({ 
+// 		upcomingClasses: [], 
+// 		requestedClasses: RequestedClassesStore.getAll() 
+// 	});
+// },
+
+// module.exports = React.createClass({
+// 	getInitialState: function () {
+// 		return {
+// 			upcomingClasses: [],
+// 			requestedClasses: []	
+// 		}
+// 	},
+// });
 

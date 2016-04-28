@@ -1,14 +1,12 @@
 import { createStore, combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 
-import rootReducer from './rootReducer'
+import main from './mainReducer'
 
-var initialState = {
-
-}
+import initialState from './initialState'
 
 var reducers = combineReducers({
-	rootReducer,
+	main,
 	routing: routerReducer
 })
 

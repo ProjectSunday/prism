@@ -3,13 +3,12 @@ import React from 'react'
 class Requested extends React.Component {
 	constructor(props) {
 		super(props)
-		console.log('yoooooo')
 	}
 	render() {
-		console.log('Requested.render')
+		// console.log('Requested.render')
 		return (
 			<div>
-				requested page
+				requested page 4444
 			</div>
 		)
 	}

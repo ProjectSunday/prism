@@ -2,8 +2,8 @@ var HtmlWebpackPlugin   = require('html-webpack-plugin')
 var path                = require('path')
 var webpack             = require('webpack')
 
-var env     = process.env.NODE_ENV
-var port    = process.env.PORT
+// var env     = process.env.NODE_ENV
+var port    = process.env.PORT || 7000
 
 var node_modules    = path.resolve(__dirname, 'node_modules')
 var src             = path.resolve(__dirname, 'src')
@@ -13,24 +13,37 @@ var publicPath      = '/'
 
 
 var config = {
+    devServer: {
+        historyApiFallback: { index: publicPath },      //must match publicPath for HTML5 history to work 
+                                                        //https://webpack.github.io/docs/webpack-dev-server.html#the-historyapifallback-option
+        // hot: true,
+        // noInfo: true,
+        port: port,
+        progress: true,
+        stats: { colors: true },
+        watch: true
+    },
+
+
     entry: {
         app: [
+            'babel-polyfill',
+            'webpack-dev-server/client?http://127.0.0.1:' + port,
+            'webpack/hot/only-dev-server',
             './src/index.js'
         ]
     },
 
     module: {
         loaders: [
+
             { 
                 test: /\.js$/, 
-                loader: "babel-loader",
+                loaders: [ 'react-hot', 'babel-loader' ],
                 exclude: node_modules,
-                include: src,
-                query: {
-                    plugins: [ 'transform-runtime', 'transform-decorators-legacy' ],
-                    presets: [ 'es2015', 'stage-0', 'react' ]
-                }
+                include: src
             },
+
             {
                 test: /\.less$/,
                 loader: "style!css!less"
@@ -60,9 +73,11 @@ var config = {
 
     plugins: [
     
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(env)
-        }),
+        // new webpack.DefinePlugin({
+        //     'process.env.NODE_ENV': JSON.stringify(env)
+        // }),
+
+        // new webpack.HotModuleReplacementPlugin(),
 
         new HtmlWebpackPlugin({
             template: './src/index.html',
@@ -70,34 +85,7 @@ var config = {
         })
         
     ]
-};
-
-
-if (env === undefined || env === 'development') {
-    config.entry.app.unshift('babel-polyfill')
-    config.devServer = {
-        historyApiFallback: { index: publicPath },      //must match publicPath for HTML5 history to work 
-                                                        //https://webpack.github.io/docs/webpack-dev-server.html#the-historyapifallback-option
-        // noInfo: true,
-        port: port || 7000,
-        progress: true,
-        stats: { colors: true },
-        watch: true
-    }
 }
 
-if (env === 'production') {
-    config.plugins.push(
-        new webpack.optimize.UglifyJsPlugin({
-            compressor: {
-                pure_getters: true,
-                unsafe: true,
-                unsafe_comps: true,
-                screw_ie8: true,
-                warnings: false
-            }
-        })
-    )
-}
 
 module.exports = config

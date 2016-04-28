@@ -1,5 +1,3 @@
-// var React = require('react');
-
 import React from 'react'
 // var UpcomingClassesList = require('../upcoming/upcomingclasseslist');
 // var RequestedClassesList = require('../requested/requestedclasseslist');;
@@ -11,19 +9,6 @@ class Home extends React.Component {
 	constructor(props) {
 		super(props)
 	}
-
-	// getInitialState: function () {
-	// 	return {
-	// 		upcomingClasses: [],
-	// 		requestedClasses: []	
-	// 	}
-	// },
-	// componentWillMount: function () {
-	// 	this.setState({ 
-	// 		upcomingClasses: [], 
-	// 		requestedClasses: RequestedClassesStore.getAll() 
-	// 	});
-	// },
 	render() {
 		return (
 			<div> home index
@@ -44,3 +29,19 @@ class Home extends React.Component {
 export default Home
 
 
+
+
+/// trash, never needed again
+
+// getInitialState: function () {
+// 	return {
+// 		upcomingClasses: [],
+// 		requestedClasses: []	
+// 	}
+// },
+// componentWillMount: function () {
+// 	this.setState({ 
+// 		upcomingClasses: [], 
+// 		requestedClasses: RequestedClassesStore.getAll() 
+// 	});
+// },
