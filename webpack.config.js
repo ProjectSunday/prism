@@ -2,8 +2,8 @@ var HtmlWebpackPlugin   = require('html-webpack-plugin')
 var path                = require('path')
 var webpack             = require('webpack')
 
-var env = process.env.NODE_ENV
-var port = process.env.PORT
+var env     = process.env.NODE_ENV
+var port    = process.env.PORT
 
 var node_modules    = path.resolve(__dirname, 'node_modules')
 var src             = path.resolve(__dirname, 'src')
