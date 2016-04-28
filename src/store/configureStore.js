@@ -1,4 +1,4 @@
-import { createStore, combineReducers, compose } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 
 import rootReducer from './rootReducer'

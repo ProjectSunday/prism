@@ -6,13 +6,11 @@ import React from 'react'
 
 
 class Root extends React.Component {
-	contructor(props) {
-		
-
+	
+	constructor(props) {
 		super(props)
-
-
 	}
+
 	// componentWillMount: function () {
 	// 	this.setState({ 
 	// 		upcomingClasses: [], 

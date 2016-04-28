@@ -7,7 +7,7 @@ import routes from './routes'
 import { syncHistoryWithStore } from 'react-router-redux'
 
 import { Provider } from 'react-redux'
-import { configureStore } from './store'
+import configureStore from './store/configureStore'
 
 import 'react-bootstrap'
 
@@ -39,7 +39,6 @@ const history = syncHistoryWithStore(browserHistory, store)
 
 render(
 	<Provider store={store}>
-		<div>7777</div>
 		<Router history={history} routes={routes} />
 	</Provider>,
 	document.getElementById('main')
