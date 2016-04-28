@@ -5,8 +5,14 @@
 - ~~Chew Bubblegum~~
 - Code
 - Separate frontend app to backend api app.  Backend mostly in /server
-- Put in react-router-redux
-- Put in hot loading
+- ~~Put in react-router-redux~~
+- ~~Put in hot loading~~
+- Experiment with redux devtools
+- Build top banner
+- Mock categories
+- Build requested
+- Build upcoming
+
 
 
 ### Installation
