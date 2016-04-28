@@ -8,3 +8,6 @@ https://github.com/reactjs/react-router-redux
 
 netstat -atp tcp | grep -i "listen"
 
+
+can't seem to get requested routes working
+
