@@ -40,7 +40,7 @@ var config = {
                 loaders: [ 'style', 'css' ] },
             { 
                 test: /\.(png|ico|svg)$/, 
-                loader: 'file?name=[name].[ext]',
+                loader: 'file-loader?name=[name].[ext]',
                 exclude: node_modules,
                 include: src
             },
