@@ -7,11 +7,30 @@ export default class Header extends React.Component {
 		super(props)
 	}
 	render() {
+
+		let nav = {
+			className: 'navbar navbar-default',
+			role: 'navigation',
+			style: {
+				// backgroundColor: '#2c3e50',
+				// minHeight: '60px'
+			}
+		}
+		let logo = {
+			className: 'logo',
+			src: IMAGES.logo,
+			alt: 'Local Learners Logo',
+			title: '',
+			style: {
+				// maxHeight: '40px'
+			}
+		}
+
 		return (
-			<nav id="header" className="navbar navbar-default" role="navigation">
+			<nav {...nav}>
 			  	<div className="container-fluid">
 			    	<div className="navbar-header">
-			      		<Link to="/" className="navbar-brand"><img src={IMAGES.logo} alt="Local Learners Logo" title="" className="logo" /></Link>
+			      		<Link to="/" className="navbar-brand"><img {...logo}/></Link>
 		      		</div>
 				    <div className="collapse navbar-collapse">
 				      	<ul className="nav navbar-nav">

@@ -43,13 +43,16 @@ var config = {
                 include: src
             },
 
-            {
-                test: /\.less$/,
-                loader: "style!css!less"
-            },
+            // {
+            //     test: /\.scss$/,
+            //     loaders: [ 'style', 'css', 'sass' ]   //turn on when we need to use sass
+            // },
+
             { 
                 test: /\.css$/, 
-                loaders: [ 'style', 'css' ] },
+                loaders: [ 'style', 'css' ]
+            },
+            
             { 
                 test: /\.(png|ico|svg)$/, 
                 loader: 'file-loader?name=[name].[ext]',
@@ -58,8 +61,7 @@ var config = {
             },
             { 
                 test: /\.(woff|woff2|eot|ttf|svg)$/, 
-                loader: 'url-loader?limit=100000',
-                exclude: src
+                loader: 'url-loader?limit=100000'
             }
         ]
     },

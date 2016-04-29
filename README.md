@@ -2,7 +2,7 @@
 
 ### Dev Notes
 
-wooots!
+figure out bootstrap shit
 
 ### To Do's
 
