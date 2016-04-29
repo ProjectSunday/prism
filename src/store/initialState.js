@@ -18,14 +18,14 @@ export default {
 			{ id: 1014, name: 'Visual Arts',    	categoryImageName: 'visualarts' }
 		],
 		upcomingClasses: [
-			{ id: 100, name: 'class100', category: 1000 },
-			{ id: 101, name: 'class101', category: 1001 },
-			{ id: 102, name: 'class102', category: 1002 },
-			{ id: 103, name: 'class103', category: 1003 },
-			{ id: 104, name: 'class104', category: 1004 },
-			{ id: 105, name: 'class105', category: 1005 },
-			{ id: 106, name: 'class106', category: 1006 },
-			{ id: 107, name: 'class107', category: 1007 }
+			{ id: 100, name: 'class100', categoryId: 1000 },
+			{ id: 101, name: 'class101', categoryId: 1001 },
+			{ id: 102, name: 'class102', categoryId: 1002 },
+			{ id: 103, name: 'class103', categoryId: 1003 },
+			{ id: 104, name: 'class104', categoryId: 1004 },
+			{ id: 105, name: 'class105', categoryId: 1005 },
+			{ id: 106, name: 'class106', categoryId: 1006 },
+			{ id: 107, name: 'class107', categoryId: 1007 }
 		]
 	}
 }

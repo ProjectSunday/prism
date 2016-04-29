@@ -7,9 +7,9 @@ const mapStateToProps = (state, ownProps) => {
 	// 	categories.unshift(...ownProps.categories)
 	// }
 
-	let additionalOptions = ownProps.additionalOptions || []
+	let additionalCategories = ownProps.additionalCategories || []
 
-	return { categories: [ ...additionalOptions, ...state.main.categories ] }
+	return { categories: [ ...additionalCategories, ...state.main.categories ] }
 }
 
 @connect(mapStateToProps)

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		categoryImageName: state.main.categories.fbi(ownProps.category).categoryImageName
+		categoryImageName: state.main.categories.fbi(ownProps.categoryId).categoryImageName
 	}
 }
 
