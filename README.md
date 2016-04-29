@@ -1,5 +1,9 @@
 # prism (Local Learners)
 
+### Dev Notes
+
+wooots!
+
 ### To Do's
 
 - ~~Chew Bubblegum~~
@@ -16,6 +20,7 @@
 - ~~Complete putting in react-bootstrap and css~~
 - Skeleton api call to back end (after backend is done)
 - ~~Build categories filter, work on filtering topupcoming~~
+- Build nav bar/header
 
 
 
