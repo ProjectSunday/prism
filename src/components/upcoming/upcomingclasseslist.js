@@ -23,6 +23,9 @@ module.exports = React.createClass({
 					<div className="col-md-6 col-sm-6 col-xs-6">
 	            		<h4><Link to="/about">Upcoming Classes</Link></h4>
 					</div>
+
+					<div>categorydropdown here</div>
+		
 				</div>
 				<div className="row">
 					{tiles}

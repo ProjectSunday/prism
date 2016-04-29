@@ -1,6 +1,6 @@
 export default {
 	main: {
-		category: [
+		categories: [
 			{ id: 1000, name: 'Technology', 		categoryImageName: 'technology' },
 			{ id: 1001, name: 'Automotive', 		categoryImageName: 'automotive' },
 			{ id: 1002, name: 'Culinary', 			categoryImageName: 'culinary' },

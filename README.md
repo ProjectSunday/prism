@@ -15,6 +15,7 @@
 - Build upcoming
 - Complete putting in react-bootstrap and css
 - Skeleton api call to back end (after backend is done)
+- Build categories filter, work on filtering topupcoming
 
 
 

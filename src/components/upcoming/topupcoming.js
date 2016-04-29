@@ -37,11 +37,11 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
-import { UpcomingTile } from '../../components'
+import { CategoryDropDown, UpcomingTile } from '../../components'
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		upcomingClasses: state.main.upcomingClasses.slice(0, 6)
+		upcomingClasses: state.main.upcomingClasses
 	}
 }
 
@@ -68,6 +68,17 @@ export default class TopUpcoming extends React.Component {
 			className: 'col-md-6 col-sm-6 col-xs-6'
 		}
 
+		let category = {
+			className: 'col-md-2 pull-right'
+		}
+
+		let categoryDropDown = {
+			additionalOptions: [ 
+				{ id: 0, name: 'All Categories'}
+			],
+			onSelect: (e) => { console.log('yo', e.target.value) }
+		}
+
 		let body = {
 			className: 'row'
 		}
@@ -77,6 +88,9 @@ export default class TopUpcoming extends React.Component {
 				<div {...header}>
 					<div {...title}>
 	            		<h4><Link to="/about">Upcoming Classes</Link></h4>
+					</div>
+					<div {...category}>
+						<CategoryDropDown {...categoryDropDown}/>
 					</div>
 				</div>
 				<div {...body}>

@@ -6,3 +6,5 @@ export Testing from './testing/testing'
 
 export TopUpcoming from './upcoming/topupcoming'
 export UpcomingTile from './upcoming/upcomingtile'
+
+export CategoryDropDown from './category/categorydropdown'

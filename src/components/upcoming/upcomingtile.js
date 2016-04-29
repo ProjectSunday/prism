@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		categoryImageName: state.main.category.fbi(ownProps.category).categoryImageName
+		categoryImageName: state.main.categories.fbi(ownProps.category).categoryImageName
 	}
 }
 
@@ -14,9 +14,7 @@ class UpcomingTile extends React.Component {
 		super(props)
 	}
 	render() {
-		var { name, imageUrl, categoryImageName } = this.props
-
-		imageUrl = imageUrl || 'http://placehold.it/350x50'
+		var { name, categoryImageName } = this.props
 
 
 		let container = {
@@ -25,6 +23,12 @@ class UpcomingTile extends React.Component {
 
 		let panel = {
 			className: 'panel'
+		}
+
+		let image = {
+			className: 'img-responsive',
+			src: IMAGES.Category[categoryImageName],
+			alt: 'Class Title - Category' 
 		}
 
 		let title = {
@@ -39,7 +43,7 @@ class UpcomingTile extends React.Component {
         	<div {...container}>
         		<div {...panel}>
 	                <span class="upcomingCategory"><Link to="/about">{name}</Link></span>
-	                <img src={IMAGES.Category[categoryImageName]} className="img-responsive upcomingImage" alt="Class Title - Category" />
+	                <img {...image}/>
 	                <span {...title}>{name}</span>
 	                <div {...panelBody}>
 	                    <div className="row">

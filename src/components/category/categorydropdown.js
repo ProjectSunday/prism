@@ -1,41 +1,50 @@
-'use strict';
+import React from 'react'
+import { connect } from 'react-redux'
 
-var React = require('react');
+const mapStateToProps = (state, ownProps) => {
+	// let categories = state.main.categories.
+	// if (ownProps.categories) {
+	// 	categories.unshift(...ownProps.categories)
+	// }
 
-// var CategoryAction 		= require('../../actions/category.action');
-// var CategoryStore 		= require('../../stores/category.store');
+	let additionalOptions = ownProps.additionalOptions || []
 
-module.exports = React.createClass({
-	// getInitialState: function () {
-	// 	return {
-	// 		categories: []
-	// 	}
-	// },
-	// componentWillMount: function () {
-	// 	CategoryAction.getAll();
+	return { categories: [ ...additionalOptions, ...state.main.categories ] }
+}
 
-	// 	var self = this;
-	// 	CategoryStore.on('change', function () {
-	// 		self.setState({ categories: CategoryStore.getAll() });
-	// 	});
-	// },
-	render: function () {
+@connect(mapStateToProps)
+export default class CategoryDropDown extends React.Component {
 
-		var options = [];
-		var categories = this.props.categories;
-		for (var i in categories) {
-			options.push(
-				<option key={i} value={categories[i]._id}>{categories[i].name}</option>
-			);
+	constructor(props) {
+		super(props)
+	}
+
+	render() {
+
+		const { categories, onSelect } = this.props
+
+		let options = categories.map((c, i) => <option key={i} value={c.id}>{c.name}</option>)
+
+		let container = {
+			className: 'form-group'
+		}
+
+		let select = {
+			className: 'form-control',
+			onChange: onSelect
 		}
 
 		return (
-	        <div className="form-group">
-	            <label htmlFor="requestCategory">Category:</label>
-	            <select className="form-control" name="requestCategory" name="categoryId" onChange={this.props.onChange}>
+	        <div {...container}>
+	            <select {...select}>
 	            	{options}
 	            </select>
 	        </div>
 		)
 	}
-});
+}
+
+
+// <div class="col-md-2 pull-right">
+//     <select class="form-control input-sm" ng-options="c.name for c in categories" ng-model="selectedCategory"></select>
+// </div>
