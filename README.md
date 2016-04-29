@@ -2,7 +2,8 @@
 
 ### Dev Notes
 
-figure out bootstrap shit
+navitem and link not playing nicely
+
 
 ### To Do's
 
@@ -20,8 +21,9 @@ figure out bootstrap shit
 - ~~Complete putting in react-bootstrap and css~~
 - Skeleton api call to back end (after backend is done)
 - ~~Build categories filter, work on filtering topupcoming~~
-- Build nav bar/header
-
+- ~~Build nav bar/header~~
+- Categories dropdown should sort by name
+- convert everything from bootstrap to react-bootstrap
 
 
 ### Installation

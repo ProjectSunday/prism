@@ -1,30 +1,22 @@
 import React from 'react'
-// var UpcomingClassesList = require('../upcoming/upcomingclasseslist');
-// var RequestedClassesList = require('../requested/requestedclasseslist');;
-// var RequestedClassesStore = require('../../stores/requestedclassesstore');
 
 import { TopUpcoming } from '../components'
 
 
 class Home extends React.Component {
-
 	constructor(props) {
 		super(props)
 	}
 	render() {
 		return (
 			<div> 
-				home index
-
 				<TopUpcoming />
-				
 			</div>
 		)
 	}
 }
 
 /*
-<UpcomingClassesList upcomingClasses={this.state.upcomingClasses} />
 
 <RequestedClassesList requestedClasses={this.state.requestedClasses} />
 
