@@ -3,6 +3,8 @@ import React from 'react'
 // var RequestedClassesList = require('../requested/requestedclasseslist');;
 // var RequestedClassesStore = require('../../stores/requestedclassesstore');
 
+import { TopUpcoming } from '../components'
+
 
 class Home extends React.Component {
 
@@ -11,8 +13,11 @@ class Home extends React.Component {
 	}
 	render() {
 		return (
-			<div> home index
+			<div> 
+				home index
 
+				<TopUpcoming />
+				
 			</div>
 		)
 	}

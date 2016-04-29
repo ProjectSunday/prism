@@ -1,2 +1,2 @@
-import './favicon.ico'
+export * as Category from './category'
 

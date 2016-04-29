@@ -7,10 +7,16 @@ class Root extends React.Component {
 		super(props)
 	}
 	render() {
-		return (
-			<div>
 
-				<div>banner needs to go here 8888</div>
+		let root = {
+			style: {
+				background: '#ccc'
+			}
+		}
+		return (
+			<div {...root}>
+
+				<div>banner needs to go here 222</div>
 				{this.props.children}
 
 				<Testing />

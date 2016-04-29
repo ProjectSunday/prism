@@ -8,12 +8,13 @@
 - Make webpack.config.prod.js and app.js to server frontend
 - ~~Put in react-router-redux~~
 - ~~Put in hot loading~~
-- Experiment with redux devtools
+- ~~Experiment with redux devtools~~
 - Build top banner
-- Mock categories
+- ~~Mock categories~~
 - Build requested
 - Build upcoming
 - Complete putting in react-bootstrap and css
+- Skeleton api call to back end (after backend is done)
 
 
 

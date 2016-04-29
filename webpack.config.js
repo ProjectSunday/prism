@@ -2,7 +2,6 @@ var HtmlWebpackPlugin   = require('html-webpack-plugin')
 var path                = require('path')
 var webpack             = require('webpack')
 
-// var env     = process.env.NODE_ENV
 var port    = process.env.PORT || 7000
 
 var node_modules    = path.resolve(__dirname, 'node_modules')
@@ -73,11 +72,11 @@ var config = {
 
     plugins: [
     
-        // new webpack.DefinePlugin({
+        // new webpack.DefinePlugin({                           //unnecessary???
         //     'process.env.NODE_ENV': JSON.stringify(env)
         // }),
 
-        // new webpack.HotModuleReplacementPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),  //don't use this with --hot
 
         new HtmlWebpackPlugin({
             template: './src/index.html',

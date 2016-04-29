@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Link } from 'react-router'
 
+
 class Testing extends React.Component {
 	constructor(props) {
 		super(props)
