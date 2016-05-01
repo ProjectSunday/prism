@@ -74,9 +74,10 @@ var config = {
 
     plugins: [
     
-        // new webpack.DefinePlugin({                           //unnecessary???
-        //     'process.env.NODE_ENV': JSON.stringify(env)
-        // }),
+        new webpack.DefinePlugin({                           //unnecessary???
+            // 'process.env.NODE_ENV': JSON.stringify(env)
+            'TEST123': './routes'
+        }),
 
         // new webpack.HotModuleReplacementPlugin(),  //don't use this with --hot
 

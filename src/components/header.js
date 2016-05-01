@@ -47,12 +47,12 @@ export default class Header extends React.Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
-                        <NavDropdown title="Classes">
-                            <MenuItem><Link to="/about" style={classesStyle}>Upcoming Classes</Link></MenuItem>
-                            <MenuItem><Link to="/about" style={classesStyle}>Requested Classes</Link></MenuItem>
+                        <NavDropdown title="Classes" id="blah">
+                            <MenuItem>Upcoming Classes</MenuItem>
+                            <MenuItem>Requested Classes</MenuItem>
                         </NavDropdown>
-                        <NavItem href="/about">Learn</NavItem>
-                        <NavItem href="/about">Teach</NavItem>
+                        <NavItem>Learn</NavItem>
+                        <NavItem>Teach</NavItem>
                     </Nav>
                     <Nav pullRight>
                         <NavItem eventKey={1} href="#">Link Right</NavItem>
