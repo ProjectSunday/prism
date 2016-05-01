@@ -1,11 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router'
+import { push } from 'react-router-redux'
 
 import { Nav, Navbar, NavItem, NavDropdown, DropdownButton, MenuItem } from 'react-bootstrap'
 
 export default class Header extends React.Component {
     constructor(props) {
         super(props)
+
+        this.navClick = this.navClick.bind(this)
+    }
+    navClick(path) {
+        return () => DISPATCH(push(path))
     }
     render() {
 
@@ -48,8 +54,8 @@ export default class Header extends React.Component {
                 <Navbar.Collapse>
                     <Nav>
                         <NavDropdown title="Classes" id="blah">
-                            <MenuItem>Upcoming Classes</MenuItem>
-                            <MenuItem>Requested Classes</MenuItem>
+                            <MenuItem onClick={this.navClick('/about')}>Upcoming Classes</MenuItem>
+                            <MenuItem onClick={this.navClick('/about')}>Requested Classes</MenuItem>
                         </NavDropdown>
                         <NavItem>Learn</NavItem>
                         <NavItem>Teach</NavItem>
