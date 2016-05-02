@@ -43,10 +43,10 @@ var config = {
                 include: src
             },
 
-            // {
-            //     test: /\.scss$/,
-            //     loaders: [ 'style', 'css', 'sass' ]   //turn on when we need to use sass
-            // },
+            {
+                test: /\.(scss|sass)$/,
+                loaders: [ 'style', 'css', 'sass' ]
+            },
 
             { 
                 test: /\.css$/, 

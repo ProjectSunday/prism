@@ -27,7 +27,7 @@ class UpcomingTile extends React.Component {
 
 		let image = {
 			className: 'img-responsive',
-			src: IMAGES.Category.categoryImageName,
+			src: IMAGES.Category[categoryImageName],
 			alt: 'Class Title - Category' 
 		}
 
