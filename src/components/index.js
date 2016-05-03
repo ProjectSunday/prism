@@ -1,7 +1,7 @@
 export Root from './root'
 
 export Header from './header'
-export SearchBox from './header/searchbox'
+export SearchControl from './header/searchcontrol'
 
 export About from './about'
 

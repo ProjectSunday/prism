@@ -16,35 +16,22 @@ class UpcomingTile extends React.Component {
 	render() {
 		var { name, categoryImageName } = this.props
 
-
-		let container = {
-			className: 'col-md-4 col-sm-6 col-xs-6'
-		}
-
-		let panel = {
-			className: 'panel'
-		}
+		let container ='col-md-4 col-sm-6 col-xs-6'
 
 		let image = {
-			className: 'img-responsive',
 			src: IMAGES.Category[categoryImageName],
 			alt: 'Class Title - Category' 
 		}
 
-		let title = {
-			className: 'upcomingTitle truncate col-md-12 col-sm-12 col-xs-12'
-		}
-
-		let panelBody = {
-			className: 'panel-body text-right'
-		}
+		let title = 'upcomingTitle truncate col-md-12 col-sm-12 col-xs-12'
+		let panelBody = 'panel-body text-right'
 
 		return (
-        	<div {...container}>
-        		<div {...panel}>
+        	<div className={container}>
+        		<div className="panel">
 	                <span class="upcomingCategory"><Link to="/about">{name}</Link></span>
-	                <img {...image}/>
-	                <span {...title}>{name}</span>
+	                <img className="img-responsive" {...image}/>
+	                <span className={title}>{name}</span>
 	                <div {...panelBody}>
 	                    <div className="row">
 	                        <div className="text-left col-md-4 col-sm-6 hidden-xs">

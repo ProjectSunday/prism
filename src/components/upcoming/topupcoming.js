@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import { CategoryDropDown, UpcomingTile } from '../../components'
 
+// import './topupcoming.sass'
+
 const mapStateToProps = (state, ownProps) => {
 	return {
 		upcomingClasses: state.main.upcomingClasses
@@ -45,21 +47,6 @@ export default class TopUpcoming extends React.Component {
 			var nodes = <div key="na" className="col-md-4 col-sm-6 col-xs-6"><em>There are no upcoming classes.</em></div>
 		}
 
-		let container = {
-			className: 'container'
-		}
-
-		let header = {
-			className: 'row'
-		}
-
-		let title = {
-			className: 'col-md-6 col-sm-6 col-xs-6'
-		}
-
-		let category = {
-			className: 'col-md-2 pull-right'
-		}
 
 		let categoryDropDown = {
 			additionalCategories: [ 
@@ -68,21 +55,20 @@ export default class TopUpcoming extends React.Component {
 			onSelect: this.onCategorySelect
 		}
 
-		let body = {
-			className: 'row'
-		}
-		
+
+		let title = 'col-md-6 col-sm-6 col-xs-6'
+		let category = 'col-md-2 pull-right'
 		return (
-			<div {...container}>
-				<div {...header}>
-					<div {...title}>
+			<div className="container">
+				<div className="row">
+					<div className={title}>
 	            		<h4><Link to="/about">Upcoming Classes</Link></h4>
 					</div>
-					<div {...category}>
+					<div className={category}>
 						<CategoryDropDown {...categoryDropDown}/>
 					</div>
 				</div>
-				<div {...body}>
+				<div className="row">
 					{nodes}
 				</div>
 			</div>

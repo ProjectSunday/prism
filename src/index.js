@@ -10,6 +10,7 @@ import routes from './routes'
 // Third Party
 ///////////////////////////////////////////////////////////////////
 import 'react-bootstrap'
+// import 'bootstrap-sass/assets/stylesheets/_bootstrap.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/bootswatch/flatly.min.css'
 

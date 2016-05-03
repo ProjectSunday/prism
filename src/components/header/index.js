@@ -4,9 +4,9 @@ import { push } from 'react-router-redux'
 
 import { Button, Nav, Navbar, NavItem, NavDropdown, DropdownButton, MenuItem } from 'react-bootstrap'
 
-import { SearchBox } from '../../components'
+import { SearchControl } from '../../components'
 
-import './header.sass'
+import './index.sass'
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -51,9 +51,6 @@ export default class Header extends React.Component {
         }
 
 
-
-
-
         return (
             <Navbar id="header" fluid>
                 <Navbar.Header>
@@ -73,12 +70,7 @@ export default class Header extends React.Component {
                     </Nav>
                     <Nav pullRight>
                         <NavItem className="search-box">
-                            <SearchBox />
-                        </NavItem>
-                        <NavItem className="search-button">
-                            <Button>
-                                <span className="glyphicon glyphicon-search"></span>
-                            </Button>
+                            <SearchControl />
                         </NavItem>
                     </Nav>
                 </Navbar.Collapse>
