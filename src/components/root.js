@@ -10,7 +10,7 @@ class Root extends React.Component {
 
 		let root = {
 			style: {
-				background: '#ccc'
+				// background: '#ccc'
 			}
 		}
 		return (

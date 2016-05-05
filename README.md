@@ -2,7 +2,7 @@
 
 ### Dev Notes
 
-navitem and link not playing nicely
+figure out left aligned stupid stuff
 
 
 ### To Do's

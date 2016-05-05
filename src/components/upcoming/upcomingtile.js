@@ -2,6 +2,10 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
+import { Grid, Col, Row, Image, Panel } from 'react-bootstrap'
+
+import './upcomingtile.sass'
+
 const mapStateToProps = (state, ownProps) => {
 	return {
 		categoryImageName: state.main.categories.fbi(ownProps.categoryId).categoryImageName
@@ -16,8 +20,6 @@ class UpcomingTile extends React.Component {
 	render() {
 		var { name, categoryImageName } = this.props
 
-		let container ='col-md-4 col-sm-6 col-xs-6'
-
 		let image = {
 			src: IMAGES.Category[categoryImageName],
 			alt: 'Class Title - Category' 
@@ -26,27 +28,31 @@ class UpcomingTile extends React.Component {
 		let title = 'upcomingTitle truncate col-md-12 col-sm-12 col-xs-12'
 		let panelBody = 'panel-body text-right'
 
+
+
+	                // <span className={title}>{name}</span>
+
+	                // <span class="upcomingCategory"><Link to="/about">{name}</Link></span>
+	                //
+
+
 		return (
-        	<div className={container}>
-        		<div className="panel">
-	                <span class="upcomingCategory"><Link to="/about">{name}</Link></span>
-	                <img className="img-responsive" {...image}/>
-	                <span className={title}>{name}</span>
-	                <div {...panelBody}>
-	                    <div className="row">
-	                        <div className="text-left col-md-4 col-sm-6 hidden-xs">
-	                            <h2><span className="glyphicon glyphicon-ok"></span></h2>
-	                            <p>RSVP</p>
-	                        </div>
-	                        <div class="col-md-8 col-sm-6">
-	                            <h5>details.date</h5>
-	                            <p class="small">details.location</p>
+        	<Col className="upcoming-tile" md={4} sm={6} xs={6}>
+        		<Panel>
+	                <Image src={IMAGES.Category[categoryImageName]} responsive />
+                	<Row>
+                        <Col md={4} sm={6} xsHidden textLeft>
+                            <h2><span className="glyphicon glyphicon-ok"></span></h2>
+                            <p>RSVP</p>
+                        </Col>
+                        <div class="col-md-8 col-sm-6">
+                            <h5>details.date</h5>
+                            <p class="small">details.location</p>
 	                            <span class="small badge glyphicon glyphicon-user">14</span>
-	                        </div>
-	                    </div>
-	                </div>
-				</div>
-			</div>
+                        </div>
+                    </Row>
+				</Panel>
+			</Col>
 		)
 	}
 }
