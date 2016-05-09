@@ -2,13 +2,13 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
-import { Grid, Col, Row, Image, Panel } from 'react-bootstrap'
+import { Grid, Col, Row, Image, Panel, Glyphicon, Badge } from 'react-bootstrap'
 
 import './upcomingtile.sass'
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		categoryImageName: state.main.categories.fbi(ownProps.categoryId).categoryImageName
+		category: state.main.categories.fbi(ownProps.categoryId)
 	}
 }
 
@@ -18,38 +18,29 @@ class UpcomingTile extends React.Component {
 		super(props)
 	}
 	render() {
-		var { name, categoryImageName } = this.props
+		var { name, category, date, location } = this.props
 
-		let image = {
-			src: IMAGES.Category[categoryImageName],
-			alt: 'Class Title - Category' 
-		}
-
-		let title = 'upcomingTitle truncate col-md-12 col-sm-12 col-xs-12'
-		let panelBody = 'panel-body text-right'
-
-
-
-	                // <span className={title}>{name}</span>
-
-	                // <span class="upcomingCategory"><Link to="/about">{name}</Link></span>
-	                //
-
+		let panelHeader = (
+			<div>
+        		<span className="category-name"><Link to="/about">{category.name}</Link></span>
+            	<Image src={IMAGES.Category[category.imageName]} alt="Class Title - Category" responsive />
+        		<span className="name truncate">{name}</span>
+			</div>
+		)
 
 		return (
         	<Col className="upcoming-tile" md={4} sm={6} xs={6}>
-        		<Panel>
-	                <Image src={IMAGES.Category[categoryImageName]} responsive />
+        		<Panel header={panelHeader}>
                 	<Row>
-                        <Col md={4} sm={6} xsHidden textLeft>
+                        <Col md={4} sm={6} xsHidden>
                             <h2><span className="glyphicon glyphicon-ok"></span></h2>
                             <p>RSVP</p>
                         </Col>
-                        <div class="col-md-8 col-sm-6">
-                            <h5>details.date</h5>
-                            <p class="small">details.location</p>
-	                            <span class="small badge glyphicon glyphicon-user">14</span>
-                        </div>
+                        <Col className="details" md={8} sm={6}>
+                            <h4>{date}</h4>
+                            <p className="small">{location}</p>
+                        	<Badge bsStyle="small"><Glyphicon glyph="user">14</Glyphicon></Badge>
+                        </Col>
                     </Row>
 				</Panel>
 			</Col>

@@ -23,7 +23,8 @@ figure out left aligned stupid stuff
 - ~~Build categories filter, work on filtering topupcoming~~
 - ~~Build nav bar/header~~
 - Categories dropdown should sort by name
-- convert everything from bootstrap to react-bootstrap
+- ~~convert everything from bootstrap to react-bootstrap~~
+- define and implement upcoming classes tiles on home page
 
 
 ### Installation
