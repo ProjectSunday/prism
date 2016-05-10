@@ -1,12 +1,12 @@
-'use strict';
+import React from 'react'
+import { Link } from 'react-router'
 
-var React = require('react');
-var Link = require('react-router').Link;
+import { Well } from 'react-bootstrap'
 
-module.exports = React.createClass({
-	render: function () {
+export default class RequestedActions extends React.Component {
+	render() {
 		return (
-			<div className="container text-center well well-lg">
+			<Well bsStyle="large">
 			    <div className="col-md-4 col-md-offset-2 col-xs-6">
 			        <h4>Don't see your class?</h4>
 			        <Link to="/requested-create" className="btn btn-lg btn-primary">Request it here</Link>
@@ -18,5 +18,5 @@ module.exports = React.createClass({
 			</div>
 		)
 	}
-});
+}
 

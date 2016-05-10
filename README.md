@@ -2,7 +2,7 @@
 
 ### Dev Notes
 
-figure out left aligned stupid stuff
+working on requested actions
 
 
 ### To Do's

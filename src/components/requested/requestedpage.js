@@ -1,22 +1,3 @@
-import React from 'react'
-
-class Requested extends React.Component {
-	constructor(props) {
-		super(props)
-	}
-	render() {
-		// console.log('Requested.render')
-		return (
-			<div>
-				requested page 4444
-			</div>
-		)
-	}
-}
-
-export default Requested
-
-
 // 'use strict';
 
 // var React = require('react');
