@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
-import { CategoryDropDown, UpcomingTile } from '../../components'
+import { CategoryDropdown, UpcomingTile } from '../../components'
 
 // import './topupcoming.sass'
 
@@ -48,7 +48,7 @@ export default class TopUpcoming extends React.Component {
 		}
 
 
-		let categoryDropDown = {
+		let categoryDropdown = {
 			additionalCategories: [ 
 				{ id: 0, name: 'All Categories'}
 			],
@@ -65,7 +65,7 @@ export default class TopUpcoming extends React.Component {
 	            		<h4><Link to="/about">Upcoming Classes</Link></h4>
 					</div>
 					<div className={category}>
-						<CategoryDropDown {...categoryDropDown}/>
+						<CategoryDropdown {...categoryDropdown}/>
 					</div>
 				</div>
 				<div className="row">

@@ -11,12 +11,13 @@ export Requested from './requested'
 export RequestedTile from './requested/requestedtile'
 export RequestedTiles from './requested/requestedtiles'
 export RequestedActions from './requested/requestedactions'
+export CreateRequest from './requested/createrequest'
 
 export Testing from './testing/testing'
 
 export TopUpcoming from './upcoming/topupcoming'
 export UpcomingTile from './upcoming/upcomingtile'
 
-export CategoryDropDown from './category/categorydropdown'
+export CategoryDropdown from './category/categorydropdown'
 
 

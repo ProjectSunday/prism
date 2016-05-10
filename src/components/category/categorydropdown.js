@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 @connect(mapStateToProps)
-export default class CategoryDropDown extends React.Component {
+export default class CategoryDropdown extends React.Component {
 
 	constructor(props) {
 		super(props)

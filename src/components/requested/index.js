@@ -12,4 +12,3 @@ export default class Requested extends React.Component {
 		)
 	}
 }
-

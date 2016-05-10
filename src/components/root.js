@@ -16,7 +16,6 @@ class Root extends React.Component {
 		return (
 			<div {...root}>
 				<Header />
-				<div>banner needs to go here 222</div>
 				{this.props.children}
 				<Testing />
 			</div>
