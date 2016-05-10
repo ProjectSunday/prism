@@ -2,7 +2,7 @@
 
 ### Dev Notes
 
-working on requested actions
+time for relay, good luck
 
 
 ### To Do's
