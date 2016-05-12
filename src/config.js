@@ -5,7 +5,7 @@ import { browserHistory } 											from 'react-router'
 import main 			from './store/mainReducer'
 import initialState 	from './store/initialState'
 
-export default function config() {
+export default function () {
 
 	var m = routerMiddleware(browserHistory)
 	var r = combineReducers({
