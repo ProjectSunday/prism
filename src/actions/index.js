@@ -16,6 +16,8 @@ export const fetchData = () => {
 			// 	type: 'FETCHDATA_SUCCESS',
 			// 	data: data
 			// })
+
+			
 		})
 
 	// }
