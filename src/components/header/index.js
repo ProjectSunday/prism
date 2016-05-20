@@ -5,6 +5,7 @@ import { push } from 'react-router-redux'
 import { Button, Nav, Navbar, NavItem, NavDropdown, DropdownButton, MenuItem } from 'react-bootstrap'
 
 import { SearchControl } from '../../components'
+import { dispatch } from '../../store'
 
 import './index.sass'
 
@@ -15,7 +16,7 @@ export default class Header extends React.Component {
         this.navClick = this.navClick.bind(this)
     }
     navClick(path) {
-        return () => DISPATCH(push(path))
+        return () => dispatch(push(path))
     }
     render() {
 

@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
+import { dispatch } from '../store'
 
 export const fetchData = () => {
 

@@ -2,17 +2,13 @@
 
 ### Dev Notes
 
-time for relay, good luck
-
-
-create deploy build
 
 
 ### To Do's
 
 - ~~Chew Bubblegum~~
 - Code
-- Separate frontend app to backend api app.  Backend mostly in /server
+- ~~Separate frontend app to backend api app.  Backend mostly in /server~~
 - Make webpack.config.prod.js and app.js to server frontend
 - ~~Put in react-router-redux~~
 - ~~Put in hot loading~~
@@ -28,7 +24,8 @@ create deploy build
 - Categories dropdown should sort by name
 - ~~convert everything from bootstrap to react-bootstrap~~
 - define and implement upcoming classes tiles on home page
-
+- create deploy build
+- move store and dispatch to own module
 
 ### Installation
 
