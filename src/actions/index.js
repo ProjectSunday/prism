@@ -1,5 +1,4 @@
-import fetch from 'isomorphic-fetch'
-
+import request from 'superagent'
 import { dispatch } from '../store'
 
 export const fetchData = () => {
@@ -7,19 +6,36 @@ export const fetchData = () => {
 
 	// return (dispatch) => {
 
-		fetch('http://www.reddit.com/r/news.json').then(res => {
-			return res.json()
-		}).then(data => {
-			
-			console.log('data', data)
 
-			// dispatch({
-			// 	type: 'FETCHDATA_SUCCESS',
-			// 	data: data
-			// })
+		var PRISMAPI_URL = 'http://localhost:9000/graphql'
 
+		// var o = {
+		// 	url: PRISMAPI_URL,
+		// 	headers: {
+		// 		'Content-Type': 'application/graphql'
+		// 	}
+		// }
+		// rest(o, (err, res, body) => {
+		// 	console.log('request', err, res, body)
+		// })
 			
-		})
+
+		var query = `
+			query {
+				categories {
+					id
+					name
+				}
+			}
+		`
+		request.post(PRISMAPI_URL)
+			.set({ 'Content-Type': 'application/graphql' })
+			.send(query)
+			.end((req, res) => {
+
+				console.log(res.body.data)
+				// debugger;
+			})
 
 	// }
 

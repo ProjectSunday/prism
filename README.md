@@ -2,6 +2,7 @@
 
 ### Dev Notes
 
+request not working *sigh*
 
 
 ### To Do's
@@ -25,7 +26,7 @@
 - ~~convert everything from bootstrap to react-bootstrap~~
 - define and implement upcoming classes tiles on home page
 - create deploy build
-- move store and dispatch to own module
+- ~~move store and dispatch to own module~~
 
 ### Installation
 
