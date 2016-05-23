@@ -15,11 +15,8 @@ var config = {
     devServer: {
         historyApiFallback: { index: publicPath },      //must match publicPath for HTML5 history to work 
                                                         //https://webpack.github.io/docs/webpack-dev-server.html#the-historyapifallback-option
-        // hot: true,
-        // noInfo: true,
         port: port,
-        progress: true,
-        stats: { colors: true },
+        stats: { colors: true, chunks: false },
         watch: true
     },
 
@@ -62,10 +59,6 @@ var config = {
             { 
                 test: /\.(woff|woff2|eot|ttf|svg)$/, 
                 loader: 'url-loader?limit=100000'
-            },
-            {
-                test: /\.json$/,                        //monkey patching shit for request module
-                loader: 'json-loader'
             }
         ]
     },
@@ -90,13 +83,8 @@ var config = {
             inject: 'body'
         })
         
-    ],
+    ]
 
-    node: {
-        fs: 'empty',        //monkey patching shit for request module
-        net: 'empty',
-        tls: 'empty'
-    }
 }
 
 

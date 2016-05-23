@@ -6,7 +6,7 @@ import { Provider } 	from 'react-redux'
 import { store, history } from './store'
 import routes from './routes'
 
-import { fetchData } from './actions'
+import { fetchData, createRequestedClass } from './actions'
 
 
 ///////////////////////////////////////////////////////////////////
@@ -32,7 +32,9 @@ import * as images from './assets/images'
 window.IMAGES = images
 
 
-fetchData()
+// fetchData()
+
+// createRequestedClass({ name: 'test my23.657'})
 
 ///////////////////////////////////////////////////////////////////
 // Mount

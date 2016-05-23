@@ -1,3 +1,4 @@
+import RequestedClassesReducer from './requestedclassesreducer'
 
 export default (state = {}, action) => {
 	switch (action.type) {
@@ -6,7 +7,12 @@ export default (state = {}, action) => {
 			state.testing = 'testing'
 			///.... so more things to new state
 			return state
+
+		case 'CREATE_REQUESTED_CLASS_SUCCESS':
+			return RequestedClassesReducer(state, action)
 		default:
 			return state
 	}
 }
+
+

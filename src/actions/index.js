@@ -1,42 +1,47 @@
 import request from 'superagent'
+import { push } from 'react-router-redux'
+
 import { dispatch } from '../store'
+import PrismAPI from './prismapi'
+
 
 export const fetchData = () => {
 
-
-	// return (dispatch) => {
-
-
-		var PRISMAPI_URL = 'http://localhost:9000/graphql'
-
-		// var o = {
-		// 	url: PRISMAPI_URL,
-		// 	headers: {
-		// 		'Content-Type': 'application/graphql'
-		// 	}
-		// }
-		// rest(o, (err, res, body) => {
-		// 	console.log('request', err, res, body)
-		// })
-			
-
-		var query = `
-			query {
-				categories {
-					id
-					name
-				}
+	PrismAPI(`
+		query {
+			categories {
+				id,
+				name
 			}
-		`
-		request.post(PRISMAPI_URL)
-			.set({ 'Content-Type': 'application/graphql' })
-			.send(query)
-			.end((req, res) => {
+		}
+	`).then(cats => {
+		console.log('cats', cats)
+	}, err => {
+		console.log('ereeer', err)
+	})
 
-				console.log(res.body.data)
-				// debugger;
-			})
 
-	// }
+}
 
+
+export const createRequestedClass = (requested) => {
+	PrismAPI(`
+		mutation {
+			createRequestedClass (name: "${requested.name}") {
+				id,
+				name
+			}
+		}
+	`).then(result => {
+		dispatch({
+			type: 'CREATE_REQUESTED_CLASS_SUCCESS',
+			requestedClass: result.createRequestedClass
+		})
+	}, error => {
+
+	})
+}
+
+export const navigate = (path) => {
+	dispatch(push(path))
 }

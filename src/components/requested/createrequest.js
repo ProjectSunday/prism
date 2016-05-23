@@ -2,9 +2,22 @@ import React from 'react'
 import Router from 'react-router'
 import { Grid, Row, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap'
 
-import { CategoryDropdown } from '../../components'
+import { CategoryDropdown } 	from '../../components'
+import { createRequestedClass, navigate } from '../../actions'
 
 export default class CreateRequest extends React.Component {
+
+	constructor(props) {
+		super(props)
+
+		this.submitClick = this.submitClick.bind(this)
+		this.nameChanged = this.nameChanged.bind(this)
+		this.render = this.render.bind(this)
+
+		this.state = {
+			name: null
+		}
+	}
 	// getInitialState: function () {
 	// 	return { 
 	// 		categories: [],
@@ -56,6 +69,25 @@ export default class CreateRequest extends React.Component {
 	//				<input type="submit" value="Submit" className="btn btn-default" onClick={this.props.onSubmit} />
 	//
 
+	submitClick () {
+		// console.log('yoooo')
+
+		// var { name } = this.refs
+
+		createRequestedClass({
+			name: this.state.name
+		})
+
+		navigate('/requested')
+	}
+
+	nameChanged (e) {
+		// console.log(e, value)
+		this.setState({
+			name: e.target.value
+		})
+	}
+
 	render() {
 		return (
 			<Grid>
@@ -66,13 +98,13 @@ export default class CreateRequest extends React.Component {
 					<form>
 						<FormGroup>
 							<ControlLabel>Lesson Name:</ControlLabel>
-							<FormControl type="text" placeholder="e.g. Intro to Guitar"/>
+							<FormControl type="text" placeholder="e.g. Intro to Guitar" onChange={this.nameChanged}/>
 						</FormGroup>
 						<FormGroup>
 							<ControlLabel>Category:</ControlLabel>
 							<CategoryDropdown />
 						</FormGroup>
-						<Button className="pull-right" type="submit">
+						<Button className="pull-right" onClick={this.submitClick}>
 					  		Submit
 						</Button>
 					</form>
