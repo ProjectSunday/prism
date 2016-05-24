@@ -4,25 +4,9 @@ import { push } from 'react-router-redux'
 import { dispatch } from '../store'
 import PrismAPI from './prismapi'
 
-
-export const fetchData = () => {
-
-	PrismAPI(`
-		query {
-			categories {
-				id,
-				name
-			}
-		}
-	`).then(cats => {
-		console.log('cats', cats)
-	}, err => {
-		console.log('ereeer', err)
-	})
-
-
+export const navigate = (path) => {
+	dispatch(push(path))
 }
-
 
 export const createRequestedClass = (requested) => {
 	PrismAPI(`
@@ -42,6 +26,3 @@ export const createRequestedClass = (requested) => {
 	})
 }
 
-export const navigate = (path) => {
-	dispatch(push(path))
-}

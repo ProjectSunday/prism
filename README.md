@@ -2,8 +2,7 @@
 
 ### Dev Notes
 
-request not working *sigh*
-
+categories
 
 ### To Do's
 
@@ -27,6 +26,7 @@ request not working *sigh*
 - define and implement upcoming classes tiles on home page
 - create deploy build
 - ~~move store and dispatch to own module~~
+- solidify categories from front to back
 
 ### Installation
 
