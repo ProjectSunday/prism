@@ -26,3 +26,23 @@ export const createRequestedClass = (requested) => {
 	})
 }
 
+export const getCategories = () => {
+	PrismAPI(`
+		query {
+			categories {
+				id,
+				name,
+				imageName
+			}
+		}
+	`).then(result => {
+		// console.log('result: ', result)
+		dispatch({
+			type: 'SET_CATEGORIES',
+			categories: result.categories
+		})
+		// console.log('categories:', result.categories)
+	}, error => {
+
+	})
+}

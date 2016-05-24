@@ -1,4 +1,5 @@
-import RequestedClassesReducer from './requestedclassesreducer'
+import RequestedClassesReducer 	from './requestedclassesreducer'
+import CategoriesReducer 		from './categoriesreducer'
 
 export default (state = {}, action) => {
 	switch (action.type) {
@@ -8,6 +9,8 @@ export default (state = {}, action) => {
 			///.... so more things to new state
 			return state
 
+		case 'SET_CATEGORIES':
+			return CategoriesReducer(state,action)
 		case 'CREATE_REQUESTED_CLASS_SUCCESS':
 			return RequestedClassesReducer(state, action)
 		default:
