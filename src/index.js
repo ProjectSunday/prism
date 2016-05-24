@@ -6,24 +6,20 @@ import { Provider } 	from 'react-redux'
 import { store, history } from './store'
 import routes from './routes'
 
-import { fetchData, createRequestedClass } from './actions'
-
-
 ///////////////////////////////////////////////////////////////////
 // Third Party
 ///////////////////////////////////////////////////////////////////
 import 'react-bootstrap'
-// import 'bootstrap-sass/assets/stylesheets/_bootstrap.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './assets/bootswatch/flatly.min.css'
+import './static/bootswatch/flatly.min.css'
 
 
 ///////////////////////////////////////////////////////////////////
 // Others
 ///////////////////////////////////////////////////////////////////
 import './utils'
-import './assets/images/favicon.ico'
-import * as images from './assets/images'
+import './static/images/favicon.ico'
+import * as images from './static/images'
 
 
 ///////////////////////////////////////////////////////////////////
@@ -31,10 +27,6 @@ import * as images from './assets/images'
 ///////////////////////////////////////////////////////////////////
 window.IMAGES = images
 
-
-// fetchData()
-
-// createRequestedClass({ name: 'test my23.657'})
 
 ///////////////////////////////////////////////////////////////////
 // Mount
