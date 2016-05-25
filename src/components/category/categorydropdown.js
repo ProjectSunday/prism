@@ -23,7 +23,7 @@ export default class CategoryDropdown extends React.Component {
 
 		const { categories, onSelect } = this.props
 
-		let options = categories.map((c, i) => <option key={i} value={c.id}>{c.name}</option>)
+		let options = categories.map((c, i) => <option key={i} value={c._id}>{c.name}</option>)
 
 		let container = {
 			className: 'form-group'

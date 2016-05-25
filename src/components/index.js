@@ -20,4 +20,5 @@ export UpcomingTile from './upcoming/upcomingtile'
 
 export CategoryDropdown from './category/categorydropdown'
 
+export Notification from './notification'
 

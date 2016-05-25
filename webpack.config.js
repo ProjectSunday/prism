@@ -51,7 +51,7 @@ var config = {
             },
             
             { 
-                test: /\.(png|ico|svg)$/, 
+                test: /\.(png|ico|svg|gif)$/, 
                 loader: 'file-loader?name=[name].[ext]',
                 exclude: node_modules,
                 include: src

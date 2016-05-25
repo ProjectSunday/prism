@@ -1,20 +1,15 @@
 import React from 'react'
 
-import { Header, Testing } from '../components'
+import { Notification, Header, Testing } from '../components'
 
 class Root extends React.Component {
 	constructor(props) {
 		super(props)
 	}
 	render() {
-
-		let root = {
-			style: {
-				// background: '#ccc'
-			}
-		}
 		return (
-			<div {...root}>
+			<div>
+				<Notification />
 				<Header />
 				{this.props.children}
 				<Testing />

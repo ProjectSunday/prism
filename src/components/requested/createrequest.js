@@ -16,16 +16,12 @@ export default class CreateRequest extends React.Component {
 		this.render = this.render.bind(this)
 
 		this.state = {
-			name: null
+			name: null,
+			category: 0
 		}
 	}
 	
-
 	submitClick () {
-		// console.log('yoooo')
-
-		// var { name } = this.refs
-
 		createRequestedClass({
 			name: this.state.name,
 			category: this.state.category
@@ -35,19 +31,20 @@ export default class CreateRequest extends React.Component {
 	}
 
 	nameChanged (e) {
-		// console.log(e, value)
 		this.setState({
 			name: e.target.value
 		})
 	}
 
-	categorySelect () {
-
+	categorySelect (e) {
+		this.setState({
+			category: e.target.value
+		})
 	}
 
 	render() {
 
-		var additionalCategories = [{ _id: 0, name: '' }]
+		var additionalCategories = [{ _id: 0, name: 'Select a category' }]
 
 		return (
 			<Grid>
@@ -62,7 +59,7 @@ export default class CreateRequest extends React.Component {
 						</FormGroup>
 						<FormGroup>
 							<ControlLabel>Category:</ControlLabel>
-							<CategoryDropdown onChange={this.categorySelect} additionalCategories={additionalCategories}/>
+							<CategoryDropdown onSelect={this.categorySelect} additionalCategories={additionalCategories}/>
 						</FormGroup>
 						<Button className="pull-right" onClick={this.submitClick}>
 					  		Submit

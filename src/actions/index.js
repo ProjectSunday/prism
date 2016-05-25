@@ -4,6 +4,22 @@ import { push } from 'react-router-redux'
 import { dispatch } from '../store'
 import PrismAPI from './prismapi'
 
+export const testing1 = () => {
+	dispatch({
+		type: 'SHOW_NOTIFICATION',
+		notification: {
+			message: 'blah',
+			showSpinner: true
+		}
+	})
+}
+
+export const testing2 = () => {
+	dispatch({
+		type: 'HIDE_NOTIFICATION'
+	})
+}
+
 export const navigate = (path) => {
 	dispatch(push(path))
 }
@@ -11,18 +27,26 @@ export const navigate = (path) => {
 export const createRequestedClass = (requested) => {
 	PrismAPI(`
 		mutation {
-			createRequestedClass (name: "${requested.name}") {
+			createRequestedClass (name: "${requested.name}", category: "${requested.category}") {
 				_id,
-				name
+				name,
+				category {
+					_id,
+					name,
+					imageName
+				},
+				date,
+				location
 			}
 		}
 	`).then(result => {
+		console.log('createRequestedClass result:', result)
 		dispatch({
 			type: 'CREATE_REQUESTED_CLASS_SUCCESS',
 			requestedClass: result.createRequestedClass
 		})
 	}, error => {
-
+		console.log('createRequestedClass error:', error)
 	})
 }
 

@@ -2,6 +2,8 @@ import React from 'react'
 
 import { Link } from 'react-router'
 
+import { testing1, testing2 } from '../../actions'
+
 
 class Testing extends React.Component {
 	constructor(props) {
@@ -20,6 +22,8 @@ class Testing extends React.Component {
 				<Link to="/">Home</Link>
 				<span> | </span>
 				<Link to="/requested">Requested</Link>
+				<button onClick={() => testing1()}>Testing1</button>
+				<button onClick={() => testing2()}>Testing2</button>
 			</div>
 		)
 	}
