@@ -12,7 +12,7 @@ export const createRequestedClass = (requested) => {
 	PrismAPI(`
 		mutation {
 			createRequestedClass (name: "${requested.name}") {
-				id,
+				_id,
 				name
 			}
 		}
@@ -30,18 +30,43 @@ export const getCategories = () => {
 	PrismAPI(`
 		query {
 			categories {
-				id,
+				_id,
 				name,
 				imageName
 			}
 		}
 	`).then(result => {
-		// console.log('result: ', result)
+		// console.log('categoroes: ', result.categories)
 		dispatch({
 			type: 'SET_CATEGORIES',
 			categories: result.categories
 		})
-		// console.log('categories:', result.categories)
+	}, error => {
+
+	})
+}
+
+export const getRequestedClasses = () => {
+	PrismAPI(`
+		query {
+			requestedClasses {
+				_id,
+				name,
+				category {
+					_id,
+					name,
+					imageName
+				},
+				date,
+				location
+			}
+		}
+	`).then(result => {
+		// console.log('result: ', result)
+		dispatch({
+			type: 'SET_REQUESTED_CLASSES',
+			requestedClasses: result.requestedClasses
+		})
 	}, error => {
 
 	})

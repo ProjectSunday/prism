@@ -50,7 +50,7 @@ export default class TopUpcoming extends React.Component {
 
 		let categoryDropdown = {
 			additionalCategories: [ 
-				{ id: 0, name: 'All Categories'}
+				{ _id: 0, name: 'All Categories'}
 			],
 			onSelect: this.onCategorySelect
 		}
@@ -64,7 +64,7 @@ export default class TopUpcoming extends React.Component {
 					<div className={title}>
 	            		<h4><Link to="/about">Upcoming Classes</Link></h4>
 					</div>
-					<div className={category}>
+					<div className="col-md-2 pull-right">
 						<CategoryDropdown {...categoryDropdown}/>
 					</div>
 				</div>

@@ -1,5 +1,3 @@
-
-
 export default (state, action) => {
 	switch (action.type) {
 		case 'CREATE_REQUESTED_CLASS_SUCCESS':
@@ -9,6 +7,10 @@ export default (state, action) => {
 			rc.push(action.requestedClass)
 			state.requestedClasses = rc
 			return state
+		case 'SET_REQUESTED_CLASSES':
+			var s = { ...state }
+			s.requestedClasses = action.requestedClasses
+			return s
 		default:
 			return state
 	}

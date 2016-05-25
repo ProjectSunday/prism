@@ -2,7 +2,7 @@
 
 ### Dev Notes
 
-categories
+working on submitting request with categories
 
 ### To Do's
 

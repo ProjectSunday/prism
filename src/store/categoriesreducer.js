@@ -1,10 +1,12 @@
 export default (state, action) => {
 	switch (action.type) {
 		case 'SET_CATEGORIES':
-			var state = { ...state }
-			state.categories = action.categories
-			console.log('state:', state)
-			return state
+			var s = { ...state }
+			s.categories = action.categories
+			// s.requestedClass = state.requestedClasses.slice(0)
+			// s.upcomingClasses = state.upcomingClasses.slice(0)
+			// console.log('state:', s)
+			return s
 		default:
 			return state
 	}
