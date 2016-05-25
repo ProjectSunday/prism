@@ -6,7 +6,8 @@ import { connect }  from 'react-redux'
 import './index.sass'
 
 const mapStateToProps = (state, ownProps) => {
-    return { ...state.main.notification }
+    console.log('huh', ownProps === state.main.notification)
+    return state.main.notification
 }
 
 @connect(mapStateToProps)
@@ -22,7 +23,7 @@ export default class Notification extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        // console.log('componentWillReceiveProps', nextProps)
+        console.log('componentWillReceiveProps', nextProps)
 
         var { notification } = this.refs
 
@@ -48,11 +49,24 @@ export default class Notification extends React.Component {
     }
 
     render() {
-        // console.log('render', this.props)
-        var { message, showSpinner } = this.props
+        console.log('notification render', this.props)
+        var { message, type } = this.props
         var { display, opacity, transition } = this.state
 
-        var spinner = showSpinner ? <img className="pull-left" src={IMAGES.spinner} /> : null
+        switch (type) {
+            case 'success':
+                var background = '#8AFF8B'
+                var iconImage = IMAGES.checkmark
+                break
+            case 'progress':
+            default:
+                var background = '#FFF174'
+                var iconImage = IMAGES.spinner
+                break
+        }
+        var innerStyle = {
+            background: background
+        }
 
         var style = {
             display: display,
@@ -62,8 +76,8 @@ export default class Notification extends React.Component {
 
         return (
             <div id="notification" style={style} ref="notification">
-                <div className="inner row">
-                    {spinner}
+                <div className="inner row" style={innerStyle}>
+                    <img className="pull-left" src={iconImage} />
                     {message}
                 </div>
             </div>

@@ -8,15 +8,19 @@ export const testing1 = () => {
 	dispatch({
 		type: 'SHOW_NOTIFICATION',
 		notification: {
-			message: 'blah',
-			showSpinner: true
+			message: 'stuff is starting',
+			type: 'progress'
 		}
 	})
 }
 
 export const testing2 = () => {
 	dispatch({
-		type: 'HIDE_NOTIFICATION'
+		type: 'HIDE_NOTIFICATION',
+		notification: {
+			message: 'stuff is done',
+			type: 'success'
+		}
 	})
 }
 
@@ -24,7 +28,19 @@ export const navigate = (path) => {
 	dispatch(push(path))
 }
 
+export const showNotification = (notification) => {
+	dispatch({ type: 'SHOW_NOTIFICATION', notification })
+}
+
+export const hideNotification = (notification) => {
+	dispatch({ type: 'HIDE_NOTIFICATION', notification })
+}
+
 export const createRequestedClass = (requested) => {
+	showNotification({ 
+		message: 'Creating new request...',
+		type: 'progress'
+	})
 	PrismAPI(`
 		mutation {
 			createRequestedClass (name: "${requested.name}", category: "${requested.category}") {
@@ -44,6 +60,10 @@ export const createRequestedClass = (requested) => {
 		dispatch({
 			type: 'CREATE_REQUESTED_CLASS_SUCCESS',
 			requestedClass: result.createRequestedClass
+		})
+		hideNotification({
+			message: 'New request created',
+			type: 'success'
 		})
 	}, error => {
 		console.log('createRequestedClass error:', error)
@@ -95,3 +115,4 @@ export const getRequestedClasses = () => {
 
 	})
 }
+

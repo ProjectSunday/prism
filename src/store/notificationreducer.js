@@ -6,7 +6,7 @@ export default (state, action) => {
 			return s
 		case 'HIDE_NOTIFICATION':
 			var s = { ...state }
-			s.notification = { ...s.notification, show: false }
+			s.notification = { ...action.notification, show: false }
 			return s
 		default:
 			return state
