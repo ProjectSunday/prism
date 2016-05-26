@@ -10,8 +10,8 @@ export default class SearchControl extends React.Component {
     render() {
         return (
             <div className="searchcontrol">
-                <FormControl className="searchbox" type="text" placeholder="Search" />
-                <Button className="searchbutton">
+                <FormControl className="searchcontrol-box" type="text" placeholder="Search" />
+                <Button className="searchcontrol-button">
                     <span className="glyphicon glyphicon-search"></span>
                 </Button>
             </div>

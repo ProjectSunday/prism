@@ -12,11 +12,11 @@ export default class NavBar extends React.Component {
     }
     render() {
         return (
-            <Navbar className="prism-navbar" >
+            <Navbar className="prismnavbar" >
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <Link className="home" to="/">
-                            <img className="logo" src={IMAGES.logo} alt="Local Learners Logo"/>
+                        <Link className="prismnavbar-home" to="/">
+                            <img className="prismnavbar-logo" src={IMAGES.logo} alt="Local Learners Logo"/>
                         </Link>
                     </Navbar.Brand>
                     <Navbar.Toggle />

@@ -20,7 +20,8 @@ export Requested from './requested/requested'
 
 export Testing from './testing/testing'
 
-export TopUpcoming from './upcoming/topupcoming'
+//export Upcoming from './upcoming/upcoming'
+	export TopUpcoming from './upcoming/topupcoming'
 	export UpcomingTile from './upcoming/upcomingtile'
 
 
