@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
-import { Root, Home, Requested, About } from './components'
+import { Root, Home, Requested, About } from './components/components'
 
-import { CreateRequest } from './components'
+import { CreateRequest } from './components/components'
 
 export default (
 	<Route path="/" component={Root}>

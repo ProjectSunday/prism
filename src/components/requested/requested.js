@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { RequestedTiles, RequestedActions } from '../../components'
+import { RequestedTiles, RequestedActions } from '../components'
 
 export default class Requested extends React.Component {
 	render() {

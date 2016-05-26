@@ -1,6 +1,6 @@
 export Root from './root'
 
-export About from './about'
+export About from './about/about'
 
 export CategoryDropdown from './category/categorydropdown'
 
@@ -8,11 +8,11 @@ export Header from './header/header'
 	export NavBar from './header/navbar'
 	export SearchControl from './header/searchcontrol'
 
-export Home from './home'
+export Home from './home/home'
 
-export Notification from './notification'
+export Notification from './notification/notification'
 
-export Requested from './requested'
+export Requested from './requested/requested'
 	export RequestedTile from './requested/requestedtile'
 	export RequestedTiles from './requested/requestedtiles'
 	export RequestedActions from './requested/requestedactions'

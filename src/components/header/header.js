@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { Grid, Col, Row } from 'react-bootstrap'
 
-import { SearchControl, UserProfile, NavBar } from '../../components'
+import { SearchControl, UserProfile, NavBar } from '../components'
 import { navigate } from '../../actions'
 
 import './header.sass'

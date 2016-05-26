@@ -3,7 +3,7 @@ import { connect }  from 'react-redux'
 
 // import { navigate } from '../../actions'
 
-import './index.sass'
+import './notification.sass'
 
 const mapStateToProps = (state, ownProps) => {
     console.log('huh', ownProps === state.main.notification)

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Notification, Header, Testing } from '../components'
+import { Notification, Header, Testing } from './components'
 
 class Root extends React.Component {
 	constructor(props) {

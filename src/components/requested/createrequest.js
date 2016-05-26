@@ -2,7 +2,7 @@ import React from 'react'
 import Router from 'react-router'
 import { Grid, Row, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap'
 
-import { CategoryDropdown } 	from '../../components'
+import { CategoryDropdown } 	from '../components'
 import { createRequestedClass, navigate } from '../../actions'
 
 export default class CreateRequest extends React.Component {

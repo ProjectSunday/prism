@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { Row, Col, Grid } from 'react-bootstrap'
 
-import { RequestedTile } from '../../components'
+import { RequestedTile } from '../components'
 
 const mapStateToProps = (state, ownProps) => {
 	return {
