@@ -2,7 +2,7 @@
 
 ### Dev Notes
 
-working on submitting request with categories
+authentication
 
 ### To Do's
 
@@ -26,7 +26,7 @@ working on submitting request with categories
 - define and implement upcoming classes tiles on home page
 - create deploy build
 - ~~move store and dispatch to own module~~
-- solidify categories from front to back
+- ~~solidify categories from front to back~~
 
 ### Installation
 

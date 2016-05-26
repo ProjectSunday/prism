@@ -1,0 +1,30 @@
+import React from 'react'
+import { Link } from 'react-router'
+import { Grid, Col, Row } from 'react-bootstrap'
+
+import { SearchControl, UserProfile, NavBar } from '../../components'
+import { navigate } from '../../actions'
+
+import './header.sass'
+
+export default class Header extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+    render() {
+        return (
+            <Grid id="header" fluid>
+                <Row>
+                    <Col className="nav-container" lg={6} md={6} sm={6} xs={12} >
+                        <NavBar />
+                    </Col>
+                    <Col className="search-user-container" lg={6} md={6} sm={6} xs={12}>
+                        <SearchControl />
+                        <UserProfile />
+                    </Col>
+                </Row>
+            </Grid>
+        )
+    }
+}
+

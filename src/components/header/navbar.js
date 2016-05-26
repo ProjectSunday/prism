@@ -1,20 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router'
+import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
 
-import { Button, Nav, Navbar, NavItem, NavDropdown, DropdownButton, MenuItem } from 'react-bootstrap'
-
-import { SearchControl } from '../../components'
 import { navigate } from '../../actions'
 
-import './index.sass'
+import './navbar.sass'
 
-export default class Header extends React.Component {
+export default class NavBar extends React.Component {
     constructor(props) {
         super(props)
     }
     render() {
         return (
-            <Navbar id="header" fluid>
+            <Navbar className="prism-navbar" >
                 <Navbar.Header>
                     <Navbar.Brand>
                         <Link className="home" to="/">
@@ -31,11 +29,6 @@ export default class Header extends React.Component {
                         </NavDropdown>
                         <NavItem onClick={() => navigate('/about')}>Learn</NavItem>
                         <NavItem onClick={() => navigate('/about')}>Teach</NavItem>
-                    </Nav>
-                    <Nav pullRight>
-                        <NavItem className="search-box">
-                            <SearchControl />
-                        </NavItem>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
