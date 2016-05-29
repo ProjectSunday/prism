@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
 
-import { navigate } from '../../actions'
+import { navigate } from '../../actions/actions'
 
 import './navbar.sass'
 

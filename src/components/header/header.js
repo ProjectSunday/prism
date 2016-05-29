@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { Grid, Col, Row } from 'react-bootstrap'
 
 import { SearchControl, UserProfile, NavBar } from '../components'
-import { navigate } from '../../actions'
+import { navigate } from '../../actions/actions'
 
 import './header.sass'
 

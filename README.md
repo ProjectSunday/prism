@@ -3,6 +3,7 @@
 ### Dev Notes
 
 authentication
+working on this stupid shit
 
 ### To Do's
 

@@ -5,7 +5,7 @@ import { Provider } 	from 'react-redux'
 
 import { store, history } 	from './store'
 import routes 				from './routes'
-import { getCategories, getRequestedClasses }	from './actions'
+import { getCategories, getRequestedClasses }	from './actions/actions'
 
 ///////////////////////////////////////////////////////////////////
 // Third Party

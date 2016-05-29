@@ -2,7 +2,10 @@ import request from 'superagent'
 import { push } from 'react-router-redux'
 
 import { dispatch } from '../store'
-import PrismAPI from './prismapi'
+import prismApi from './prismapi'
+
+export * as MeetupAuthentication from './meetupauthentication'
+
 
 export const testing1 = () => {
 	dispatch({
@@ -37,11 +40,11 @@ export const hideNotification = (notification) => {
 }
 
 export const createRequestedClass = (requested) => {
-	showNotification({ 
+	showNotification({
 		message: 'Creating new request...',
 		type: 'progress'
 	})
-	PrismAPI(`
+	prismApi(`
 		mutation {
 			createRequestedClass (name: "${requested.name}", category: "${requested.category}") {
 				_id,
@@ -55,7 +58,7 @@ export const createRequestedClass = (requested) => {
 				location
 			}
 		}
-	`).then(result => {
+	`, (result) => {
 		console.log('createRequestedClass result:', result)
 		dispatch({
 			type: 'CREATE_REQUESTED_CLASS_SUCCESS',
@@ -65,13 +68,11 @@ export const createRequestedClass = (requested) => {
 			message: 'New request created',
 			type: 'success'
 		})
-	}, error => {
-		console.log('createRequestedClass error:', error)
 	})
 }
 
 export const getCategories = () => {
-	PrismAPI(`
+	prismApi(`
 		query {
 			categories {
 				_id,
@@ -79,19 +80,17 @@ export const getCategories = () => {
 				imageName
 			}
 		}
-	`).then(result => {
+	`, (result) => {
 		// console.log('categoroes: ', result.categories)
 		dispatch({
 			type: 'SET_CATEGORIES',
 			categories: result.categories
 		})
-	}, error => {
-
 	})
 }
 
 export const getRequestedClasses = () => {
-	PrismAPI(`
+	prismApi(`
 		query {
 			requestedClasses {
 				_id,
@@ -105,14 +104,12 @@ export const getRequestedClasses = () => {
 				location
 			}
 		}
-	`).then(result => {
+	`, (result) => {
 		// console.log('result: ', result)
 		dispatch({
 			type: 'SET_REQUESTED_CLASSES',
 			requestedClasses: result.requestedClasses
 		})
-	}, error => {
-
 	})
 }
 

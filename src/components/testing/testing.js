@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Link } from 'react-router'
 
-import { testing1, testing2 } from '../../actions'
+import { testing1, testing2 } from '../../actions/actions'
 
 
 class Testing extends React.Component {

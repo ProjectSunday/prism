@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { navigate } from '../../actions'
+import { navigate, MeetupAuthentication } from '../../actions/actions'
 
+console.log('asdfsf', MeetupAuthentication)
 // import { connect } from 'react-redux'
 
 // const mapStateToProps = (state, ownProps) => {
@@ -45,7 +46,9 @@ export default class UserProfile extends React.Component {
 			)
 		} else {
 			var node = (
-				<Button className="userprofile" bsStyle="success">Login</Button>
+				<Button className="userprofile"
+					bsStyle="success"
+					onClick={MeetupAuthentication.start}>Login</Button>
 			)
 		}
 

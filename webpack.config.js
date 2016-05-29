@@ -12,14 +12,6 @@ var publicPath      = '/'
     
 
 var config = {
-    devServer: {
-        historyApiFallback: { index: publicPath },      //must match publicPath for HTML5 history to work 
-                                                        //https://webpack.github.io/docs/webpack-dev-server.html#the-historyapifallback-option
-        port: port,
-        stats: { colors: true, chunks: false },
-        watch: true
-    },
-
 
     entry: {
         app: [
@@ -29,6 +21,16 @@ var config = {
             './src/index.js'
         ]
     },
+
+    devServer: {
+        historyApiFallback: { index: publicPath },      //must match publicPath for HTML5 history to work 
+                                                        //https://webpack.github.io/docs/webpack-dev-server.html#the-historyapifallback-option
+        port: port,
+        stats: { colors: true, chunks: false },
+        watch: true
+    },
+
+    // devtool: 'eval',  //i don't know what this does
 
     module: {
         loaders: [
