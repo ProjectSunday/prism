@@ -7,8 +7,10 @@ working on this stupid shit
 
 i hate you authentication
 
-https://secure.meetup.com/oauth2/authorize?client_id=sgeirri963sprv1a1vh3r8cp3o&response_type=token&redirect_uri=http://localhost:7000/authentication/callback
+https://secure.meetup.com/oauth2/authorize?client_id=sgeirri963sprv1a1vh3r8cp3o&response_type=token&redirect_uri=http://www.locallearners.net/authentication
 
+
+http://www.locallearners.net/authentication#access_token=eec9574d580d8c58ba6a6e9bb93043b7&token_type=bearer&expires_in=3600
 
 
 ### To Do's

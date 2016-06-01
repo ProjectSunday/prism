@@ -8,7 +8,7 @@ var src             = path.resolve(__dirname, 'src')
 var dist            = path.resolve(__dirname, 'dist')
 
 var publicPath      = '/'
-    
+
 
 var config = {
     entry: {
@@ -21,8 +21,8 @@ var config = {
     module: {
         loaders: [
 
-            { 
-                test: /\.js$/, 
+            {
+                test: /\.js$/,
                 loaders: [ 'react-hot', 'babel-loader' ],
                 exclude: node_modules,
                 include: src
@@ -33,19 +33,19 @@ var config = {
                 loaders: [ 'style', 'css', 'sass' ]
             },
 
-            { 
-                test: /\.css$/, 
+            {
+                test: /\.css$/,
                 loaders: [ 'style', 'css' ]
             },
-            
-            { 
-                test: /\.(png|ico|svg)$/, 
+
+            {
+                test: /\.(png|ico|svg)$/,
                 loader: 'file-loader?name=[name].[ext]',
                 exclude: node_modules,
                 include: src
             },
-            { 
-                test: /\.(woff|woff2|eot|ttf|svg)$/, 
+            {
+                test: /\.(woff|woff2|eot|ttf|svg)$/,
                 loader: 'url-loader?limit=100000'
             }
         ]
