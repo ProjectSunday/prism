@@ -20,6 +20,8 @@ var config = {
     },
 
     // devServer: {
+
+
     //     historyApiFallback: { index: publicPath },      //must match publicPath for HTML5 history to work
     //                                                     //https://webpack.github.io/docs/webpack-dev-server.html#the-historyapifallback-option
     //     // https: true,
