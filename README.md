@@ -5,6 +5,12 @@
 authentication
 working on this stupid shit
 
+i hate you authentication
+
+https://secure.meetup.com/oauth2/authorize?client_id=sgeirri963sprv1a1vh3r8cp3o&response_type=token&redirect_uri=http://localhost:7000/authentication/callback
+
+
+
 ### To Do's
 
 - ~~Chew Bubblegum~~
