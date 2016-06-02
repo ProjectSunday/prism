@@ -7,8 +7,7 @@ var src             = path.resolve(__dirname, 'src')
 
 export default {
 
-    // devtool: 'cheap-module-eval-source-map',
-    devtool: 'eval-source-map',
+    devtool: 'eval-source-map',         //probably should be hook up to env per developer's taste
 
     entry: {
         app: [
