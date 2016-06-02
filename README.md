@@ -36,6 +36,7 @@ http://www.locallearners.net/authentication#access_token=eec9574d580d8c58ba6a6e9
 - create deploy build
 - ~~move store and dispatch to own module~~
 - ~~solidify categories from front to back~~
+- build server.prod.js and webpack.config.prod.js
 
 ### Installation
 

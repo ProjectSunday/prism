@@ -2,10 +2,8 @@
   "name": "prism",
   "version": "0.0.1",
   "description": "Local Learners",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "webpack && node server.js",
     "start": "node index.js"
   },
   "repository": {

@@ -4,10 +4,6 @@ var webpack             = require('webpack')
 
 var node_modules    = path.resolve(__dirname, 'node_modules')
 var src             = path.resolve(__dirname, 'src')
-var dist            = path.resolve(__dirname, 'dist')
-
-var publicPath      = '/'
-
 
 var config = {
 
@@ -66,7 +62,7 @@ var config = {
     },
 
     output: {
-        path: dist,
+        path: '/',
         publicPath: '/',
         filename: 'bundle.js'
     },
@@ -81,7 +77,7 @@ var config = {
 
         new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
-        // new webpack.NoErrorsPlugin(),
+        new webpack.NoErrorsPlugin(),
 
 
         new HtmlWebpackPlugin({
