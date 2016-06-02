@@ -1,11 +1,11 @@
-var HtmlWebpackPlugin   = require('html-webpack-plugin')
-var path                = require('path')
-var webpack             = require('webpack')
+import HtmlWebpackPlugin   from 'html-webpack-plugin'
+import path                from 'path'
+import webpack             from 'webpack'
 
 var node_modules    = path.resolve(__dirname, 'node_modules')
 var src             = path.resolve(__dirname, 'src')
 
-var config = {
+export default {
 
     entry: {
         app: [
@@ -15,22 +15,8 @@ var config = {
         ]
     },
 
-    // devServer: {
-
-
-    //     historyApiFallback: { index: publicPath },      //must match publicPath for HTML5 history to work
-    //                                                     //https://webpack.github.io/docs/webpack-dev-server.html#the-historyapifallback-option
-    //     // https: true,
-    //     port: port,
-    //     stats: { colors: true, chunks: false },
-    //     watch: true
-    // },
-
-    // devtool: 'eval',  //i don't know what this does
-
     module: {
         loaders: [
-
             {
                 test: /\.js$/,
                 loaders: [ 'react-hot', 'babel-loader' ],
@@ -77,7 +63,7 @@ var config = {
 
         new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.NoErrorsPlugin(),
+        new webpack.NoErrorsPlugin(),                           //to see node errors on front end
 
 
         new HtmlWebpackPlugin({
@@ -90,4 +76,3 @@ var config = {
 }
 
 
-module.exports = config
