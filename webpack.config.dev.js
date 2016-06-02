@@ -7,6 +7,9 @@ var src             = path.resolve(__dirname, 'src')
 
 export default {
 
+    // devtool: 'cheap-module-eval-source-map',
+    devtool: 'eval-source-map',
+
     entry: {
         app: [
             'babel-polyfill',
