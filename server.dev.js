@@ -45,5 +45,3 @@ app.listen(port, () => {
 	console.log('===================================================================================')
 })
 
-
-    // "start": "webpack-dev-server --progress --inline --hot",

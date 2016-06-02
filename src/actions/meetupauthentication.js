@@ -22,9 +22,12 @@ const createPopup = () => {
 	// }, 5000);
 
 
-	setTimeout(() => {
-		console.log('blah', popup.location.href)
-	}, 5000)
+	setInterval(() => {
+		console.log('trying....')
+		try {
+			console.log('blah', popup.location.href)
+		} catch (err) {}
+	}, 1000)
 
 }
 /* istanbul ignore next */
