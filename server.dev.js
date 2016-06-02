@@ -11,8 +11,8 @@ var compiler = webpack(config)
 
 var devMiddleware = webpackDevMiddleware(compiler, {
 	// hot: true,
-    publicPath: config.output.publicPath,
-    stats: { chunks: false, colors: true }
+	publicPath: config.output.publicPath,
+	stats: { chunks: false, colors: true }
 })
 
 app.use(devMiddleware)
@@ -26,22 +26,24 @@ app.get('/authentication', function (req, res) {
 
 //because html5 history is hard
 app.use((req, res, next) => {
-  var paths = req.url.split('/')
-  var file = paths[paths.length - 1]
-  if (['bundle.js', 'index.html'].indexOf(file) !== -1) {
-    res.end(devMiddleware.fileSystem.readFileSync(path.join(config.output.path, file)))
-  } else if (file.indexOf('.') === -1) {
-    res.end(devMiddleware.fileSystem.readFileSync(path.join(config.output.path, 'index.html')))
-  } else {
-    next()
-  }
+	var paths = req.url.split('/')
+	var file = paths[paths.length - 1]
+	if (['bundle.js', 'index.html'].indexOf(file) !== -1) {
+		res.end(devMiddleware.fileSystem.readFileSync(path.join(config.output.path, file)))
+	} else if (file.indexOf('.') === -1) {
+		res.end(devMiddleware.fileSystem.readFileSync(path.join(config.output.path, 'index.html')))
+	} else {
+		next()
+	}
 })
 
 
 var port = process.env.PORT || 7000
 app.listen(port, () => {
 	console.log('===================================================================================')
-    console.log(`Prism Application Server Online. Port: ${port}. Environment: ${process.env.NODE_ENV}`)
+	console.log(`Prism Application Server Online. Port: ${port}. Environment: ${process.env.NODE_ENV}`)
 	console.log('===================================================================================')
+    console.log('webpack building...')
 })
+
 

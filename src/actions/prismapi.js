@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { dispatch } from '../store'
+import { dispatch } from '~/store/store'
 
 const PRISMAPI_URL = 'http://localhost:9000/graphql'
 

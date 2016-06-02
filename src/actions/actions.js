@@ -1,7 +1,7 @@
 import request from 'superagent'
 import { push } from 'react-router-redux'
 
-import { dispatch } from '../store'
+import { dispatch } from '~/store/store'
 import prismApi from './prismapi'
 
 export * as MeetupAuthentication from './meetupauthentication'

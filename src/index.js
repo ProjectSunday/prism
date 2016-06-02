@@ -3,7 +3,7 @@ import { render } 		from 'react-dom'
 import { Router } 		from 'react-router'
 import { Provider } 	from 'react-redux'
 
-import { store, history } 	from './store'
+import { store, history } 	from '~/store/store'
 import routes 				from './routes'
 import { getCategories, getRequestedClasses }	from './actions/actions'
 
