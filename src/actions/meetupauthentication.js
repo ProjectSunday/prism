@@ -26,6 +26,10 @@ export const start = () => {   //rename authenticate
 			getProfile(token)
 		}
 
+		if (popup.closed) {
+			clearInterval(intervalId)
+		}
+
 	}, 10)
 
 }

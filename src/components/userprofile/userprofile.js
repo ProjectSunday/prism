@@ -2,7 +2,6 @@ import React from 'react'
 
 import { navigate, MeetupAuthentication } from '../../actions/actions'
 
-console.log('asdfsf', MeetupAuthentication)
 // import { connect } from 'react-redux'
 
 // const mapStateToProps = (state, ownProps) => {

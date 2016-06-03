@@ -6,7 +6,7 @@ import { connect }  from 'react-redux'
 import './notification.sass'
 
 const mapStateToProps = (state, ownProps) => {
-    console.log('huh', ownProps === state.main.notification)
+    // console.log('huh', ownProps === state.main.notification)
     return state.main.notification
 }
 
@@ -23,7 +23,7 @@ export default class Notification extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('componentWillReceiveProps', nextProps)
+        // console.log('componentWillReceiveProps', nextProps)
 
         var { notification } = this.refs
 
@@ -49,7 +49,7 @@ export default class Notification extends React.Component {
     }
 
     render() {
-        console.log('notification render', this.props)
+        // console.log('notification render', this.props)
         var { message, type } = this.props
         var { display, opacity, transition } = this.state
 
