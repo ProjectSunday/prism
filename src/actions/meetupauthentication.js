@@ -6,15 +6,14 @@ var intervalId
 
 export const start = () => {   //rename authenticate
 
+	dispatch({ type: 'AUTH_LOGIN_START' })
+
 	var popup = createPopup();
 
 	intervalId = setInterval(() => {
-		console.log('trying...')
 		var token
 		try {
-
 			var href = popup.location.href
-			// console.log('blah', popup.location.href)
 			token = href.split('#')[1].split('&')[0].split('=')[1]
 
 		} catch (err) {}
@@ -36,17 +35,23 @@ export const start = () => {   //rename authenticate
 
 const getProfile = (token) => {
 	prismApi(`
-		query {
-			user (token: "${token}") {
+		mutation {
+			user: authenticateUser (token: "${token}") {
 				_id,
 				meetup {
 					id,
-					name
+					name,
+					photo {
+						thumb_link
+					}
 				}
 			}
 		}
-	`, (user) => {
-		console.log('user', user)
+	`, (r) => {
+		dispatch({
+			type: 'AUTH_LOGIN_SUCCESS',
+			user: r.user
+		})
 	})
 }
 

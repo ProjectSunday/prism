@@ -1,40 +1,37 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { navigate, MeetupAuthentication } from '../../actions/actions'
 
-// import { connect } from 'react-redux'
 
-// const mapStateToProps = (state, ownProps) => {
-// 	// let categories = state.main.categories.
-// 	// if (ownProps.categories) {
-// 	// 	categories.unshift(...ownProps.categories)
-// 	// }
-
-// 	let additionalCategories = ownProps.additionalCategories || []
-
-// 	return { categories: [ ...additionalCategories, ...state.main.categories ] }
-// }
+const mapStateToProps = (state, ownProps) => {
+	return { ...state.main.authentication }
+}
 
 
 import { Button, NavDropdown, DropdownButton, MenuItem } from 'react-bootstrap'
 
 import './userprofile.sass'
 
-// @connect(mapStateToProps)
+@connect(mapStateToProps)
 export default class UserProfile extends React.Component {
 
-// 	constructor(props) {
-// 		super(props)
-// 	}
-
 	render() {
+		var { logingIn, user } = this.props
 
-		var loggedIn = false
 
-		if (loggedIn) {
-			var title = <img src="http://placehold.it/150x150" />
+
+		var loginButtonStyle = {
+			opacity: logingIn ? 0.5 : 1
+		}
+
+		if (user) {
+			var p = {
+				backgroundImage: `url("${user.meetup.photo.thumb_link}")`
+			}
+			var title = <div className="profileimage" style={p}/>
 			var node = (
-				<div className="userprofile">
+				<div className="userprofile loggedin">
 					<DropdownButton bsStyle="default" title={title} id="userprofile-dropdown" pullRight>
 						<MenuItem onClick={() => navigate('/about')}>View Profile</MenuItem>
 						<MenuItem onClick={() => navigate('/about')}>Account Settings</MenuItem>
@@ -45,9 +42,17 @@ export default class UserProfile extends React.Component {
 			)
 		} else {
 			var node = (
-				<Button className="userprofile"
-					bsStyle="success"
-					onClick={MeetupAuthentication.start}>Login</Button>
+				<div className="userprofile loggedout">
+					<img src={IMAGES.spinner}
+						style={{ display: logingIn ? 'block' : 'none' }}
+					/>
+					<Button
+						bsStyle="success"
+						onClick={MeetupAuthentication.start}
+						style={loginButtonStyle}>
+						Login
+					</Button>
+				</div>
 			)
 		}
 

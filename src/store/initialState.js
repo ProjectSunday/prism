@@ -1,5 +1,6 @@
 export default {
 	main: {
+		authentication: {},
 		categories: [],
 		requestedClasses: [],
 		upcomingClasses: [
@@ -13,10 +14,5 @@ export default {
 			{ id: 107, name: 'class107', categoryId: 1007, date: 'January 1, 1997', location: 'Downtown' }
 		],
 		notification: {}
-	// 	notification: {
-	// 		show: false,
-	// 		message: 'Creating request...',
-	// 		showSpinner: true
-	// 	}
 	}
 }
