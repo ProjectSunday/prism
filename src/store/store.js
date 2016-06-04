@@ -2,13 +2,13 @@ import { applyMiddleware, combineReducers, compose, createStore } 	from 'redux'
 import { routerReducer, routerMiddleware, syncHistoryWithStore } 	from 'react-router-redux'
 import { browserHistory } 											from 'react-router'
 
-import main 			from './mainReducer'
+import app 			from './appReducer'
 import initialState 	from './initialState'
 
 var Middleware = routerMiddleware(browserHistory)
 
 var Reducers = combineReducers({
-	main,
+	app,
 	routing: routerReducer
 })
 

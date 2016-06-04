@@ -4,7 +4,7 @@ import prismApi from '~/actions/prismapi'
 
 var intervalId
 
-export const start = () => {   //rename authenticate
+export const start = () => {
 
 	dispatch({ type: 'AUTH_LOGIN_START' })
 

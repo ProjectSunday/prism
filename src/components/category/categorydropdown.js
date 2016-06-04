@@ -2,14 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state, ownProps) => {
-	// let categories = state.main.categories.
+	// let categories = state.app.categories.
 	// if (ownProps.categories) {
 	// 	categories.unshift(...ownProps.categories)
 	// }
 
 	let additionalCategories = ownProps.additionalCategories || []
 
-	return { categories: [ ...additionalCategories, ...state.main.categories ] }
+	return { categories: [ ...additionalCategories, ...state.app.categories ] }
 }
 
 @connect(mapStateToProps)

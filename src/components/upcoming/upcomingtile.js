@@ -7,9 +7,9 @@ import { Grid, Col, Row, Image, Panel, Glyphicon, Badge } from 'react-bootstrap'
 import './upcomingtile.sass'
 
 const mapStateToProps = (state, ownProps) => {
-	// var category = state.main.categories.fbi(ownProps.categoryId) || {}
+	// var category = state.app.categories.fbi(ownProps.categoryId) || {}
 	return {
-		category: state.main.categories.fbi(ownProps.categoryId) || {}
+		category: state.app.categories.fbi(ownProps.categoryId) || {}
 	}
 }
 

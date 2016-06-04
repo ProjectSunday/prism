@@ -1,5 +1,5 @@
 export default {
-	main: {
+	app: {
 		authentication: {},
 		categories: [],
 		requestedClasses: [],

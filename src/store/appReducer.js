@@ -21,10 +21,11 @@ export default (state = {}, action) => {
 
 		case 'SET_CATEGORIES':
 			return CategoriesReducer(state, action)
-			
+
 		case 'CREATE_REQUESTED_CLASS_SUCCESS':
 		case 'SET_REQUESTED_CLASSES':
 			return RequestedClassesReducer(state, action)
+
 		default:
 			return state
 	}

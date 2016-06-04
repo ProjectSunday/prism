@@ -7,7 +7,7 @@ import { navigate, MeetupAuthentication } from '../../actions/actions'
 import './userprofile.sass'
 
 const mapStateToProps = (state, ownProps) => {
-	return { ...state.main.authentication }
+	return { ...state.app.authentication }
 }
 
 @connect(mapStateToProps)

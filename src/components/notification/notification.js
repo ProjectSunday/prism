@@ -6,8 +6,8 @@ import { connect }  from 'react-redux'
 import './notification.sass'
 
 const mapStateToProps = (state, ownProps) => {
-    // console.log('huh', ownProps === state.main.notification)
-    return state.main.notification
+    // console.log('huh', ownProps === state.app.notification)
+    return state.app.notification
 }
 
 @connect(mapStateToProps)

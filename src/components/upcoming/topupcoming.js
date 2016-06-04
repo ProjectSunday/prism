@@ -8,7 +8,7 @@ import { CategoryDropdown, UpcomingTile } from '../components'
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		upcomingClasses: state.main.upcomingClasses
+		upcomingClasses: state.app.upcomingClasses
 	}
 }
 
