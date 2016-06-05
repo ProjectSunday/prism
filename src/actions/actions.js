@@ -6,7 +6,6 @@ import prismApi from './prismapi'
 
 export * as MeetupAuthentication from './meetupauthentication'
 
-
 export const testing1 = () => {
 	dispatch({
 		type: 'SHOW_NOTIFICATION',

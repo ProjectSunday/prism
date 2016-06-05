@@ -10,9 +10,8 @@ import { getCategories, getRequestedClasses }	from './actions/actions'
 ///////////////////////////////////////////////////////////////////
 // Third Party
 ///////////////////////////////////////////////////////////////////
-import 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './static/bootswatch/flatly.min.css'
+// import 'react-bootstrap'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 ///////////////////////////////////////////////////////////////////
