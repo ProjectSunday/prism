@@ -22,7 +22,9 @@ http://www.locallearners.net/authentication#access_token=eec9574d580d8c58ba6a6e9
 - ~~Put in react-router-redux~~
 - ~~Put in hot loading~~
 - ~~Experiment with redux devtools~~
-- Build top banner
+- Components
+	- Top Banner ??  is this needed?
+	- Footer
 - ~~Mock categories~~
 - Build requested
 - Build upcoming
@@ -37,7 +39,7 @@ http://www.locallearners.net/authentication#access_token=eec9574d580d8c58ba6a6e9
 - ~~move store and dispatch to own module~~
 - ~~solidify categories from front to back~~
 - build server.prod.js and webpack.config.prod.js
-- fix bootswatch css issue that makes it load slowly
+- ~~fix bootswatch css issue that makes it load slowly~~
 
 ### Installation
 

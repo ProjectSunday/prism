@@ -11,6 +11,7 @@ export default class Root extends React.Component {
 				<Notification />
 				<Header />
 				{this.props.children}
+				<div> I am a sad sad incomplete footer</div>
 				<Testing />
 			</div>
 		)

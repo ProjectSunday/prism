@@ -10,7 +10,6 @@ export default (
 		<IndexRoute component={Home} />
 		<Route path="requested" component={Requested} />
 		<Route path="createrequest" components={CreateRequest} />
-		
 		<Route path="about" component={About} />
 	</Route>
 )
