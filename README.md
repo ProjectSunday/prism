@@ -16,30 +16,36 @@ http://www.locallearners.net/authentication#access_token=eec9574d580d8c58ba6a6e9
 ### To Do's
 
 - ~~Chew Bubblegum~~
-- Code
+- Code *** in progress ***
 - ~~Separate frontend app to backend api app.  Backend mostly in /server~~
-- Make webpack.config.prod.js and app.js to server frontend
 - ~~Put in react-router-redux~~
 - ~~Put in hot loading~~
 - ~~Experiment with redux devtools~~
-- Components
-	- Top Banner ??  is this needed?
-	- Footer
 - ~~Mock categories~~
-- Build requested
-- Build upcoming
 - ~~Complete putting in react-bootstrap and css~~
-- Skeleton api call to back end (after backend is done)
+- ~~Skeleton api call to back end (after backend is done)~~
 - ~~Build categories filter, work on filtering topupcoming~~
 - ~~Build nav bar/header~~
-- Categories dropdown should sort by name
 - ~~convert everything from bootstrap to react-bootstrap~~
-- define and implement upcoming classes tiles on home page
-- create deploy build
+- ~~define and implement upcoming classes tiles on home page~~
 - ~~move store and dispatch to own module~~
 - ~~solidify categories from front to back~~
-- build server.prod.js and webpack.config.prod.js
 - ~~fix bootswatch css issue that makes it load slowly~~
+- add in mock store for frontend in development when no backend is detected
+
+- Server Administration
+	- build server.prod.js and webpack.config.prod.js
+	- create deploy build
+
+- Components
+	- ~~Build requested~~
+	- Top Banner ??  is this needed?
+	- Footer
+	- Build upcoming
+
+- Knows Bugs
+	- Categories dropdown should sort by name
+
 
 ### Installation
 
