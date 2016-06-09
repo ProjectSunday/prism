@@ -10,9 +10,10 @@ var meetup = {
 	client_secret: '72ifhdnu3s76fk87tg60tqb8m9',
 	redirect_uri: 'http://localhost:7000/authentication',
 
-	// code: '',
-	// access_token: '',
-	// refresh_token: '',
+	code: '',
+	access_token: '',
+	refresh_token: '',
+	created: ''
 
 	// 'code': '66a7f707e4d1b436a02f5a02828d17f1',
 	// 'access_token': '8c7d03c3b4b74b65cef731abd2ec1042',
@@ -25,10 +26,10 @@ var meetup = {
 	// new access token can still be obtain
 
 
-	'code': '66a7f707e4d1b436a02f5a02828d17f1',
-	'access_token': 'eaa52e7e5ace0af6c913ae58505b0138',
-	'refresh_token': '66437a5fedf5cd56dd7938bc87202cbc',
-	'created': 'Wed Jun 08 2016 17:49:16 GMT-0400 (EDT)'
+	// 'code': '66a7f707e4d1b436a02f5a02828d17f1',
+	// 'access_token': 'eaa52e7e5ace0af6c913ae58505b0138',
+	// 'refresh_token': '66437a5fedf5cd56dd7938bc87202cbc',
+	// 'created': 'Wed Jun 08 2016 17:49:16 GMT-0400 (EDT)'
 
 
 }
@@ -66,7 +67,7 @@ function getMarkup() {
 		'created: ' + meetup.created + '<br />' +
 		'age: ' + days + 'days ' + hours + 'h ' + mins + 'm ' + seconds + 's' + '<br />' +
 	'</div>' +
-	'<a href="https://secure.meetup.com/oauth2/authorize?client_id=sgeirri963sprv1a1vh3r8cp3o&response_type=code&redirect_uri=http://localhost:7000/authentication">authorize</a><br />' +
+	'<a href="https://secure.meetup.com/oauth2/authorize?client_id=sgeirri963sprv1a1vh3r8cp3o&response_type=code&scope=basic+profile_edit&redirect_uri=http://localhost:7000/authentication">authorize</a><br />' +
 	'<a href="/access">access</a><br />' +
 	'<a href="/refresh">refresh</a><br />' +
 	'<a href="/self">self</a><br />'
@@ -124,6 +125,8 @@ app.get('/self', function (req, res) {
 		.get(url)
 		.set({'Authorization': 'Bearer ' + meetup.access_token })
 		.end(function (e, r) {
+			console.log(r.header, 'rrrrrr')
+
 			var m = getMarkup() + '<div>' + JSON.stringify(r.body) + '</div>'
 			res.send(m)
 		})
