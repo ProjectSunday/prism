@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { TopUpcoming, RequestedTiles } from '../components'
+import { TopUpcoming, RequestedTiles } from '~/components/components'
 
 export default class Home extends React.Component {
 	render() {

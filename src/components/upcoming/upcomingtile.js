@@ -7,7 +7,6 @@ import { Grid, Col, Row, Image, Panel, Glyphicon, Badge } from 'react-bootstrap'
 import './upcomingtile.sass'
 
 const mapStateToProps = (state, ownProps) => {
-	// var category = state.app.categories.fbi(ownProps.categoryId) || {}
 	return {
 		category: state.app.categories.fbi(ownProps.categoryId) || {}
 	}
@@ -15,9 +14,6 @@ const mapStateToProps = (state, ownProps) => {
 
 @connect(mapStateToProps)
 class UpcomingTile extends React.Component {
-	constructor(props) {
-		super(props)
-	}
 	render() {
 		var { name, category, date, location } = this.props
 

@@ -2,41 +2,20 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state, ownProps) => {
-	// let categories = state.app.categories.
-	// if (ownProps.categories) {
-	// 	categories.unshift(...ownProps.categories)
-	// }
-
-	let additionalCategories = ownProps.additionalCategories || []
-
+	var additionalCategories = ownProps.additionalCategories || []
 	return { categories: [ ...additionalCategories, ...state.app.categories ] }
 }
 
 @connect(mapStateToProps)
 export default class CategoryDropdown extends React.Component {
-
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
+		var { categories, onSelect } = this.props
 
-		const { categories, onSelect } = this.props
-
-		let options = categories.map((c, i) => <option key={i} value={c._id}>{c.name}</option>)
-
-		let container = {
-			className: 'form-group'
-		}
-
-		let select = {
-			className: 'form-control',
-			onChange: onSelect
-		}
+		var options = categories.map((c, i) => <option key={i} value={c._id}>{c.name}</option>)
 
 		return (
-	        <div {...container}>
-	            <select {...select}>
+	        <div className="form-group">
+	            <select className="form-control" onChange={onSelect}>
 	            	{options}
 	            </select>
 	        </div>
@@ -44,7 +23,3 @@ export default class CategoryDropdown extends React.Component {
 	}
 }
 
-
-// <div class="col-md-2 pull-right">
-//     <select class="form-control input-sm" ng-options="c.name for c in categories" ng-model="selectedCategory"></select>
-// </div>

@@ -49,7 +49,7 @@ export default class TopUpcoming extends React.Component {
 
 
 		let categoryDropdown = {
-			additionalCategories: [ 
+			additionalCategories: [
 				{ _id: 0, name: 'All Categories'}
 			],
 			onSelect: this.onCategorySelect

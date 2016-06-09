@@ -2,15 +2,12 @@ import React from 'react'
 import { Link } from 'react-router'
 import { Grid, Col, Row } from 'react-bootstrap'
 
-import { SearchControl, UserProfile, NavBar } from '../components'
-import { navigate } from '../../actions/actions'
+import { SearchControl, UserProfile, NavBar } from '~/components/components'
+import { navigate } from '~/actions/actions'
 
 import './header.sass'
 
 export default class Header extends React.Component {
-    constructor(props) {
-        super(props)
-    }
     render() {
         return (
             <Grid className="header" fluid>
