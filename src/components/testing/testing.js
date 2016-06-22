@@ -5,20 +5,14 @@ import { Link } from 'react-router'
 import { testing1, testing2 } from '../../actions/actions'
 
 
+// import 'bootstrap'
+// import '../../../node_modules/bootstrap/dist/css/bootstrap.css'
+import './testing.sass'
+
 class Testing extends React.Component {
-	constructor(props) {
-		super(props)
-	}
 	render() {
-
-		var testingAttr = {
-			style: {
-				background: '#DCD9B0'
-			}
-		}
-
 		return (
-			<div {...testingAttr}>
+			<div className="testing-container">
 				<Link to="/">Home</Link>
 				<span> | </span>
 				<Link to="/requested">Requested</Link>
@@ -27,7 +21,6 @@ class Testing extends React.Component {
 			</div>
 		)
 	}
-
 }
 
 

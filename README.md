@@ -45,6 +45,7 @@ http://www.locallearners.net/authentication#access_token=eec9574d580d8c58ba6a6e9
 
 - Knows Bugs
 	- Categories dropdown should sort by name
+	- apply console log error in incognito mode
 
 
 ### Installation

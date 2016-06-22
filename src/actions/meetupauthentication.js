@@ -21,7 +21,7 @@ export const start = () => {
 		if (token) {
 			console.log('token', token)
 			clearInterval(intervalId)
-			popup.close()
+			// popup.close()
 			getProfile(token)
 		}
 
