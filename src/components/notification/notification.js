@@ -1,13 +1,13 @@
 import React        from 'react'
 import { connect }  from 'react-redux'
-
-import './notification.sass'
+import Radium       from 'radium'
 
 const mapStateToProps = (state, ownProps) => {
     return state.app.notification
 }
 
 @connect(mapStateToProps)
+@Radium
 export default class Notification extends React.Component {
     constructor(props) {
         super(props)
@@ -57,24 +57,43 @@ export default class Notification extends React.Component {
                 var iconImage = IMAGES.spinner
                 break
         }
-        var innerStyle = {
-            background: background
-        }
 
-        var style = {
-            display: display,
-            opacity: opacity,
-            transition: transition
-        }
+        styles.inner.background = background
+
+        styles.notification.display = display
+        styles.notification.opacity = opacity
+        styles.notification.transition = transition
 
         return (
-            <div id="notification" style={style} ref="notification">
-                <div className="inner row" style={innerStyle}>
-                    <img className="pull-left" src={iconImage} />
+            <div style={styles.notification} ref="notification">
+                <div style={styles.inner} className="row" >
+                    <img style={styles.icon} className="pull-left" src={iconImage} />
                     {message}
                 </div>
             </div>
         )
+    }
+}
+
+const styles = {
+    notification: {
+        position: 'fixed',
+        top: '56px',
+        zIndex: 10,
+        width: '100%',
+        textAlign: 'center'
+    },
+    inner: {
+        width: '60%',
+        height: '32px',
+        margin: 'auto',
+        boxShadow: '3px 3px 10px 0px rgba(0,0,0,0.75)',
+        borderRadius: '3px',
+        lineHeight: '32px'
+    },
+    icon: {
+        width: '20px',
+        margin: '6px 0px 0px 6px'
     }
 }
 

@@ -1,6 +1,6 @@
 require('babel-register')
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+process.env.NODE_ENV = process.env.NODE_ENV || 'local'
 
 if (process.env.NODE_ENV === 'production') {
 	console.log('enter production server here')

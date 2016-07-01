@@ -1,27 +1,49 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { Grid, Col, Row } from 'react-bootstrap'
+import Radium from 'radium'
 
 import { SearchControl, UserProfile, NavBar } from '~/components/components'
 import { navigate } from '~/actions/actions'
 
-import './header.sass'
-
+@Radium
 export default class Header extends React.Component {
     render() {
         return (
-            <Grid className="header" fluid>
-                <Row>
-                    <Col className="header-nav" lg={6} md={6} sm={6} xs={12} >
+            <div style={styles.header} className="container-fluid">
+                <div className="row">
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <NavBar />
-                    </Col>
-                    <Col className="header-search-user" lg={6} md={6} sm={6} xs={12}>
-                        <SearchControl />
-                        <UserProfile />
-                    </Col>
-                </Row>
-            </Grid>
+                    </div>
+                    <div style={styles.right}>
+                        <div style={styles.search}><SearchControl /></div>
+                        <div style={styles.profile}><UserProfile /></div>
+                    </div>
+                </div>
+            </div>
         )
     }
 }
 
+const styles = {
+    header: {
+        background: '#2C3E50',
+        borderRadius: 0
+    },
+    right: {
+        textAlign: 'right',
+        height: '60px',
+        paddingTop: '6px',
+        '@media (max-width: 768px)': {
+            width: '33%',
+            clear: 'both',
+            textAlign: 'left'
+        }
+    },
+    search: {
+        display: 'inline-block'
+    },
+    profile: {
+        display: 'inline-block',
+        marginLeft: '15px'
+    }
+}
