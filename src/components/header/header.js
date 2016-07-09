@@ -34,8 +34,8 @@ const styles = {
         height: '60px',
         paddingTop: '6px',
         '@media (max-width: 768px)': {
-            width: '33%',
-            clear: 'both',
+            float: 'right',
+            width: '50%',
             textAlign: 'left'
         }
     },
