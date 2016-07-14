@@ -1,6 +1,6 @@
 # prism (Local Learners)
 
-<h1 style="background-color: blue">Prism (Local Learners) colors? an I get colors please!</h1>
+<div style="background-color: blue">Prism (Local Learners) colors? an I get colors please!</div>
 
 ### Dev Notes
 
