@@ -104,7 +104,7 @@ export const getRequestedClasses = () => {
 			}
 		}
 	`, (result) => {
-		// console.log('result: ', result)
+		console.log('result: ', result)
 		dispatch({
 			type: 'SET_REQUESTED_CLASSES',
 			requestedClasses: result.requestedClasses
