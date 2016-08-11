@@ -14,6 +14,21 @@ export default class Testing extends React.Component {
 				<Link to="/requested">Requested</Link>
 				<button onClick={() => testing1()}>Testing1</button>
 				<button onClick={() => testing2()}>Testing2</button>
+				<select value="3" onChange={() => alert('yo')}>
+					<option>blah</option>
+					<option>blah</option>
+					<option>blah</option>
+					<option>blah</option>
+					<option value="3">3333</option>
+				</select>
+
+
+				<select onChange={() => alert('blah')}>
+				           <option value="1">1</option>
+				           <option value="2">2</option>
+				</select>
+
+
 			</div>
 		)
 	}
