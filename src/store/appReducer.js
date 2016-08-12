@@ -1,4 +1,3 @@
-import AuthenticationReducer	from './authenticationreducer'
 import CategoriesReducer 		from './categoriesreducer'
 import NotificationReducer		from './notificationreducer'
 import RequestedClassesReducer 	from './requestedclassesreducer'
@@ -10,11 +9,6 @@ export default (state = {}, action) => {
 			state.testing = 'testing'
 			///.... so more things to new state
 			return state
-
-		case 'AUTH_LOGIN_START':
-		case 'AUTH_LOGIN_CANCEL':
-		case 'AUTH_LOGIN_SUCCESS':
-			return AuthenticationReducer(state, action)
 
 		case 'SHOW_NOTIFICATION':
 		case 'HIDE_NOTIFICATION':

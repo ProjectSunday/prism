@@ -4,10 +4,12 @@ import { browserHistory } 											from 'react-router'
 
 import app 				from './appReducer'
 import initialState 	from './initialState'
+import authentication 	from './authentication-reducer'
 
 var r = combineReducers({
+	routing: routerReducer,
 	app,
-	routing: routerReducer
+	authentication
 })
 
 var m = routerMiddleware(browserHistory)
