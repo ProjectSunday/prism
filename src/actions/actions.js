@@ -1,12 +1,12 @@
 import request from 'superagent'
 import { push } from 'react-router-redux'
 
-import { dispatch } from '~/store/store'
+import { dispatch, store } from '~/store/store'
 import prismApi from './prismapi'
 import { sendMutation } from './prismapi'
 
 
-export * as MeetupAuthentication from './meetupauthentication'
+// export * as MeetupAuthentication from './meetupauthentication'
 
 export const testing1 = () => {
 	dispatch({
@@ -114,11 +114,53 @@ export const getRequestedClasses = () => {
 	})
 }
 
-export const cancelLogin = () => {
-	dispatch({
-		type: 'AUTH_LOGIN_CANCEL'
-	})
+///////////////////////////////////////////////////////////////////////////////
+//Authentication
+///////////////////////////////////////////////////////////////////////////////
+
+var AUTHENTICATION_INTERVAL_ID
+
+export const Authentication = {
+	start: () => {
+		dispatch({ type: 'AUTH_SHOW_SPINNER', value: true })
+
+		var popup = createPopup();
+
+		AUTHENTICATION_INTERVAL_ID = setInterval(() => {
+			var token
+			try {
+				var href = popup.location.href
+				token = href.split('#')[1].split('&')[0].split('=')[1]
+			} catch (err) {}
+
+			if (token) {
+				// console.log('token', token)
+				clearInterval(AUTHENTICATION_INTERVAL_ID)
+				popup.close()
+				Profile.get(token)
+			}
+
+			if (popup.closed) {
+				clearInterval(AUTHENTICATION_INTERVAL_ID)
+				dispatch({ type: 'AUTH_SHOW_SPINNER', value: false })
+			}
+
+		}, 10)
+	}
 }
+
+function createPopup() {
+	var width = 700
+	var height = 700
+
+	var left = (screen.width - width) / 2
+	var top = (screen.height - height) / 2
+
+	var url = 'https://secure.meetup.com/oauth2/authorize?client_id=sgeirri963sprv1a1vh3r8cp3o&response_type=token&redirect_uri=http://localhost:7000/authentication'
+	var settings = `scrollbars=no,toolbar=no,location=no,titlebar=no,directories=no,status=no,menubar=no,width=${width},height=${height},top=${top},left=${left}`;
+	return window.open(url, '', settings)
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //Profile
@@ -147,5 +189,33 @@ export const Profile = {
 			type: 'AUTH_LOGIN_SUCCESS',
 			user: data.authenticateViaMeetup
 		})
+	},
+	logout: async () => {
+		dispatch({
+			type: 'AUTH_SHOW_SPINNER',
+			value: true
+		})
+
+		var state = store.getState()
+
+		console.log('state', state.authentication)
+		var data = await sendMutation(`
+			logoutUser (token: "${state.authentication.user.token}") {
+				_id,
+				status
+			}
+		`)
+
+		console.log(data)
+		var { status } = data.logoutUser
+		if (status === 'LOGOUT_SUCCESS') {
+			dispatch({
+				type: 'AUTH_LOGOUT_SUCCESS'
+			})
+		} else {
+			throw 'logout failture'  //todo
+		}
+
+
 	}
 }
