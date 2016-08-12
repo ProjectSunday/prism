@@ -26,3 +26,4 @@ export Testing from './testing/testing'
 
 
 export UserProfile from './userprofile/userprofile'
+	export ProfileDropDown from './userprofile/profile-dropdown'

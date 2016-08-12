@@ -29,10 +29,10 @@ class UpcomingTile extends React.Component {
         	<Col className="upcoming-tile" md={4} sm={6} xs={6}>
         		<Panel header={panelHeader}>
                 	<Row>
-                        <Col md={4} sm={6} xsHidden>
+                        <div className="col-md-4 col-sm-6 xs-hidden">
                             <h2><span className="glyphicon glyphicon-ok"></span></h2>
                             <p>RSVP</p>
-                        </Col>
+                        </div>
                         <Col className="details" md={8} sm={6}>
                             <h4>{date}</h4>
                             <p className="small">{location}</p>

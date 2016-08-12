@@ -1,0 +1,41 @@
+#profile-dropdown
+	background-color: #95a5a6
+	display: flex
+	flex-direction: row
+	width: 100%
+	height: 100%
+	cursor: pointer
+	border-radius: 4px
+	position: relative
+
+	.profile-spinner
+
+	.profile-image
+		background-size: cover
+		order: 1
+		flex: 0 0 45px
+		border-radius: 4px 0px 0px 4px
+
+	.profile-caret
+		order: 2
+		flex: 0 0 16px
+		position: relative
+		.caret
+			color: white
+			position: absolute
+			top: 21px
+			left: 2px
+
+	.profile-menu
+		background: blue
+		position: absolute
+		width: 180px
+		height: 200px
+		right: 0
+		top: 45px
+		z-index: 2
+
+	&:hover
+		background-color: #7a8788
+		.profile-image, .profile-caret
+			opacity: 0.6

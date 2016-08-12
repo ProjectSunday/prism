@@ -1,28 +1,43 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Button, NavDropdown, DropdownButton, MenuItem } from 'react-bootstrap'
+// import { connect } from 'react-redux'
+// import { Button, NavDropdown, DropdownButton, MenuItem } from 'react-bootstrap'
 
 import { navigate, Profile, Authentication } from '~/actions/actions'
 
-import { ProfileDropDown } from '~/components/components'
+import './profile-dropdown.sass'
 
-import './userprofile.sass'
+// const mapStateToProps = (state, ownProps) => {
+// 	return { ...state.authentication }
+// }
 
-const mapStateToProps = (state, ownProps) => {
-	return { ...state.authentication }
-}
+// @connect(mapStateToProps)
+export default class ProfileDropDown extends React.Component {
+	constructor() {
+		super()
 
-@connect(mapStateToProps)
-export default class UserProfile extends React.Component {
+		this.dropdownClicked = this.dropdownClicked.bind(this)
+
+		this.state = {
+			open: false
+		}
+	}
+
+	dropdownClicked(e) {
+		this.setState({
+			open: !this.state.open
+		})
+	}
 
 	render() {
 		var { showSpinner, user } = this.props
+		var { open } = this.state
 
-		if (user) {
+		if (open) {
 
-			var node = (<ProfileDropDown showSpinner={showSpinner} user={user} />)
 			// var p = { backgroundImage: `url("${user.meetup.member.photo.thumb_link}")` }
 			// var title = <div className="profileimage" style={p}/>
+
+			var node = (<div className="profile-menu">soooonnnn</div>)
 			// var node = (
 			// 	<div className="userprofile loggedin">
 
@@ -51,22 +66,22 @@ export default class UserProfile extends React.Component {
 			// 	</div>
 			// )
 		} else {
-			var i = { display: showSpinner ? 'block' : 'none' }
-			var l = { opacity: showSpinner ? 0.5 : 1 }
-			var node = (
-				<div className="userprofile loggedout">
-					<img src={IMAGES.spinner} style={i} />
-					<Button
-						bsStyle="success"
-						onClick={Authentication.start}
-						style={l}>
-						Login
-					</Button>
-				</div>
-			)
+			var node = undefined
 		}
 
-		return node
+				// {profileMenu}
+
+		var profileImageStyle = { backgroundImage: `url("${user.meetup.member.photo.thumb_link}")` }
+		var spinnerStyle = { display: showSpinner ? 'block': 'none' }
+				// <img className="profile-spinner" src={IMAGES.spinner} style={spinnerStyle} />
+
+		return (
+			<div id="profile-dropdown" onClick={this.dropdownClicked}>
+				<div className="profile-image" style={profileImageStyle} />
+				<div className="profile-caret"><span className="caret" /></div>
+				{node}
+			</div>
+		)
 	}
 }
 
@@ -76,3 +91,4 @@ export default class UserProfile extends React.Component {
 // 	<MenuItem divider />
 // 	<MenuItem onClick={Profile.logout}>Log Out</MenuItem>
 // </DropdownButton>
+
