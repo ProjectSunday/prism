@@ -12,6 +12,9 @@ import { getCategories, getRequestedClasses }	from './actions/actions'
 ///////////////////////////////////////////////////////////////////
 import './utils'
 import './static/images/favicon.ico'
+import './index.sass'
+import '~/static/bootswatch/flatly.min.css'
+
 import * as images from './static/images'
 import preloadImages from './static/images/preloadimages'
 

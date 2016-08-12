@@ -1,0 +1,26 @@
+@import "../../index.sass"
+
+#header
+    @extend .container-fluid
+    background: #2C3E50
+    border-radius: 0
+
+    .nav-container
+        @extend .col-lg-6, .col-md-6, .col-sm-6, .col-xs-6
+        // background: green
+
+    .search-profile-container
+        text-align: right
+        height: 60px
+        padding-top: 6px
+        @media (max-width: 768px)
+            float: right
+            width: 50%
+            text-align: left
+
+        .search
+            display: inline-block
+
+        .profile
+            display: inline-block
+            margin-left: 15px

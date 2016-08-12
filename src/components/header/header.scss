@@ -1,0 +1,8 @@
+// @import "blah.scss";
+
+@import "blah.scss";
+
+#header {
+    @extend .foo;
+    border-radius: 0;
+}
