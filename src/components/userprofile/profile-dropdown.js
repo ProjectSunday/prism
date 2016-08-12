@@ -14,15 +14,18 @@ import './profile-dropdown.sass'
 export default class ProfileDropDown extends React.Component {
 	constructor() {
 		super()
-
-		this.dropdownClicked = this.dropdownClicked.bind(this)
-
 		this.state = {
 			open: false
 		}
 	}
 
-	dropdownClicked(e) {
+	collapse = (e) => {
+		this.setState({
+			open: false
+		})
+	}
+
+	dropdownClicked = (e) => {
 		this.setState({
 			open: !this.state.open
 		})
@@ -73,10 +76,11 @@ export default class ProfileDropDown extends React.Component {
 
 		var profileImageStyle = { backgroundImage: `url("${user.meetup.member.photo.thumb_link}")` }
 		var spinnerStyle = { display: showSpinner ? 'block': 'none' }
+
 				// <img className="profile-spinner" src={IMAGES.spinner} style={spinnerStyle} />
 
 		return (
-			<div id="profile-dropdown" onClick={this.dropdownClicked}>
+			<div id="profile-dropdown" tabIndex="0" onBlur={this.collapse} onClick={this.dropdownClicked}>
 				<div className="profile-image" style={profileImageStyle} />
 				<div className="profile-caret"><span className="caret" /></div>
 				{node}
