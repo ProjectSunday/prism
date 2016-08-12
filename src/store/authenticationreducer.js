@@ -6,6 +6,12 @@ export default (state, action) => {
 			a.logingIn = true
 			state.authentication = a
 			return state
+		case 'AUTH_LOGIN_CANCEL':
+			var state = { ...state }
+			var a = { ...state.authentication }
+			a.logingIn = false
+			state.authentication = a
+			return state
 		case 'AUTH_LOGIN_SUCCESS':
 			var state = { ...state }
 			var a = { ...state.authentication }

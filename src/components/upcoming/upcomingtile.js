@@ -36,7 +36,9 @@ class UpcomingTile extends React.Component {
                         <Col className="details" md={8} sm={6}>
                             <h4>{date}</h4>
                             <p className="small">{location}</p>
-                        	<Badge bsStyle="small"><Glyphicon glyph="user">14</Glyphicon></Badge>
+                        	<Badge bsStyle="small">
+                                <span className="glyphicon glyphicon-user">14</span>
+                            </Badge>
                         </Col>
                     </Row>
 				</Panel>

@@ -12,6 +12,7 @@ export default (state = {}, action) => {
 			return state
 
 		case 'AUTH_LOGIN_START':
+		case 'AUTH_LOGIN_CANCEL':
 		case 'AUTH_LOGIN_SUCCESS':
 			return AuthenticationReducer(state, action)
 

@@ -3,6 +3,8 @@ import { push } from 'react-router-redux'
 
 import { dispatch } from '~/store/store'
 import prismApi from './prismapi'
+import { sendMutation } from './prismapi'
+
 
 export * as MeetupAuthentication from './meetupauthentication'
 
@@ -112,3 +114,38 @@ export const getRequestedClasses = () => {
 	})
 }
 
+export const cancelLogin = () => {
+	dispatch({
+		type: 'AUTH_LOGIN_CANCEL'
+	})
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//Profile
+///////////////////////////////////////////////////////////////////////////////
+
+export const Profile = {
+	get: async (token) => {
+		var data = await sendMutation(`	
+			authenticateViaMeetup (token: "${token}") {
+				_id,
+				token,
+				meetup {
+					token,
+					member {
+						id,
+						name,
+						photo {
+							thumb_link
+						}
+					}
+				}
+			}
+		`)
+
+		dispatch({
+			type: 'AUTH_LOGIN_SUCCESS',
+			user: data.authenticateViaMeetup
+		})
+	}
+}

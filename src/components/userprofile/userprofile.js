@@ -17,7 +17,7 @@ export default class UserProfile extends React.Component {
 		var { logingIn, user } = this.props
 
 		if (user) {
-			var p = { backgroundImage: `url("${user.meetup.photo.thumb_link}")` }
+			var p = { backgroundImage: `url("${user.meetup.member.photo.thumb_link}")` }
 			var title = <div className="profileimage" style={p}/>
 			var node = (
 				<div className="userprofile loggedin">

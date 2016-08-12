@@ -61,9 +61,9 @@ export default class CreateRequest extends React.Component {
 							<ControlLabel>Category:</ControlLabel>
 							<CategoryDropdown onSelect={this.categorySelect} additionalCategories={additionalCategories}/>
 						</FormGroup>
-						<Button className="pull-right" onClick={this.submitClick}>
+						<button className="btn btn-primary pull-right" onClick={this.submitClick}>
 					  		Submit
-						</Button>
+						</button>
 					</form>
 				</Row>
 			</Grid>
