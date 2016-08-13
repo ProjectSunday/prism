@@ -191,24 +191,24 @@ export const Profile = {
 			user: data.authenticateViaMeetup
 		})
 	},
-	logout: async () => {
-		dispatch({ type: 'AUTH_SHOW_SPINNER', value: true })
+	logout: () => {
+		return async () => {
+			dispatch({ type: 'AUTH_SHOW_SPINNER', value: true })
 
-		var state = store.getState()
+			var state = store.getState()
 
-		var data = await sendMutation(`
-			logoutUser (token: "${state.authentication.user.token}") { _id, status }
-		`)
+			var data = await sendMutation(`
+				logoutUser (token: "${state.authentication.user.token}") { _id, status }
+			`)
 
-		var { status } = data.logoutUser
-		if (status === 'LOGOUT_SUCCESS') {
-			dispatch({
-				type: 'AUTH_LOGOUT_SUCCESS'
-			})
-		} else {
-			throw 'logout failture'  //todo
+			var { status } = data.logoutUser
+			if (status === 'LOGOUT_SUCCESS') {
+				dispatch({
+					type: 'AUTH_LOGOUT_SUCCESS'
+				})
+			} else {
+				throw 'logout failture'  //todo
+			}
 		}
-
-
 	}
 }

@@ -35,20 +35,24 @@ export default class ProfileDropDown extends React.Component {
 		var { showSpinner, user } = this.props
 		var { open } = this.state
 
-		if (open) {
+		if (open || true) {
 
 			// var p = { backgroundImage: `url("${user.meetup.member.photo.thumb_link}")` }
 			// var title = <div className="profileimage" style={p}/>
 
-			var node = (<div className="profile-menu">soooonnnn</div>)
+			var node = (
+				<div className="profile-menu">
+					<a className="menu-item" href="#" onClick={() => navigate('/about')}>View Profile</a>
+					<a className="menu-item" href="#" onClick={() => navigate('/about')}>Account Settings</a>
+					<hr className="menu-separator" />
+					<a className="menu-item" href="#" onClick={Profile.logout()}>Log Out</a>
+				</div>
+			)
+
 			// var node = (
 			// 	<div className="userprofile loggedin">
 
 			// 		<div class="dropdown">
-			// 			<button class="btn btn-default dropdown-toggle">
-			// 				Dropdown
-			// 			    <span class="caret"></span>
-			// 			</button>
 			// 			<ul class="dropdown-menu">
 			// 			    <li><a href="#">Action</a></li>
 			// 			    <li><a href="#">Another action</a></li>
