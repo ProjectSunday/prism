@@ -1,50 +1,58 @@
 #profile-dropdown
 	background-color: #95a5a6
+	border-radius: 4px
+	cursor: pointer
 	display: flex
 	flex-direction: row
-	width: 100%
 	height: 100%
-	cursor: pointer
-	border-radius: 4px
-	position: relative
 	outline: none
+	position: relative
+	width: 100%
 
 	.profile-spinner
 
 	.profile-image
 		background-size: cover
-		order: 1
-		flex: 0 0 45px
 		border-radius: 4px 0px 0px 4px
+		flex: 0 0 45px
+		order: 1
 
 	.profile-caret
-		order: 2
 		flex: 0 0 16px
+		order: 2
 		position: relative
 		.caret
 			color: white
+			left: 2px
 			position: absolute
 			top: 21px
-			left: 2px
 
 	.profile-menu
-		background: blue
+		background: white
+		border: 1px solid #ccc
+		border-radius: 4px
+		box-shadow: 0 6px 12px rgba(0,0,0,0.175)
+		margin: 2px 0 0;
+		padding: 5px 0;
 		position: absolute
-		width: 180px
-		height: 200px
 		right: 0
 		top: 45px
+		width: 180px
 		z-index: 2
 		.menu-item
-			background: red
+			color: #7b8a8b
 			display: block
+			padding: 3px 20px
+			text-align: left
 			text-decoration: none
-			margin: 10px 0
+			&:hover
+				background: #2c3e50
 		.menu-separator
-			background: green
-			margin: 0
+			background: #e5e5e5;
+			margin: 9.5px 0;
+			overflow: hidden;
 
 	&:hover
-		background-color: #7a8788
+		background: #7a8788
 		.profile-image, .profile-caret
 			opacity: 0.6
