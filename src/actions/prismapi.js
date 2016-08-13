@@ -12,7 +12,11 @@ export const sendMutation = async (graph) => {
 				if (err) {
 					reject(err)
 				} else {
-					resolve(res.body.data)
+					if (res.body.errors) {
+						reject(res.body.errors)
+					} else {
+						resolve(res.body.data)
+					}
 				}
 			})
 	})
@@ -35,7 +39,12 @@ export default (graph, success, fail) => {
 			if (err) {
 				fail(err)
 			} else {
-				success(res.body.data)
+				var { data } = res.body
+				if (data.errors) {
+					fail(data)
+				} else {
+					success(data)
+				}
 			}
 		})
 

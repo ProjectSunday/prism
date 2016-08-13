@@ -6,7 +6,9 @@ import prismApi from './prismapi'
 import { sendMutation } from './prismapi'
 
 
-// export * as MeetupAuthentication from './meetupauthentication'
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//Testing
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const testing1 = () => {
 	dispatch({
@@ -28,9 +30,23 @@ export const testing2 = () => {
 	})
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//Navigation
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export const Navigation = {
+	go: (path) => {
+		dispatch(push(path))
+	}
+}
+
 export const navigate = (path) => {
 	dispatch(push(path))
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//Notification
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const showNotification = (notification) => {
 	dispatch({ type: 'SHOW_NOTIFICATION', notification })
@@ -38,6 +54,36 @@ export const showNotification = (notification) => {
 
 export const hideNotification = (notification) => {
 	dispatch({ type: 'HIDE_NOTIFICATION', notification })
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//Requested Class
+////////////////////////////////////////////////////////////////////////////////////////////////////
+export const RequestedClass = {
+	create: async (requested) => {
+		showNotification({ type: 'progress', message: 'Creating new request...' })
+
+		var state = store.getState()
+
+		var { requestedClass } = await sendMutation(`
+			requestedClass: createRequestedClass (token: "${state.authentication.user.token}", name: "${requested.name}", categoryId: "${requested.categoryId}") {
+				_id,
+				name,
+				category {
+					_id,
+					name,
+					imageName
+				},
+				date,
+				location
+			}
+		`)
+
+		console.log('createRequestedClass requestedClass:', requestedClass)
+		dispatch({ type: 'CREATE_REQUESTED_CLASS_SUCCESS', requestedClass })
+			
+		hideNotification({ type: 'success', message: 'New request created'}) 
+	}
 }
 
 export const createRequestedClass = (requested) => {
@@ -72,6 +118,36 @@ export const createRequestedClass = (requested) => {
 	})
 }
 
+
+export const getRequestedClasses = () => {
+	prismApi(`
+		query {
+			requestedClasses {
+				_id,
+				name,
+				category {
+					_id,
+					name,
+					imageName
+				},
+				date,
+				location
+			}
+		}
+	`, (result) => {
+		// console.log('result: ', result)
+		dispatch({
+			type: 'SET_REQUESTED_CLASSES',
+			requestedClasses: result.requestedClasses
+		})
+	})
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//Category
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 export const getCategories = () => {
 	prismApi(`
 		query {
@@ -90,29 +166,6 @@ export const getCategories = () => {
 	})
 }
 
-export const getRequestedClasses = () => {
-	prismApi(`
-		query {
-			requestedClasses {
-				_id,
-				name,
-				category {
-					_id,
-					name,
-					imageName
-				},
-				date,
-				location
-			}
-		}
-	`, (result) => {
-		console.log('result: ', result)
-		dispatch({
-			type: 'SET_REQUESTED_CLASSES',
-			requestedClasses: result.requestedClasses
-		})
-	})
-}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //Authentication
@@ -191,24 +244,22 @@ export const Profile = {
 			user: data.authenticateViaMeetup
 		})
 	},
-	logout: () => {
-		return async () => {
-			dispatch({ type: 'AUTH_SHOW_SPINNER', value: true })
+	logout: async () => {
+		dispatch({ type: 'AUTH_SHOW_SPINNER', value: true })
 
-			var state = store.getState()
+		var state = store.getState()
 
-			var data = await sendMutation(`
-				logoutUser (token: "${state.authentication.user.token}") { _id, status }
-			`)
+		var data = await sendMutation(`
+			logoutUser (token: "${state.authentication.user.token}") { _id, status }
+		`)
 
-			var { status } = data.logoutUser
-			if (status === 'LOGOUT_SUCCESS') {
-				dispatch({
-					type: 'AUTH_LOGOUT_SUCCESS'
-				})
-			} else {
-				throw 'logout failture'  //todo
-			}
+		var { status } = data.logoutUser
+		if (status === 'LOGOUT_SUCCESS') {
+			dispatch({
+				type: 'AUTH_LOGOUT_SUCCESS'
+			})
+		} else {
+			throw 'logout failture'  //todo
 		}
 	}
 }

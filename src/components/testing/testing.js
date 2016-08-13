@@ -1,14 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router'
-import Radium from 'radium'
 
 import { testing1, testing2 } from '../../actions/actions'
 
-@Radium
 export default class Testing extends React.Component {
 	render() {
 		return (
-			<div style={styles.testing}>
+			<div>
 				<Link to="/">Home</Link>
 				<span> | </span>
 				<Link to="/requested">Requested</Link>
@@ -31,13 +29,6 @@ export default class Testing extends React.Component {
 
 			</div>
 		)
-	}
-}
-
-const styles = {
-	testing: {
-		css: 'text-danger',
-		background: '#DCD9B0'
 	}
 }
 

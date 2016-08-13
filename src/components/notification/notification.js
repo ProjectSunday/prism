@@ -1,13 +1,15 @@
 import React        from 'react'
 import { connect }  from 'react-redux'
-import Radium       from 'radium'
+// import Radium       from 'radium'
+
+import './notification.sass'
 
 const mapStateToProps = (state, ownProps) => {
     return state.app.notification
 }
 
 @connect(mapStateToProps)
-@Radium
+// @Radium
 export default class Notification extends React.Component {
     constructor(props) {
         super(props)
@@ -46,6 +48,8 @@ export default class Notification extends React.Component {
         var { message, type } = this.props
         var { display, opacity, transition } = this.state
 
+        var notificationStyle = { display, opacity, transition }
+
         switch (type) {
             case 'success':
                 var background = '#8AFF8B'
@@ -58,16 +62,12 @@ export default class Notification extends React.Component {
                 break
         }
 
-        styles.inner.background = background
-
-        styles.notification.display = display
-        styles.notification.opacity = opacity
-        styles.notification.transition = transition
+        var innerStyle = { background }
 
         return (
-            <div style={styles.notification} ref="notification">
-                <div style={styles.inner} className="row" >
-                    <img style={styles.icon} className="pull-left" src={iconImage} />
+            <div id="notification" ref="notification" style={notificationStyle}>
+                <div className="notification-inner row" style={innerStyle}>
+                    <img className="inner-icon pull-left" src={iconImage} />
                     {message}
                 </div>
             </div>
@@ -75,25 +75,25 @@ export default class Notification extends React.Component {
     }
 }
 
-const styles = {
-    notification: {
-        position: 'fixed',
-        top: '56px',
-        zIndex: 10,
-        width: '100%',
-        textAlign: 'center'
-    },
-    inner: {
-        width: '60%',
-        height: '32px',
-        margin: 'auto',
-        boxShadow: '3px 3px 10px 0px rgba(0,0,0,0.75)',
-        borderRadius: '3px',
-        lineHeight: '32px'
-    },
-    icon: {
-        width: '20px',
-        margin: '6px 0px 0px 6px'
-    }
-}
+// const styles = {
+//     notification: {
+//         position: 'fixed',
+//         top: '56px',
+//         zIndex: 10,
+//         width: '100%',
+//         textAlign: 'center'
+//     },
+//     inner: {
+//         width: '60%',
+//         height: '32px',
+//         margin: 'auto',
+//         boxShadow: '3px 3px 10px 0px rgba(0,0,0,0.75)',
+//         borderRadius: '3px',
+//         lineHeight: '32px'
+//     },
+//     icon: {
+//         width: '20px',
+//         margin: '6px 0px 0px 6px'
+//     }
+// }
 

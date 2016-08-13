@@ -1,7 +1,6 @@
 #profile-dropdown
 	background-color: #95a5a6
 	border-radius: 4px
-	cursor: pointer
 	display: flex
 	flex-direction: row
 	height: 100%
@@ -10,7 +9,11 @@
 	width: 100%
 
 	.profile-spinner
-
+		display: block
+		height: 100%
+		left: 9px
+		padding: 5px
+		position: absolute
 	.profile-image
 		background-size: cover
 		border-radius: 4px 0px 0px 4px
@@ -32,8 +35,8 @@
 		border: 1px solid #ccc
 		border-radius: 4px
 		box-shadow: 0 6px 12px rgba(0,0,0,0.175)
-		margin: 2px 0 0;
-		padding: 5px 0;
+		margin: 2px 0 0
+		padding: 5px 0
 		position: absolute
 		right: 0
 		top: 45px
@@ -41,6 +44,7 @@
 		z-index: 2
 		.menu-item
 			color: #7b8a8b
+			cursor: pointer
 			display: block
 			padding: 3px 20px
 			text-align: left
@@ -48,9 +52,9 @@
 			&:hover
 				background: #2c3e50
 		.menu-separator
-			background: #e5e5e5;
-			margin: 9.5px 0;
-			overflow: hidden;
+			background: #e5e5e5
+			margin: 9.5px 0
+			overflow: hidden
 
 	&:hover
 		background: #7a8788

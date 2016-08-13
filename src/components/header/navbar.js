@@ -21,7 +21,7 @@ export default class NavBar extends React.Component {
                 <Navbar.Collapse>
                     <Nav>
                         <NavDropdown title="Classes" id="blah">
-                            <MenuItem onClick={() => navigate('/about')}>Upcoming Classes</MenuItem>
+                            <MenuItem onClick={() => navigate('/upcoming')}>Upcoming Classes</MenuItem>
                             <MenuItem onClick={() => navigate('/requested')}>Requested Classes</MenuItem>
                         </NavDropdown>
                         <NavItem onClick={() => navigate('/about')}>Learn</NavItem>

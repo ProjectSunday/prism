@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import './categorydropdown.sass'
+
 const mapStateToProps = (state, ownProps) => {
 	var additionalCategories = ownProps.additionalCategories || []
 	return { categories: [ ...additionalCategories, ...state.app.categories ] }
@@ -11,11 +13,11 @@ export default class CategoryDropdown extends React.Component {
 	render() {
 		var { categories, onSelect } = this.props
 
-		var options = categories.map((c, i) => <option key={i} value={c._id}>{c.name}</option>)
+		var options = categories.map(c => <option key={c._id} value={c._id}>{c.name}</option>)
 
 		return (
-	        <div className="form-group">
-	            <select className="form-control" onChange={onSelect}>
+	        <div id="categorydropdown">
+	            <select className="categorydropdown-select" onChange={onSelect}>
 	            	{options}
 	            </select>
 	        </div>
