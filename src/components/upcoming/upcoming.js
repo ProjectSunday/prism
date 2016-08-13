@@ -39,7 +39,6 @@ export default class Upcoming extends React.Component {
 		}
 
 		if (shownClasses.length) {
-			// var tiles = shownClasses.map(u => <UpcomingTile key={u._id} {...u} />)
 			var tiles = shownClasses.map(u => <div className="tile-item" key={u._id}><UpcomingTile {...u} /></div>)
 		} else {
 			var tiles = <div>There are no upcoming classes.</div>
