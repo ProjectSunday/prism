@@ -3,72 +3,54 @@ import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
 import { CategoryDropdown, UpcomingTile } from '../components'
+import { Navigation } from '~/actions/actions'
 
-// import './topupcoming.sass'
+import './topupcoming.sass'
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		upcomingClasses: state.app.upcomingClasses
+		upcomingClasses: state.app.upcomingClasses,
+		selectedCategory: state.ui.selectedCategory
 	}
 }
 
 @connect(mapStateToProps)
 export default class TopUpcoming extends React.Component {
-	constructor(props) {
-		super(props)
-
-		this.state = {
-			selectedCategoryId: 0
-		}
-
-		this.onCategorySelect = this.onCategorySelect.bind(this)
+	headerClick = (e) => {
+		Navigation.go('/upcoming')
 	}
 
-	onCategorySelect(e) {
-		this.setState({
-			selectedCategoryId: parseInt(e.target.value)
-		})
-	}
 	render() {
+		const { upcomingClasses, selectedCategory } = this.props
 
-		const { upcomingClasses } = this.props
-		const { selectedCategoryId } = this.state
-
-
-		if (selectedCategoryId === 0) {
+		if (!selectedCategory || selectedCategory === 'all') {
 			var shownClasses = upcomingClasses.slice(0, 6) //probably need to sort by popularity in the future
 		} else {
-			var shownClasses = upcomingClasses.filter(u => u.categoryId === selectedCategoryId).slice(0, 6)
+			var shownClasses = upcomingClasses.filter(u => u.category._id === selectedCategory).slice(0, 6)
 		}
 
 		if (shownClasses.length) {
-			var nodes = shownClasses.map((u, i) => <UpcomingTile key={i} {...u} />)
+			var nodes = shownClasses.map(u => <div className="tile-item" key={u._id}><UpcomingTile {...u} /></div>)
+
 		} else {
-			var nodes = <div key="na" className="col-md-4 col-sm-6 col-xs-6"><em>There are no upcoming classes.</em></div>
+			var nodes = <div className=""><em>There are no upcoming classes.</em></div>
 		}
 
+		var additionalCategories = [
+			{ _id: 'all', name: 'All Categories'}
+		]
 
-		let categoryDropdown = {
-			additionalCategories: [
-				{ _id: 0, name: 'All Categories'}
-			],
-			onSelect: this.onCategorySelect
-		}
-
-
-		let title = 'col-md-6 col-sm-6 col-xs-6'
-		let category = 'col-md-2 pull-right'
 		return (
-			<div className="container">
-				<div className="row">
-					<div className={title}>
-	            		<h4><Link to="/about">Upcoming Classes</Link></h4>
+			<div id="topupcoming">
+				<div className="topupcoming-header">
+					<div className="header-name">
+	            		<h4 onClick={this.headerClick}>Upcoming Classes</h4>
 					</div>
-					<div className="col-md-2 pull-right">
-						<CategoryDropdown {...categoryDropdown}/>
+					<div className="header-category">
+						<CategoryDropdown additionalCategories={additionalCategories} onSelect={this.onCategorySelect}/>
 					</div>
 				</div>
-				<div className="row">
+				<div className="topupcoming-tiles">
 					{nodes}
 				</div>
 			</div>

@@ -22,4 +22,19 @@ export const authentication = (state = {}, action) => {
 	}
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//ui
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var initialUiState = {
+	selectedCategory: undefined
+}
+export const ui = (state = initialUiState, action) => {
+	switch (action.type) {
+		case 'UI_SET_SELECTED_CATEGORY': 
+			return Object.assign({}, state, { selectedCategory: action.value })
+		default:
+			return state
+	}
+}
 
