@@ -11,6 +11,8 @@ var publicPath      = '/'
 
 
 var config = {
+    devtool: 'source-map',
+    
     entry: {
         app: [
             'babel-polyfill',
