@@ -148,9 +148,7 @@ export const RequestedClass = {
 				location
 			}
 		`)
-
-		console.log('createRequestedClass requestedClass:', requestedClass)
-		dispatch({ type: 'CREATE_REQUESTED_CLASS_SUCCESS', requestedClass })
+		dispatch({ type: 'REQUESTEDCLASS_CREATE_SUCCESS', requestedClass })
 			
 		hideNotification({ type: 'success', message: 'New request created'}) 
 	},
@@ -178,8 +176,8 @@ export const RequestedClass = {
 
 export const Profile = {
 	get: async (token) => {
-		var data = await sendMutation(`	
-			authenticateViaMeetup (token: "${token}") {
+		var { user } = await sendMutation(`	
+			user: authenticateViaMeetup (token: "${token}") {
 				_id,
 				token,
 				meetup {
@@ -194,11 +192,7 @@ export const Profile = {
 				}
 			}
 		`)
-
-		dispatch({
-			type: 'AUTH_LOGIN_SUCCESS',
-			user: data.authenticateViaMeetup
-		})
+		dispatch({ type: 'AUTH_LOGIN_SUCCESS', user })
 	},
 	logout: async () => {
 		dispatch({ type: 'AUTH_SHOW_SPINNER', value: true })
@@ -225,6 +219,41 @@ export const Profile = {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const UI = {
+	// setSelectedCategory: (categoryId) => {
+	// 	dispatch({ type: 'UI_SET_SELECTED_CATEGORY', value: categoryId })
+	// }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//UpcomingClass
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export const UpcomingClass = {
+	getList: async () => {
+		var { list } = await sendQuery(`
+			list: upcomingClasses {
+				_id,
+				category {
+					_id,
+					name,
+					imageName
+				},
+				event {
+					name
+				},
+				teachers {
+					meetup {
+						member {
+							name
+						}
+					}
+				}			
+			}
+		`)
+		// console.log('list', list)
+
+		dispatch({ type: 'UPCOMINGCLASS_SET_LIST', list })
+	}
 	// setSelectedCategory: (categoryId) => {
 	// 	dispatch({ type: 'UI_SET_SELECTED_CATEGORY', value: categoryId })
 	// }

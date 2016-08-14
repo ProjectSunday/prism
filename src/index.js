@@ -5,7 +5,7 @@ import { Provider }	from 'react-redux'
 
 import { store, history } 	from '~/store/store'
 import routes 				from './routes'
-import { Category, RequestedClass }	from './actions/actions'
+import { Category, RequestedClass, UpcomingClass }	from './actions/actions'
 
 ///////////////////////////////////////////////////////////////////
 // Others
@@ -29,6 +29,7 @@ preloadImages()
 ///////////////////////////////////////////////////////////////////
 Category.getList()
 RequestedClass.getList()
+UpcomingClass.getList()
 
 ///////////////////////////////////////////////////////////////////
 // Mount

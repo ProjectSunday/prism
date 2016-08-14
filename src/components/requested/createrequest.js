@@ -1,20 +1,28 @@
 import React from 'react'
 import Router from 'react-router'
+import { connect } from 'react-redux'
 
 import { CategoryDropdown } 			from '~/components/components'
 import { RequestedClass, Navigation } 	from '~/actions/actions'
 
+const mapStateToProps = (state, ownProps) => {
+	return {
+		selectedCategory: state.category.selectedCategory
+	}
+}
+
+@connect(mapStateToProps)
 export default class CreateRequest extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			name: null,
-			categoryId: 0
+			name: null
 		}
 	}
 
 	submitClick = () => {
-		var { name, categoryId } = this.state
+		var { name } = this.state
+		var categoryId = this.props.selectedCategory
 		RequestedClass.create({ name, categoryId })
 		Navigation.go('/requested')
 	}
@@ -22,12 +30,6 @@ export default class CreateRequest extends React.Component {
 	nameChanged = (e) => {
 		this.setState({
 			name: e.target.value
-		})
-	}
-
-	categorySelect = (e) => {
-		this.setState({
-			categoryId: e.target.value
 		})
 	}
 
@@ -41,7 +43,7 @@ export default class CreateRequest extends React.Component {
 				<div>Lesson Name:</div>
 				<input type="text" placeholder="e.g. Intro to Guitar" onChange={this.nameChanged}/>
 				<div>Category:</div>
-				<CategoryDropdown onSelect={this.categorySelect} additionalCategories={additionalCategories}/>
+				<CategoryDropdown additionalCategories={additionalCategories}/>
 				<button className="btn btn-primary pull-right" onClick={this.submitClick}>Submit</button>
 			</div>
 		)
