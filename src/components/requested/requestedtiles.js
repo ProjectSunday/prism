@@ -7,7 +7,7 @@ import { RequestedTile } from '../components'
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		categories: state.app.categories
+		categories: state.category.list
 	}
 }
 

@@ -3,6 +3,25 @@ import { dispatch } from '~/store/store'
 
 const PRISMAPI_URL = 'http://localhost:9000/graphql'
 
+export const sendQuery = async (graph) => {
+	return new Promise((resolve, reject) => {
+		request.post(PRISMAPI_URL)
+			.set({ 'Content-Type': 'application/graphql' })
+			.send(`query { ${graph} }`)
+			.end((err, res) => {
+				if (err) {
+					reject(err)
+				} else {
+					if (res.body.errors) {
+						reject(res.body.errors)
+					} else {
+						resolve(res.body.data)
+					}
+				}
+			})
+	})
+}
+
 export const sendMutation = async (graph) => {
 	return new Promise((resolve, reject) => {
 		request.post(PRISMAPI_URL)

@@ -1,22 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { UI } from '~/actions/actions'
+import { Category } from '~/actions/actions'
 
 import './categorydropdown.sass'
 
 const mapStateToProps = (state, ownProps) => {
 	var additionalCategories = ownProps.additionalCategories || []
 	return {
-		categories: [ ...additionalCategories, ...state.app.categories ],
-		selectedCategory: state.ui.selectedCategory
+		categories: [ ...additionalCategories, ...state.category.list ],
+		selectedCategory: state.category.selectedCategory
 	}
 }
 
 @connect(mapStateToProps)
 export default class CategoryDropdown extends React.Component {
 	categoryChange = (e) => {
-		UI.setSelectedCategory(e.target.value)
+		Category.setSelected(e.target.value)
 	}
 	render() {
 		var { categories, onSelect, selectedCategory } = this.props

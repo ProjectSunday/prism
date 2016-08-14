@@ -8,7 +8,7 @@ import './requestedtile.sass'
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		requestedClasses: state.app.requestedClasses.filter(r => r.category._id === ownProps.category._id)
+		requestedClasses: state.requestedClass.list.filter(r => r.category._id === ownProps.category._id)
 	}
 }
 

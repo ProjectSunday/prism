@@ -7,8 +7,8 @@ import './upcoming.sass'
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		upcomingClasses: state.app.upcomingClasses,
-		selectedCategory: state.ui.selectedCategory
+		upcomingClasses: state.upcomingClass.list,
+		selectedCategory: state.category.selectedCategory
 	}
 }
 
@@ -17,7 +17,6 @@ export default class Upcoming extends React.Component {
 	render() {
 		const { upcomingClasses, selectedCategory } = this.props
 
-		console.log(selectedCategory, 'yo')
 		if (!selectedCategory || selectedCategory === 'all') {
 			var shownClasses = upcomingClasses //probably need to sort by popularity in the future
 		} else {

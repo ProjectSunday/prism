@@ -3,7 +3,7 @@ import { push } from 'react-router-redux'
 
 import { dispatch, store } from '~/store/store'
 import prismApi from './prismapi'
-import { sendMutation } from './prismapi'
+import { sendQuery, sendMutation } from './prismapi'
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -28,6 +28,76 @@ export const testing2 = () => {
 			type: 'success'
 		}
 	})
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//Authentication
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var AUTHENTICATION_INTERVAL_ID
+
+export const Authentication = {
+	start: () => {
+		dispatch({ type: 'AUTH_SHOW_SPINNER', value: true })
+
+		var popup = createPopup();
+
+		AUTHENTICATION_INTERVAL_ID = setInterval(() => {
+			var token
+			try {
+				var href = popup.location.href
+				token = href.split('#')[1].split('&')[0].split('=')[1]
+			} catch (err) {}
+
+			if (token) {
+				// console.log('token', token)
+				clearInterval(AUTHENTICATION_INTERVAL_ID)
+				popup.close()
+				Profile.get(token)
+			}
+
+			if (popup.closed) {
+				clearInterval(AUTHENTICATION_INTERVAL_ID)
+				dispatch({ type: 'AUTH_SHOW_SPINNER', value: false })
+			}
+
+		}, 10)
+	}
+}
+
+function createPopup() {
+	var width = 700
+	var height = 700
+
+	var left = (screen.width - width) / 2
+	var top = (screen.height - height) / 2
+
+	//todo client_id
+	var url = 'https://secure.meetup.com/oauth2/authorize?client_id=sgeirri963sprv1a1vh3r8cp3o&response_type=token&redirect_uri=http://localhost:7000/authentication'
+	var settings = `scrollbars=no,toolbar=no,location=no,titlebar=no,directories=no,status=no,menubar=no,width=${width},height=${height},top=${top},left=${left}`;
+	return window.open(url, '', settings)
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//Category
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export const Category = {
+	getList: async () => {
+		var { list } = await sendQuery(`
+			list: categories {
+				_id,
+				name,
+				imageName
+			}
+		`)
+		dispatch({ type: 'CATEGORY_SET_LIST', list })
+	},
+	setSelected: (id) => {
+		dispatch({ type: 'CATEGORY_SET_SELECTED', value: id })
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -83,17 +153,10 @@ export const RequestedClass = {
 		dispatch({ type: 'CREATE_REQUESTED_CLASS_SUCCESS', requestedClass })
 			
 		hideNotification({ type: 'success', message: 'New request created'}) 
-	}
-}
-
-export const createRequestedClass = (requested) => {
-	showNotification({
-		message: 'Creating new request...',
-		type: 'progress'
-	})
-	prismApi(`
-		mutation {
-			createRequestedClass (name: "${requested.name}", category: "${requested.category}") {
+	},
+	getList: async () => {
+		var { list } = await sendQuery(`
+			list: requestedClasses {
 				_id,
 				name,
 				category {
@@ -104,117 +167,10 @@ export const createRequestedClass = (requested) => {
 				date,
 				location
 			}
-		}
-	`, (result) => {
-		console.log('createRequestedClass result:', result)
-		dispatch({
-			type: 'CREATE_REQUESTED_CLASS_SUCCESS',
-			requestedClass: result.createRequestedClass
-		})
-		hideNotification({
-			message: 'New request created',
-			type: 'success'
-		})
-	})
-}
-
-
-export const getRequestedClasses = () => {
-	prismApi(`
-		query {
-			requestedClasses {
-				_id,
-				name,
-				category {
-					_id,
-					name,
-					imageName
-				},
-				date,
-				location
-			}
-		}
-	`, (result) => {
-		// console.log('result: ', result)
-		dispatch({
-			type: 'SET_REQUESTED_CLASSES',
-			requestedClasses: result.requestedClasses
-		})
-	})
-}
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-//Category
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-export const getCategories = () => {
-	prismApi(`
-		query {
-			categories {
-				_id,
-				name,
-				imageName
-			}
-		}
-	`, (result) => {
-		// console.log('categoroes: ', result.categories)
-		dispatch({
-			type: 'SET_CATEGORIES',
-			categories: result.categories
-		})
-	})
-}
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-//Authentication
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-var AUTHENTICATION_INTERVAL_ID
-
-export const Authentication = {
-	start: () => {
-		dispatch({ type: 'AUTH_SHOW_SPINNER', value: true })
-
-		var popup = createPopup();
-
-		AUTHENTICATION_INTERVAL_ID = setInterval(() => {
-			var token
-			try {
-				var href = popup.location.href
-				token = href.split('#')[1].split('&')[0].split('=')[1]
-			} catch (err) {}
-
-			if (token) {
-				// console.log('token', token)
-				clearInterval(AUTHENTICATION_INTERVAL_ID)
-				popup.close()
-				Profile.get(token)
-			}
-
-			if (popup.closed) {
-				clearInterval(AUTHENTICATION_INTERVAL_ID)
-				dispatch({ type: 'AUTH_SHOW_SPINNER', value: false })
-			}
-
-		}, 10)
+		`)
+		dispatch({ type: 'REQUESTEDCLASS_SET_LIST', list })
 	}
 }
-
-function createPopup() {
-	var width = 700
-	var height = 700
-
-	var left = (screen.width - width) / 2
-	var top = (screen.height - height) / 2
-
-	//todo client_id
-	var url = 'https://secure.meetup.com/oauth2/authorize?client_id=sgeirri963sprv1a1vh3r8cp3o&response_type=token&redirect_uri=http://localhost:7000/authentication'
-	var settings = `scrollbars=no,toolbar=no,location=no,titlebar=no,directories=no,status=no,menubar=no,width=${width},height=${height},top=${top},left=${left}`;
-	return window.open(url, '', settings)
-}
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //Profile
@@ -269,7 +225,7 @@ export const Profile = {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const UI = {
-	setSelectedCategory: (categoryId) => {
-		dispatch({ type: 'UI_SET_SELECTED_CATEGORY', value: categoryId })
-	}
+	// setSelectedCategory: (categoryId) => {
+	// 	dispatch({ type: 'UI_SET_SELECTED_CATEGORY', value: categoryId })
+	// }
 }

@@ -9,8 +9,8 @@ import './topupcoming.sass'
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		upcomingClasses: state.app.upcomingClasses,
-		selectedCategory: state.ui.selectedCategory
+		upcomingClasses: state.upcomingClass.list,
+		selectedCategory: state.category.selectedCategory
 	}
 }
 
