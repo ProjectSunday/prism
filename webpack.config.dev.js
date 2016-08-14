@@ -57,20 +57,11 @@ export default {
 
     plugins: [
 
-        // new webpack.DefinePlugin({                           //unnecessary???
-        //     // 'process.env.NODE_ENV': JSON.stringify(env)
-        //     'TEST123': './routes'
-        // }),
-
-
-
         new webpack.DefinePlugin({
           'process.env': {
             'PRISMAPI_URL': JSON.stringify(process.env.PRISMAPI_URL || 'http://localhost:9000/graphql')
           }
         }),
-
-
 
         new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),

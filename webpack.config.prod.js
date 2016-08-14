@@ -1,26 +1,25 @@
-var path                = require('path')
-var webpack             = require('webpack')
-
-var port    = process.env.PORT || 7000
+import HtmlWebpackPlugin   from 'html-webpack-plugin'
+import path                from 'path'
+import webpack             from 'webpack'
 
 var node_modules    = path.resolve(__dirname, 'node_modules')
-var src             = path.resolve(__dirname, 'src')
 var dist            = path.resolve(__dirname, 'dist')
+var src             = path.resolve(__dirname, 'src')
 
-var publicPath      = '/'
+export default {
 
+    devtool: 'eval-source-map',         //probably should be hook up to env per developer's taste
 
-var config = {
     entry: {
         app: [
             'babel-polyfill',
+            'webpack-hot-middleware/client',
             './src/index.js'
         ]
     },
 
     module: {
         loaders: [
-
             {
                 test: /\.js$/,
                 loaders: [ 'react-hot', 'babel-loader' ],
@@ -39,25 +38,44 @@ var config = {
             },
 
             {
-                test: /\.(png|ico|svg)$/,
+                test: /\.(png|ico|svg|gif)$/,
                 loader: 'file-loader?name=[name].[ext]',
                 exclude: node_modules,
                 include: src
             },
             {
                 test: /\.(woff|woff2|eot|ttf|svg)$/,
-                loader: 'url-loader?limit=100000'
+                loader: 'file-loader'
             }
         ]
     },
 
     output: {
         path: dist,
-        publicPath: publicPath,
+        publicPath: '/',
         filename: 'bundle.js'
-    }
+    },
+
+    plugins: [
+
+        new webpack.DefinePlugin({
+          'process.env': {
+            'PRISMAPI_URL': JSON.stringify(process.env.PRISMAPI_URL || 'http://localhost:9000/graphql')
+          }
+        }),
+
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.NoErrorsPlugin(),                           //to see node errors on front end
+
+
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            inject: 'body'
+        })
+
+    ]
 
 }
 
 
-module.exports = config
