@@ -21,6 +21,8 @@ export default class CategoryDropdown extends React.Component {
 	render() {
 		var { categories, onSelect, selectedCategory } = this.props
 
+		selectedCategory = selectedCategory || categories[0]._id
+		
 		var options = categories.map(c => <option key={c._id} value={c._id}>{c.name}</option>)
 
 		return (

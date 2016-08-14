@@ -117,6 +117,9 @@ export const upcomingClass = (state = initialupcomingClassState, action) => {
 			var list = state.list.slice(0)
 			list.push(action.upcomingClass)
 			return Object.assign({}, state, { list })
+		case 'UPCOMINGCLASS_DELETE_SUCCESS':
+			var list = state.list.filter(u => u._id !== action.upcomingClass._id)
+			return Object.assign({}, state, { list })
 		default:
 			return state
 	}

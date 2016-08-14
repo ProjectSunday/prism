@@ -3,7 +3,7 @@ import React from 'react'
 // import '~/static/bootstrap/stylesheets/_bootstrap.scss'
 // import '~/static/bootswatch/flatly.min.css'
 
-import { Notification, Header, Testing } from './components'
+import { Footer, Notification, Header, Testing } from './components'
 
 export default class Root extends React.Component {
 	render() {
@@ -12,7 +12,8 @@ export default class Root extends React.Component {
 				<Notification />
 				<Header />
 				{this.props.children}
-				<div> I am a sad sad incomplete footer</div>
+				<Footer />
+				<hr />
 				<Testing />
 			</div>
 		)

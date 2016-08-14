@@ -4,6 +4,8 @@ export About from './about/about'
 
 export CategoryDropdown from './category/categorydropdown'
 
+export Footer from './footer/footer'
+
 export Header from './header/header'
 	export NavBar from './header/navbar'
 	export SearchControl from './header/searchcontrol'
@@ -29,6 +31,7 @@ export Testing from './testing/testing'
 	export UpcomingTile from './upcoming/upcomingtile'
 
 export Upcoming from './upcoming/upcoming'
+	export UpcomingDetail from './upcoming/upcoming-detail'
 
 export UserProfile from './userprofile/userprofile'
 	export ProfileDropDown from './userprofile/profile-dropdown'

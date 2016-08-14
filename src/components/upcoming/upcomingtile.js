@@ -2,11 +2,16 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
+import { Navigation } from '~/actions/actions'
+
 import { Grid, Col, Row, Image, Panel, Glyphicon, Badge } from 'react-bootstrap'
 
 import './upcomingtile.sass'
 
 export default class UpcomingTile extends React.Component {
+    classNameClick = () => {
+        Navigation.go('/upcoming/' + this.props._id)
+    }
 	render() {
 		var { category, event, date, location } = this.props
 		return (
@@ -14,7 +19,7 @@ export default class UpcomingTile extends React.Component {
                 <div className="tile-head">
                     <span className="head-category"><Link to="/about">{category.name}</Link></span>
                     <Image src={IMAGES.Category[category.imageName]} alt="Class Title - Category" responsive />
-                    <span className="head-classname">{event.name}</span>
+                    <span className="head-classname" onClick={this.classNameClick}>{event.name}</span>
                 </div>
                 <div className="tile-body">
                     <div className="body-left">

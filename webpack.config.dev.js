@@ -63,6 +63,15 @@ export default {
         // }),
 
 
+
+        new webpack.DefinePlugin({
+          'process.env': {
+            'PRISMAPI_URL': JSON.stringify(process.env.PRISMAPI_URL || 'http://localhost:9000/graphql')
+          }
+        }),
+
+
+
         new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.NoErrorsPlugin(),                           //to see node errors on front end

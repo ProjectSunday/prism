@@ -1,14 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { UpcomingClass } from '~/actions/actions'
+import { Category, UpcomingClass } from '~/actions/actions'
 import { CategoryDropdown, UpcomingTile } from '~/components/components'
 
 import './teach-create.sass'
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		selectedCategory: state.category.selectedCategory
+		selectedCategory: state.category.selectedCategory,
+		user: state.authentication.user
 	}
 }
 
@@ -26,12 +27,14 @@ export default class TeachCreate extends React.Component {
 			title: e.target.value
 		})
 	}
-	submitClick = () => {
+	submitClick = async () => {
 		var name = this.state.title
 		var categoryId = this.props.selectedCategory
 
 		console.log('submitClick', name, categoryId)
 		UpcomingClass.create({ name, categoryId })
+
+		Category.setSelected(undefined)
 
 		this.setState({
 			title: ''
@@ -39,8 +42,17 @@ export default class TeachCreate extends React.Component {
 
 	}
 	render() {
+		var { user } = this.props
 		var { title } = this.state
 		var additionalCategories = [{ _id: 'all', name: 'Select a category' }]
+
+		var loginMessage = user ? '': 'Must be logged in to create class'
+		var disabled = user ? false : true
+
+
+		//<div className="col-md-2">
+		//	<img id="spinner" src="http://fontfeest.nl/img/spinner.gif" ></img>
+		//</div>
 
 		return (
 			<div id="teachcreate">
@@ -59,14 +71,10 @@ export default class TeachCreate extends React.Component {
 							I agree to the Terms and Conditions
 						</div>
 					</div>
-					<div className="col-md-2">
-						<img id="spinner" src="http://fontfeest.nl/img/spinner.gif" ></img>
-					</div>
-					<div className="col-md-2">
-						<button className="btn btn-default pull-right" onClick={this.submitClick}>Submit</button>
-					</div>
+
+					<span>{loginMessage}</span>
+					<button disabled={disabled} className="btn btn-default pull-right" onClick={this.submitClick}>Submit</button>
 				</div>
-				<div>message</div>
 
 			</div>
 		)

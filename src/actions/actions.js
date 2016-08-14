@@ -127,50 +127,6 @@ export const hideNotification = (notification) => {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-//Requested Class
-////////////////////////////////////////////////////////////////////////////////////////////////////
-export const RequestedClass = {
-	create: async (requested) => {
-		showNotification({ type: 'progress', message: 'Creating new request...' })
-
-		var state = store.getState()
-
-		var { requestedClass } = await sendMutation(`
-			requestedClass: createRequestedClass (token: "${state.authentication.user.token}", name: "${requested.name}", categoryId: "${requested.categoryId}") {
-				_id,
-				name,
-				category {
-					_id,
-					name,
-					imageName
-				},
-				date,
-				location
-			}
-		`)
-		dispatch({ type: 'REQUESTEDCLASS_CREATE_SUCCESS', requestedClass })
-			
-		hideNotification({ type: 'success', message: 'New request created'}) 
-	},
-	getList: async () => {
-		var { list } = await sendQuery(`
-			list: requestedClasses {
-				_id,
-				name,
-				category {
-					_id,
-					name,
-					imageName
-				},
-				date,
-				location
-			}
-		`)
-		dispatch({ type: 'REQUESTEDCLASS_SET_LIST', list })
-	}
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
 //Profile
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -211,6 +167,50 @@ export const Profile = {
 		} else {
 			throw 'logout failture'  //todo
 		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//Requested Class
+////////////////////////////////////////////////////////////////////////////////////////////////////
+export const RequestedClass = {
+	create: async (requested) => {
+		showNotification({ type: 'progress', message: 'Creating new request...' })
+
+		var state = store.getState()
+
+		var { requestedClass } = await sendMutation(`
+			requestedClass: createRequestedClass (token: "${state.authentication.user.token}", name: "${requested.name}", categoryId: "${requested.categoryId}") {
+				_id,
+				name,
+				category {
+					_id,
+					name,
+					imageName
+				},
+				date,
+				location
+			}
+		`)
+		dispatch({ type: 'REQUESTEDCLASS_CREATE_SUCCESS', requestedClass })
+			
+		hideNotification({ type: 'success', message: 'New request created'}) 
+	},
+	getList: async () => {
+		var { list } = await sendQuery(`
+			list: requestedClasses {
+				_id,
+				name,
+				category {
+					_id,
+					name,
+					imageName
+				},
+				date,
+				location
+			}
+		`)
+		dispatch({ type: 'REQUESTEDCLASS_SET_LIST', list })
 	}
 }
 
@@ -259,6 +259,28 @@ export const UpcomingClass = {
 		hideNotification({ type: 'success', message: 'New class created'}) 
 
 	},
+	delete: async (upcoming) => {
+		showNotification({ type: 'progress', message: 'Deleting class...' })
+
+		var state = store.getState()
+
+		var { upcomingClass } = await sendMutation(`
+			upcomingClass: deleteUpcomingClass (token: "${state.authentication.user.token}", _id: "${upcoming._id}") {
+				_id,
+				status
+			}
+		`)
+
+		if (upcomingClass.status === 'DELETE_SUCCESS') {
+			dispatch({ type: 'UPCOMINGCLASS_DELETE_SUCCESS', upcomingClass })
+			hideNotification({ type: 'success', message: 'Class deleted.'}) 
+		} else {
+			//todo
+		}
+
+
+
+	},
 	getList: async () => {
 		var { list } = await sendQuery(`
 			list: upcomingClasses {
@@ -272,6 +294,7 @@ export const UpcomingClass = {
 					name
 				},
 				teachers {
+					_id,
 					meetup {
 						member {
 							name
