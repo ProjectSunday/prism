@@ -2,11 +2,14 @@ import React from 'react'
 import { Link } from 'react-router'
 import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
 
-import { navigate } from '~/actions/actions'
+import { Navigation } from '~/actions/actions'
 
 import './navbar.sass'
 
 export default class NavBar extends React.Component {
+    navigate = (path) => {
+        return () => { Navigation.go(path) }
+    }
     render() {
         return (
             <Navbar className="prismnavbar" >
@@ -21,11 +24,11 @@ export default class NavBar extends React.Component {
                 <Navbar.Collapse>
                     <Nav>
                         <NavDropdown title="Classes" id="blah">
-                            <MenuItem onClick={() => navigate('/upcoming')}>Upcoming Classes</MenuItem>
-                            <MenuItem onClick={() => navigate('/requested')}>Requested Classes</MenuItem>
+                            <MenuItem onClick={this.navigate('/upcoming')}>Upcoming Classes</MenuItem>
+                            <MenuItem onClick={this.navigate('/requested')}>Requested Classes</MenuItem>
                         </NavDropdown>
-                        <NavItem onClick={() => navigate('/about')}>Learn</NavItem>
-                        <NavItem onClick={() => navigate('/about')}>Teach</NavItem>
+                        <NavItem onClick={this.navigate('/about')}>Learn</NavItem>
+                        <NavItem onClick={this.navigate('/teach')}>Teach</NavItem>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

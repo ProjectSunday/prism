@@ -107,24 +107,16 @@ export const ui = (state = initialUiState, action) => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var initialupcomingClassState = {
-	list: [
-		// { _id: 100, name: 'autoclass101', category: { _id: "57aa3e66f1559508d2779f85", name: "Automotive", imageName: "automotive" }, date: 'January 1, 1997', location: 'Downtown' },
-		// { _id: 101, name: 'autoclass102', category: { _id: "57aa3e66f1559508d2779f85", name: "Automotive", imageName: "automotive" }, date: 'January 1, 1997', location: 'Downtown' },
-		// { _id: 102, name: 'culclass101', category: { _id: "57aa3e66f1559508d2779f86", name: "Culinary", imageName: "culinary" }, date: 'January 1, 1997', location: 'Downtown' },
-		// { _id: 103, name: 'culclass102', category: { _id: "57aa3e66f1559508d2779f86", name: "Culinary", imageName: "culinary" }, date: 'January 1, 1997', location: 'Downtown' },
-		// { _id: 104, name: 'culclass103', category: { _id: "57aa3e66f1559508d2779f86", name: "Culinary", imageName: "culinary" }, date: 'January 1, 1997', location: 'Downtown' },
-		// { _id: 105, name: 'diy101', category: { _id: "57aa3e66f1559508d2779f87", name: "DIY", imageName: "diy" }, date: 'January 1, 1997', location: 'Downtown' },
-		// { _id: 106, name: 'diy102', category: { _id: "57aa3e66f1559508d2779f87", name: "DIY", imageName: "diy" }, date: 'January 1, 1997', location: 'Downtown' },
-		// { _id: 107, name: 'diy103', category: { _id: "57aa3e66f1559508d2779f87", name: "DIY", imageName: "diy" }, date: 'January 1, 1997', location: 'Downtown' }
-	]
+	list: []
 }
 export const upcomingClass = (state = initialupcomingClassState, action) => {
 	switch (action.type) {
 		case 'UPCOMINGCLASS_SET_LIST':
 			return Object.assign({}, state, { list: action.list })
-		
-		// case 'UI_SET_SELECTED_CATEGORY': 
-		// 	return Object.assign({}, state, { selectedCategory: action.value })
+		case 'UPCOMINGCLASS_CREATE_SUCCESS':
+			var list = state.list.slice(0)
+			list.push(action.upcomingClass)
+			return Object.assign({}, state, { list })
 		default:
 			return state
 	}

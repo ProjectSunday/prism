@@ -74,7 +74,7 @@ function createPopup() {
 	var top = (screen.height - height) / 2
 
 	//todo client_id
-	var url = 'https://secure.meetup.com/oauth2/authorize?client_id=sgeirri963sprv1a1vh3r8cp3o&response_type=token&redirect_uri=http://localhost:7000/authentication'
+	var url = 'https://secure.meetup.com/oauth2/authorize?client_id=sgeirri963sprv1a1vh3r8cp3o&response_type=token&scope=basic+event_management&redirect_uri=http://localhost:7000/authentication'
 	var settings = `scrollbars=no,toolbar=no,location=no,titlebar=no,directories=no,status=no,menubar=no,width=${width},height=${height},top=${top},left=${left}`;
 	return window.open(url, '', settings)
 }
@@ -229,6 +229,36 @@ export const UI = {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const UpcomingClass = {
+	create: async (upcoming) => {
+		showNotification({ type: 'progress', message: 'Creating new class...' })
+
+		var state = store.getState()
+
+		var { upcomingClass } = await sendMutation(`
+			upcomingClass: createUpcomingClass (token: "${state.authentication.user.token}", name: "${upcoming.name}", categoryId: "${upcoming.categoryId}") {
+				_id,
+				category {
+					_id,
+					name,
+					imageName
+				},
+				event {
+					name
+				},
+				teachers {
+					meetup {
+						member {
+							name
+						}
+					}
+				}
+			}
+		`)
+		dispatch({ type: 'UPCOMINGCLASS_CREATE_SUCCESS', upcomingClass })
+			
+		hideNotification({ type: 'success', message: 'New class created'}) 
+
+	},
 	getList: async () => {
 		var { list } = await sendQuery(`
 			list: upcomingClasses {

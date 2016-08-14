@@ -35,7 +35,7 @@ export default class CreateRequest extends React.Component {
 
 	render() {
 
-		var additionalCategories = [{ _id: 0, name: 'Select a category' }]
+		var additionalCategories = [{ _id: 'all', name: 'Select a category' }]
 
 		return (
 			<div>

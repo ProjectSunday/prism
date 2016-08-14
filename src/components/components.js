@@ -18,6 +18,10 @@ export Requested from './requested/requested'
 	export RequestedActions from './requested/requestedactions'
 	export CreateRequest from './requested/createrequest'
 
+export Teach from './teach/teach'
+	export TeachCreate from './teach/teach-create'
+
+
 export Testing from './testing/testing'
 
 //export Upcoming from './upcoming/upcoming'
