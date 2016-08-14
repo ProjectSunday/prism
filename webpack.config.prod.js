@@ -22,7 +22,6 @@ var config = {
 
     module: {
         loaders: [
-
             {
                 test: /\.js$/,
                 loaders: [ 'react-hot', 'babel-loader' ],
@@ -41,14 +40,14 @@ var config = {
             },
 
             {
-                test: /\.(png|ico|svg)$/,
+                test: /\.(png|ico|svg|gif)$/,
                 loader: 'file-loader?name=[name].[ext]',
                 exclude: node_modules,
                 include: src
             },
             {
                 test: /\.(woff|woff2|eot|ttf|svg)$/,
-                loader: 'url-loader?limit=100000'
+                loader: 'file-loader'
             }
         ]
     },
