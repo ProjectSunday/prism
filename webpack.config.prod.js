@@ -12,7 +12,7 @@ var publicPath      = '/'
 
 var config = {
     devtool: 'source-map',
-    
+
     entry: {
         app: [
             'babel-polyfill',
@@ -40,7 +40,7 @@ var config = {
             },
 
             {
-                test: /\.(png|ico|svg|gif)$/,
+                test: /\.(png|ico|svg|gif|html)$/,
                 loader: 'file-loader?name=[name].[ext]',
                 exclude: node_modules,
                 include: src

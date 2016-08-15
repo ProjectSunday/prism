@@ -10,6 +10,7 @@ import { Category, RequestedClass, UpcomingClass }	from './actions/actions'
 ///////////////////////////////////////////////////////////////////
 // Others
 ///////////////////////////////////////////////////////////////////
+import './index.html'
 import './utils'
 import './static/images/favicon.ico'
 import './index.sass'

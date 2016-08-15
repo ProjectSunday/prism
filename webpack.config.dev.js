@@ -37,7 +37,7 @@ export default {
             },
 
             {
-                test: /\.(png|ico|svg|gif)$/,
+                test: /\.(png|ico|svg|gif|html)$/,
                 loader: 'file-loader?name=[name].[ext]',
                 exclude: node_modules,
                 include: src
@@ -68,10 +68,10 @@ export default {
         new webpack.NoErrorsPlugin(),                           //to see node errors on front end
 
 
-        new HtmlWebpackPlugin({
-            template: './src/index.html',
-            inject: 'body'
-        })
+        // new HtmlWebpackPlugin({
+        //     template: './src/index.html',
+        //     inject: 'body'
+        // })
 
     ]
 
