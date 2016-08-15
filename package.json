@@ -48,9 +48,10 @@
     "style-loader": "^0.13.1",
     "superagent": "^2.0.0-alpha.3",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.1",
+    "webpack": "^1.13.1"
+  },
+  "devDependencies": {
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0"
-  },
-  "devDependencies": {}
+  }
 }

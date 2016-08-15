@@ -66,6 +66,7 @@ var config = {
     plugins: [
 
         new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
             'process.env.PRISMAPI_URL': JSON.stringify(process.env.PRISMAPI_URL),
             'process.env.MEETUP_OAUTH2_AUTH_URL': JSON.stringify(process.env.MEETUP_OAUTH2_AUTH_URL)
         })
