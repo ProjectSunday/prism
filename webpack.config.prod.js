@@ -38,9 +38,14 @@ var config = {
                 test: /\.css$/,
                 loaders: [ 'style', 'css' ]
             },
-
             {
-                test: /\.(png|ico|svg|gif|html)$/,
+                test: /\.html$/,
+                loader: 'file-loader?name=[name].[ext]',
+                exclude: node_modules,
+                include: src
+            },
+            {
+                test: /\.(png|ico|svg|gif)$/,
                 loader: 'file-loader?name=[name].[ext]',
                 exclude: node_modules,
                 include: src
@@ -62,7 +67,8 @@ var config = {
 
         new webpack.DefinePlugin({
           'process.env': {
-            'PRISMAPI_URL': JSON.stringify(process.env.PRISMAPI_URL)
+            'PRISMAPI_URL': JSON.stringify(process.env.PRISMAPI_URL),
+            'MEETUP_OAUTH2_AUTH_URL': JSON.stringify(process.env.MEETUP_OAUTH2_AUTH_URL)
           }
         })
 

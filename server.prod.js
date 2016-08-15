@@ -6,7 +6,7 @@ app.get('/authentication', function(req, res) {
 })
 
 app.use(express.static(__dirname + '/dist'));
-app.use(express.static(__dirname + 'dist/index.html'));
+app.use('*', express.static(__dirname + '/dist/index.html'));
 
 var port = process.env.PORT
 app.listen(port, function() {
