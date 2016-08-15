@@ -12,7 +12,7 @@ var r = combineReducers({
 var m = routerMiddleware(browserHistory)
 var c = compose(
 	applyMiddleware(m),
-	window.devToolsExtension ? window.devToolsExtension() : null
+	window.devToolsExtension ? window.devToolsExtension() : f => f
 )
 
 export const store = createStore(r, {}, c)

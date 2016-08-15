@@ -1,8 +1,8 @@
 require('babel-register')
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'local'
+var env = process.env.NODE_ENV || 'local'
 
-if (process.env.NODE_ENV === 'production') {
+if (env === 'production') {
 	require('./server.prod')
 } else {
 	require('./server.dev')

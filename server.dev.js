@@ -38,7 +38,7 @@ app.use((req, res, next) => {
 })
 
 
-var port = process.env.PORT || 7000
+var port = process.env.PORT
 app.listen(port, () => {
 	console.log('===================================================================================')
 	console.log(`Prism Application Server Online. Port: ${port}. Environment: ${process.env.NODE_ENV}`)

@@ -4,6 +4,7 @@
   "description": "Local Learners",
   "main": "index.js",
   "scripts": {
+    "local": "NODE_ENV=local PORT=7000 node index.js",
     "postinstall": "webpack --p --config ./webpack.config.prod.js --progress --colors",
     "start": "node index.js"
   },
