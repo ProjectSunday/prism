@@ -56,7 +56,18 @@ var config = {
         path: dist,
         publicPath: publicPath,
         filename: 'bundle.js'
-    }
+    },
+
+    plugins: [
+
+        new webpack.DefinePlugin({
+          'process.env': {
+            'PRISMAPI_URL': JSON.stringify(process.env.PRISMAPI_URL)
+          }
+        })
+
+    ]
+
 
 }
 

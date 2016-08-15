@@ -1,7 +1,7 @@
 import request from 'superagent'
 import { dispatch } from '~/store/store'
 
-const PRISMAPI_URL = process.node.PRISMAPI_URL
+const PRISMAPI_URL = process.env.PRISMAPI_URL
 
 export const sendQuery = async (graph) => {
 	return new Promise((resolve, reject) => {
